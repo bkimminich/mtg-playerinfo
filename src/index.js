@@ -44,6 +44,7 @@ class PlayerInfoManager {
 
       if (res.details) {
         if (res.details.Age && !player.general.Age) player.general.Age = res.details.Age;
+        if (res.details.Team && !player.general.Team) player.general.Team = res.details.Team;
         if (res.details.Country && !player.general.Country) player.general.Country = res.details.Country;
         if (res.details.Hometown && !player.general.Hometown) player.general.Hometown = res.details.Hometown;
       }
@@ -52,6 +53,7 @@ class PlayerInfoManager {
       if (res.source === 'Unity League') {
         delete sourceData.Age;
         delete sourceData.Hometown;
+        delete sourceData.Team;
       }
 
       player.sources[res.source] = {
