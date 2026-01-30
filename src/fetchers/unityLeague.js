@@ -29,6 +29,15 @@ class UnityLeagueFetcher {
       details: {}
     };
 
+    const headerFlag = $('.card-body i.fi').first();
+    if (headerFlag.length > 0) {
+      const classes = headerFlag.attr('class').split(' ');
+      const countryClass = classes.find(c => c.startsWith('fi-'));
+      if (countryClass) {
+        data.details.Country = countryClass.replace('fi-', '').toUpperCase();
+      }
+    }
+
     $('dt.small.text-muted').each((i, el) => {
       const key = $(el).text().trim().replace(/:$/, '');
       const dd = $(el).next('dd');
