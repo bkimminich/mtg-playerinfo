@@ -16,7 +16,10 @@ class UnityLeagueFetcher {
   parseHtml(html, url) {
     const $ = cheerio.load(html);
     const name = $('h1.d-inline').text().trim();
-    const photo = $('.card-body img.img-fluid').first().attr('src');
+    let photo = $('.card-body img.img-fluid').first().attr('src');
+    if (photo && photo.includes('vertical.svg')) {
+      photo = null;
+    }
 
     const data = {
       source: 'Unity League',

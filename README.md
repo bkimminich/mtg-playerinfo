@@ -21,6 +21,11 @@ node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck
 
 The tool returns a JSON object representing the player and their combined metadata. Redundant information like Name, Photo, Country, Age, and Hometown is merged into a `general` section, while source-specific data is kept in the `sources` section.
 
+### Deduplication and Merging Logic
+- **Priority**: Merging follows a "first-come, first-served" approach based on the order of sources provided in the command line or processed by the manager. For instance, the first valid `photo` URL found will be used as the primary photo for the player profile.
+- **Deduplication**: If multiple IDs point to the exact same profile URL, the profile is only processed once to avoid redundant data in the `sources` section.
+- **General Metadata**: Fields like `Age`, `Country`, and `Hometown` are extracted from the first source that provides them and placed in the `general` section.
+
 Example output:
 ```json
 {
