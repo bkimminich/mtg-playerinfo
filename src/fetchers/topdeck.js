@@ -16,8 +16,8 @@ class TopdeckFetcher {
 
   parseHtml(html, url, handle) {
     const $ = cheerio.load(html);
-    const name = $('h1').first().text().trim() || handle;
-    const photo = $('img[src*="avatar"], img[src*="profile"]').first().attr('src');
+    const name = $('h2.text-white.fw-bold.mb-1').first().text().trim() || $('h1').first().text().trim() || handle;
+    const photo = $('img.rounded-circle.shadow-lg').first().attr('src') || $('img[src*="avatar"], img[src*="profile"]').first().attr('src');
 
     const data = {
       source: 'Topdeck',
@@ -29,15 +29,31 @@ class TopdeckFetcher {
       }
     };
 
-    $('.stats-container, .player-stats').each((i, el) => {
-       $(el).find('.stat').each((j, statEl) => {
+    const statsMap = {
+      'totalTournaments': 'Tournaments',
+      'overallRecord': 'Record',
+      'overallWinRate': 'Win Rate',
+      'conversionRate': 'Conversion'
+    };
+
+    Object.entries(statsMap).forEach(([id, label]) => {
+      const val = $(`#${id}`).text().trim();
+      if (val) {
+        data.details[label] = val;
+      }
+    });
+
+    if (Object.keys(data.details).length === 1) {
+      $('.stats-container, .player-stats').each((i, el) => {
+        $(el).find('.stat').each((j, statEl) => {
           const label = $(statEl).find('.label').text().trim();
           const value = $(statEl).find('.value').text().trim();
           if (label && value) {
             data.details[label] = value;
           }
-       });
-    });
+        });
+      });
+    }
 
     return data;
   }
