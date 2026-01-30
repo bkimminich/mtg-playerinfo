@@ -33,7 +33,7 @@ Example output:
   "photo": "https://unityleague.gg/media/player_profile/1000023225.jpg",
   "general": {
     "Age": "45",
-    "Country": "DE",
+    "Country": "de",
     "Hometown": "Hamburg"
   },
   "sources": {
