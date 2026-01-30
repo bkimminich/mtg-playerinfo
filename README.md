@@ -29,26 +29,40 @@ The tool returns a JSON object representing the player and their combined metada
 Example output:
 ```json
 {
-  "name": "Bjoern Kimminich",
+  "name": "Björn Kimminich",
   "photo": "https://unityleague.gg/media/player_profile/1000023225.jpg",
   "general": {
     "Age": "45",
-    "Country": "Germany",
     "Hometown": "Hamburg"
   },
   "sources": {
     "Unity League": {
       "url": "https://unityleague.gg/player/16215/",
       "data": {
-        "Rank Germany": "57",
-        "Rank Europe": "567",
-        "Points": "274"
+        "Local organizer": "Mulligan TCG Shop",
+        "Rank Germany": "#57",
+        "Rank Europe": "#567",
+        "Rank Points": "274"
       }
     },
     "MTG Elo Project": {
       "url": "https://mtgeloproject.net/profile/3irvwtmk",
       "data": {
-        "current_elo": "1466"
+        "player_id": "3irvwtmk",
+        "current_rating": "1466",
+        "record": "9-12-1"
+      }
+    },
+    "Melee": {
+      "url": "https://melee.gg/Profile/Index/k0shiii",
+      "data": {
+        "username": "k0shiii"
+      }
+    },
+    "Topdeck": {
+      "url": "https://topdeck.gg/profile/@k0shiii",
+      "data": {
+        "handle": "@k0shiii"
       }
     }
   }
@@ -60,7 +74,7 @@ Example output:
 | Site            | Method   |
 |-----------------|----------|
 | Unity League    | Scraping |
-| MTG Elo Project | API      |
+| MTG Elo Project | Scraping |
 | Melee           | Scraping |
 | Topdeck         | Scraping |
 
