@@ -33,6 +33,7 @@ Example output:
   "photo": "https://unityleague.gg/media/player_profile/1000023225.jpg",
   "general": {
     "Age": "45",
+    "Country": "DE",
     "Hometown": "Hamburg"
   },
   "sources": {
@@ -40,8 +41,8 @@ Example output:
       "url": "https://unityleague.gg/player/16215/",
       "data": {
         "Local organizer": "Mulligan TCG Shop",
-        "Rank Germany": "#57",
-        "Rank Europe": "#567",
+        "Rank Germany": "57",
+        "Rank Europe": "567",
         "Rank Points": "274"
       }
     },

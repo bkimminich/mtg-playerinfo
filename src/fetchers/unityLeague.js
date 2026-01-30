@@ -34,7 +34,7 @@ class UnityLeagueFetcher {
       const classes = headerFlag.attr('class').split(' ');
       const countryClass = classes.find(c => c.startsWith('fi-'));
       if (countryClass) {
-        data.details.Country = countryClass.replace('fi-', '').toUpperCase();
+        data.details.Country = countryClass.replace('fi-', '');
       }
     }
 
@@ -49,7 +49,7 @@ class UnityLeagueFetcher {
           const classes = flagIcon.attr('class').split(' ');
           const countryClass = classes.find(c => c.startsWith('fi-'));
           if (countryClass) {
-            value = countryClass.replace('fi-', '').toUpperCase();
+            value = countryClass.replace('fi-', '');
           }
         }
       }
@@ -64,7 +64,11 @@ class UnityLeagueFetcher {
 
       headers.forEach((header, i) => {
         if (header && values[i]) {
-          data.details[`Rank ${header}`] = values[i];
+          let val = values[i];
+          if (val.startsWith('#')) {
+            val = val.substring(1);
+          }
+          data.details[`Rank ${header}`] = val;
         }
       });
     }
