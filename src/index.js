@@ -54,6 +54,7 @@ class PlayerInfoManager {
         delete sourceData.Age;
         delete sourceData.Hometown;
         delete sourceData.Team;
+        delete sourceData.Country;
       }
 
       player.sources[res.source] = {
