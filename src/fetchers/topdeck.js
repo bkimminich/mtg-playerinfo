@@ -41,10 +41,6 @@ class TopdeckFetcher {
 
     return data;
   }
-
-  async searchByName(name) {
-    return [];
-  }
 }
 
 module.exports = TopdeckFetcher;

@@ -17,7 +17,7 @@ class UnityLeagueFetcher {
     const $ = cheerio.load(html);
     const name = $('h1.d-inline').text().trim();
     const photo = $('.card-body img.img-fluid').first().attr('src');
-    
+
     const data = {
       source: 'Unity League',
       url,
@@ -36,7 +36,7 @@ class UnityLeagueFetcher {
     if (rankingTable.length) {
       const headers = rankingTable.find('th').map((i, el) => $(el).text().trim()).get();
       const values = rankingTable.find('tbody td').map((i, el) => $(el).text().trim()).get();
-      
+
       headers.forEach((header, i) => {
         if (header && values[i]) {
           data.details[`Rank ${header}`] = values[i];
@@ -45,10 +45,6 @@ class UnityLeagueFetcher {
     }
 
     return data;
-  }
-
-  async searchByName(name) {
-    return [];
   }
 }
 

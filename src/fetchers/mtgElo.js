@@ -32,43 +32,6 @@ class MtgEloFetcher {
       return null;
     }
   }
-
-  async searchByName(name) {
-    const parts = name.trim().split(/\s+/);
-    const firstName = parts[0];
-    const lastName = parts.slice(1).join(' ');
-
-    if (!lastName) {
-      return [];
-    }
-
-    const url = `https://mtgeloproject.net/api/search/${encodeURIComponent(lastName)}/${encodeURIComponent(firstName)}`;
-    try {
-      const { data: rawData } = await request(url, {
-        maxRedirects: 10,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      const data = JSON.parse(rawData);
-      if (data && data.hits) {
-        return data.hits.map(hit => ({
-          source: 'MTG Elo Project',
-          url: `https://mtgeloproject.net/profile/${hit.player_id}`,
-          name: `${hit.first_name} ${hit.last_name}`,
-          details: {
-            player_id: hit.player_id,
-            current_elo: hit.current_elo,
-            last_event: hit.last_event
-          }
-        }));
-      }
-      return [];
-    } catch (error) {
-      console.error(`Error searching MTG Elo Project for ${name}:`, error.message);
-      return [];
-    }
-  }
 }
 
 module.exports = MtgEloFetcher;

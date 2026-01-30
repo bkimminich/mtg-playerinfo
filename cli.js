@@ -8,14 +8,13 @@ program
   .version('1.0.0');
 
 program
-  .option('-n, --name <names...>', 'Fuzzy search by player name(s) and aliases')
   .option('--unity-id <id>', 'Unity League Player ID')
   .option('--mtgelo-id <id>', 'MTG Elo Project Player ID')
   .option('--melee-user <username>', 'Melee Username')
   .option('--topdeck-handle <handle>', 'Topdeck Handle')
   .action(async (options) => {
-    if (!options.name && !options.unityId && !options.mtgeloId && !options.meleeUser && !options.topdeckHandle) {
-      console.error('Error: Please provide at least one search option (name, unity-id, mtgelo-id, melee-user, or topdeck-handle).');
+    if (!options.unityId && !options.mtgeloId && !options.meleeUser && !options.topdeckHandle) {
+      console.error('Error: Please provide at least one search option (unity-id, mtgelo-id, melee-user, or topdeck-handle).');
       process.exit(1);
     }
 

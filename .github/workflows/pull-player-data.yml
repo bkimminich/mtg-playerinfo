@@ -22,4 +22,4 @@ jobs:
         run: npm install
 
       - name: Run MTG Player Info Tool
-        run: node cli.js --name "Bjoern Kimminich" "Björn Kimminich" --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle @k0shiii
+        run: node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle @k0shiii

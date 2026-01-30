@@ -30,10 +30,6 @@ class MeleeFetcher {
 
     return data;
   }
-
-  async searchByName(name) {
-    return [];
-  }
 }
 
 module.exports = MeleeFetcher;

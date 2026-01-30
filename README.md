@@ -12,19 +12,9 @@ npm install
 
 You can call the tool via `node cli.js` or after linking it with `npm link`.
 
-### Fuzzy search by name(s) and aliases
-```bash
-node cli.js --name "Bjoern Kimminich" "Björn Kimminich"
-```
-
 ### Exact identity
 ```bash
 node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle @k0shiii
-```
-
-### Combined
-```bash
-node cli.js --name "Bjoern Kimminich" --unity-id 16215
 ```
 
 ## Output Format

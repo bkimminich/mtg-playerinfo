@@ -21,17 +21,6 @@ class PlayerInfoManager {
     if (options.meleeUser) results.push(await this.fetchers.melee.fetchById(options.meleeUser));
     if (options.topdeckHandle) results.push(await this.fetchers.topdeck.fetchById(options.topdeckHandle));
 
-    if (options.name) {
-      const names = Array.isArray(options.name) ? options.name : [options.name];
-      for (const name of names) {
-        const searchTasks = Object.values(this.fetchers).map(f => f.searchByName(name));
-        const searchResults = await Promise.all(searchTasks);
-        searchResults.flat().forEach(res => {
-          if (res) results.push(res);
-        });
-      }
-    }
-
     const filteredResults = results.filter(r => r !== null);
     return this.mergeData(filteredResults);
   }
