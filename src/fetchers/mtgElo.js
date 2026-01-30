@@ -10,16 +10,49 @@ class MtgEloFetcher {
 
       const cheerio = require('cheerio');
       const $ = cheerio.load(html);
-      const name = $('h1').first().text().trim();
+
+      let name = '';
+      let currentRating = '';
+      let record = '';
+
+      const astroIsland = $('astro-island[component-url*="Profile"]');
+      if (astroIsland.length > 0) {
+        try {
+          const props = JSON.parse(astroIsland.attr('props'));
+          const info = props.info[1];
+          name = `${info.first_name[1]} ${info.last_name[1]}`;
+          currentRating = Math.round(info.current_rating[1]).toString();
+          const r = info.record[1];
+          record = `${r[0][1]}-${r[1][1]}-${r[2][1]}`;
+        } catch (e) {
+          console.error('Error parsing MTG Elo props:', e.message);
+        }
+      }
+
+      if (!name) {
+        name = $('.text-\\[22pt\\]').text().trim();
+        if (name.includes(',')) {
+          const parts = name.split(',').map(s => s.trim());
+          name = `${parts[1]} ${parts[0]}`;
+        }
+      }
+
+      if (!currentRating) {
+        currentRating = $('.text-\\[18pt\\]:contains("Current rating")').find('.font-bold').text().trim();
+      }
+
+      if (!record) {
+        const recordText = $('.text-\\[18pt\\]:contains("Record")').text();
+        record = recordText.replace('Record:', '').trim();
+      }
 
       if (!name) return null;
 
-      const details = { player_id: id };
-      $('.profile-info-item').each((i, el) => {
-        const label = $(el).find('.label').text().trim();
-        const value = $(el).find('.value').text().trim();
-        if (label && value) details[label] = value;
-      });
+      const details = {
+        player_id: id,
+        current_rating: currentRating,
+        record: record
+      };
 
       return {
         source: 'MTG Elo Project',
