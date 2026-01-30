@@ -48,9 +48,15 @@ class PlayerInfoManager {
         if (res.details.Hometown && !player.general.Hometown) player.general.Hometown = res.details.Hometown;
       }
 
+      const sourceData = { ...res.details };
+      if (res.source === 'Unity League') {
+        delete sourceData.Age;
+        delete sourceData.Hometown;
+      }
+
       player.sources[res.source] = {
         url: res.url,
-        data: res.details
+        data: sourceData
       };
     });
 
