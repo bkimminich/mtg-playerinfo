@@ -57,6 +57,11 @@ class UnityLeagueFetcher {
       data.details[key] = value;
     });
 
+    const bioElement = $('.card-body > small.mt-2').first();
+    if (bioElement.length > 0) {
+      data.details.Bio = bioElement.text().trim();
+    }
+
     const rankingTable = $('table.table-sm').first();
     if (rankingTable.length) {
       const headers = rankingTable.find('th').map((i, el) => $(el).text().trim()).get();

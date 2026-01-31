@@ -10,9 +10,6 @@ npm install
 
 ## CLI Usage
 
-You can call the tool via `node cli.js` or after linking it with `npm link`.
-
-### Exact identity
 ```bash
 node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
 ```
@@ -33,6 +30,8 @@ Example output:
   "photo": "https://unityleague.gg/media/player_profile/1000023225.jpg",
   "general": {
     "Age": "45",
+    "Bio": "Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face with its \"Change the target of target spell or ability with a single target\" mode.",
+    "Team": "Mull to Five",
     "Country": "de",
     "Hometown": "Hamburg"
   },
@@ -41,8 +40,8 @@ Example output:
       "url": "https://unityleague.gg/player/16215/",
       "data": {
         "Local organizer": "Mulligan TCG Shop",
-        "Rank Germany": "57",
-        "Rank Europe": "567",
+        "Rank Germany": "58",
+        "Rank Europe": "577",
         "Rank Points": "274"
       }
     },
@@ -63,7 +62,11 @@ Example output:
     "Topdeck": {
       "url": "https://topdeck.gg/profile/@k0shiii",
       "data": {
-        "handle": "@k0shiii"
+        "handle": "@k0shiii",
+        "Tournaments": "2",
+        "Record": "4-6-1",
+        "Win Rate": "36.36%",
+        "Conversion": "0%"
       }
     }
   }
