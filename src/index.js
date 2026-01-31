@@ -35,6 +35,11 @@ class PlayerInfoManager {
 
     const seenUrls = new Set();
 
+    let totalWins = 0;
+    let totalLosses = 0;
+    let totalDraws = 0;
+    let hasRecord = false;
+
     results.forEach(res => {
       if (seenUrls.has(res.url)) return;
       seenUrls.add(res.url);
@@ -48,6 +53,17 @@ class PlayerInfoManager {
         if (res.details.Team && !player.general.Team) player.general.Team = res.details.Team;
         if (res.details.Country && !player.general.Country) player.general.Country = res.details.Country;
         if (res.details.Hometown && !player.general.Hometown) player.general.Hometown = res.details.Hometown;
+
+        const recordStr = res.details.Record || res.details.record;
+        if (recordStr && typeof recordStr === 'string' && recordStr.includes('-')) {
+          const [w, l, d] = recordStr.split('-').map(Number);
+          if (!isNaN(w) && !isNaN(l)) {
+            totalWins += w;
+            totalLosses += l;
+            totalDraws += isNaN(d) ? 0 : d;
+            hasRecord = true;
+          }
+        }
       }
 
       const sourceData = { ...res.details };
@@ -64,6 +80,16 @@ class PlayerInfoManager {
         data: sourceData
       };
     });
+
+    if (hasRecord) {
+      player.general['Total Record'] = `${totalWins}-${totalLosses}-${totalDraws}`;
+      const totalGames = totalWins + totalLosses + totalDraws;
+      if (totalGames > 0) {
+        player.general['Total Win Rate'] = ((totalWins / totalGames) * 100).toFixed(2) + '%';
+      } else {
+        player.general['Total Win Rate'] = '0.00%';
+      }
+    }
 
     return player;
   }

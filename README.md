@@ -33,7 +33,9 @@ Example output:
     "Bio": "Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face with its \"Change the target of target spell or ability with a single target\" mode.",
     "Team": "Mull to Five",
     "Country": "de",
-    "Hometown": "Hamburg"
+    "Hometown": "Hamburg",
+    "Total Record": "13-18-2",
+    "Total Win Rate": "39.39%"
   },
   "sources": {
     "Unity League": {
