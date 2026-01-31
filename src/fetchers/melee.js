@@ -16,8 +16,8 @@ class MeleeFetcher {
   parseHtml(html, url, username) {
     const $ = cheerio.load(html);
     const name = $('span[style*="font-size: xx-large"]').first().text().trim() || username;
-    const photo = $('img.m-auto').attr('src');
-    
+    const photo = $('.profile-button-column img').first().attr('src') || $('img.m-auto').attr('src');
+
     const data = {
       source: 'Melee',
       url,
