@@ -78,6 +78,21 @@ class UnityLeagueFetcher {
       });
     }
 
+    // Extract tournament record and win rate
+    const overallRow = $('table.table tr').filter((i, el) => {
+      return $(el).find('td').first().text().trim() === 'Overall';
+    });
+
+    if (overallRow.length > 0) {
+      const cells = overallRow.find('td');
+      if (cells.length >= 3) {
+        const record = $(cells[1]).text().trim().replace(/\s+/g, '');
+        const winRate = $(cells[2]).text().trim();
+        data.details.Record = record;
+        data.details['Win Rate'] = winRate;
+      }
+    }
+
     return data;
   }
 }

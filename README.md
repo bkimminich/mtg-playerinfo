@@ -34,8 +34,7 @@ Example output:
     "Team": "Mull to Five",
     "Country": "de",
     "Hometown": "Hamburg",
-    "Total Record": "13-18-2",
-    "Total Win Rate": "39.39%"
+    "Win Rate": "42.09%"
   },
   "sources": {
     "Unity League": {
@@ -43,8 +42,10 @@ Example output:
       "data": {
         "Local organizer": "Mulligan TCG Shop",
         "Rank Germany": "58",
-        "Rank Europe": "577",
-        "Rank Points": "274"
+        "Rank Europe": "578",
+        "Rank Points": "274",
+        "Record": "38-38-5",
+        "Win Rate": "49.0%"
       }
     },
     "MTG Elo Project": {
@@ -52,7 +53,8 @@ Example output:
       "data": {
         "player_id": "3irvwtmk",
         "current_rating": "1466",
-        "record": "9-12-1"
+        "record": "9-12-1",
+        "Win Rate": "40.91%"
       }
     },
     "Melee": {
