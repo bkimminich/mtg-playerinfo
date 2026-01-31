@@ -10,7 +10,7 @@ class TopdeckFetcher {
       const playerInfo = this.parseHtml(data, url, cleanHandle);
 
       // Try to fetch stats via XHR if internal ID is found
-      const internalIdMatch = data.match(/https:\/\/topdeck\.gg\/profile\/([a-zA-Z0-9]+)\/stats/);
+      const internalIdMatch = data.match(/https:\/\/topdeck\.gg\/profile\/([a-zA-Z0-9]+)\/stats/) || data.match(/const playerId = "([a-zA-Z0-9]+)";/);
       const internalId = internalIdMatch ? internalIdMatch[1] : null;
 
       if (internalId) {
@@ -21,10 +21,32 @@ class TopdeckFetcher {
           const stats = typeof statsJson === 'string' ? JSON.parse(statsJson) : statsJson;
 
           if (stats) {
-            playerInfo.details['Tournaments'] = stats.totalTournaments || playerInfo.details['Tournaments'] || '0';
-            playerInfo.details['Record'] = stats.overallRecord || playerInfo.details['Record'] || '0-0-0';
-            playerInfo.details['Win Rate'] = stats.overallWinRate || playerInfo.details['Win Rate'] || '0.00%';
-            playerInfo.details['Conversion'] = stats.conversionRate || playerInfo.details['Conversion'] || '0.00%';
+            if (stats.yearlyStats) {
+              let totalTournaments = 0;
+              let wins = 0;
+              let losses = 0;
+              let draws = 0;
+
+              Object.values(stats.yearlyStats).forEach(yearData => {
+                if (yearData.overall) {
+                  totalTournaments += yearData.overall.totalTournaments || 0;
+                  wins += yearData.overall.wins || 0;
+                  losses += yearData.overall.losses || 0;
+                  draws += yearData.overall.draws || 0;
+                }
+              });
+
+              if (totalTournaments > 0) {
+                playerInfo.details['Tournaments'] = totalTournaments.toString();
+                playerInfo.details['Record'] = `${wins}-${losses}-${draws}`;
+                playerInfo.details['Win Rate'] = ((wins / (wins + losses + draws)) * 100).toFixed(2) + '%';
+              }
+            } else {
+              playerInfo.details['Tournaments'] = stats.totalTournaments || playerInfo.details['Tournaments'] || '0';
+              playerInfo.details['Record'] = stats.overallRecord || playerInfo.details['Record'] || '0-0-0';
+              playerInfo.details['Win Rate'] = stats.overallWinRate || playerInfo.details['Win Rate'] || '0.00%';
+              playerInfo.details['Conversion'] = stats.conversionRate || playerInfo.details['Conversion'] || '0.00%';
+            }
           }
         } catch (statsError) {
           console.error(`Error fetching Topdeck stats for ${handle}:`, statsError.message);

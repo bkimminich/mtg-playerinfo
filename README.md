@@ -14,7 +14,7 @@ You can call the tool via `node cli.js` or after linking it with `npm link`.
 
 ### Exact identity
 ```bash
-node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle @k0shiii
+node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
 ```
 
 ## Output Format
