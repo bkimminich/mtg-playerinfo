@@ -1,7 +1,7 @@
 {
   "name": "mtg-playerinfo",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple NPM module and CLI tool to pull Magic: The Gathering player data from various sources",
   "main": "src/index.js",
   "bin": {
     "mtg-playerinfo": "./cli.js"
@@ -10,10 +10,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Björn Kimminich",
+  "license": "MIT",
   "dependencies": {
     "cheerio": "^1.2.0",
-    "commander": "^14.0.2"
+    "commander": "^14.0.3"
   }
 }
