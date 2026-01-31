@@ -17,7 +17,7 @@ class UnityLeagueFetcher {
     const $ = cheerio.load(html);
     const name = $('h1.d-inline').text().trim();
     let photo = $('.card-body img.img-fluid').first().attr('src');
-    if (photo && photo.includes('vertical.svg')) {
+    if (photo && !photo.includes('player_profile')) {
       photo = null;
     }
 
