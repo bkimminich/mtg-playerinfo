@@ -1,4 +1,4 @@
-# MTG Player Info Puller
+# MTG Player Info
 
 A simple NPM module and CLI tool to pull Magic: The Gathering player data from various sources (Unity League, MTG Elo Project, Melee, and Topdeck).
 
