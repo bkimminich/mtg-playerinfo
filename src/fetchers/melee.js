@@ -23,9 +23,7 @@ class MeleeFetcher {
       url,
       name,
       photo: photo ? (photo.startsWith('http') ? photo : `https://melee.gg${photo}`) : null,
-      details: {
-        username
-      }
+      details: { }
     };
 
     return data;

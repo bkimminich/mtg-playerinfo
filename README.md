@@ -29,7 +29,7 @@ The tool returns a JSON object representing the player and their combined metada
 
 ### Deduplication and Merging Logic
 
-- **Priority**: Merging follows a "first-come, first-served" approach based on the order of sources provided in the command line or processed by the manager. For instance, the first valid `photo` URL found will be used as the primary photo for the player profile.
+- **Priority**: Merging follows a "first-come, first-served" approach based on the order of sources provided in the command line or processed by the manager. For instance, the first `name` and first valid `photo` URL found will be used as the primary name and photo for the player.
 - **Deduplication**: If multiple IDs point to the exact same profile URL, the profile is only processed once to avoid redundant data in the `sources` section.
 - **General Metadata**: Fields like `Age`, `Country`, and `Hometown` are extracted from the first source that provides them and placed in the `general` section.
 
@@ -53,7 +53,7 @@ Example output:
       "data": {
         "Local organizer": "Mulligan TCG Shop",
         "Rank Germany": "58",
-        "Rank Europe": "578",
+        "Rank Europe": "584",
         "Rank Points": "274",
         "Record": "38-38-5",
         "Win Rate": "49.0%"
@@ -70,14 +70,11 @@ Example output:
     },
     "Melee": {
       "url": "https://melee.gg/Profile/Index/k0shiii",
-      "data": {
-        "username": "k0shiii"
-      }
+      "data": {}
     },
     "Topdeck": {
       "url": "https://topdeck.gg/profile/@k0shiii",
       "data": {
-        "handle": "@k0shiii",
         "Tournaments": "2",
         "Record": "4-6-1",
         "Win Rate": "36.36%",

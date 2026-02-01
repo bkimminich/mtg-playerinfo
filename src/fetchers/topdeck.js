@@ -70,9 +70,7 @@ class TopdeckFetcher {
       url,
       name,
       photo: photo ? (photo.startsWith('http') ? photo : `https://topdeck.gg${photo}`) : null,
-      details: {
-        handle
-      }
+      details: { }
     };
 
     const statsMap = {
