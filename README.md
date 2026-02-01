@@ -89,12 +89,12 @@ Example output:
 
 The following sites are currently supported based on HTML scraping and/or API calls. In general, API calls are preferred over scraping due to their higher reliability and independence from site structure changes.
 
-| Site            | HTML Scraping | API |
-|-----------------|---------------|-----|
-| Unity League    | ✅             | ❌   |
-| MTG Elo Project | ✅             | ❌   |
-| Melee           | ✅             | ❌   |
-| Topdeck         | ✅             | ❌   |
+| Site            | Method                 |
+|-----------------|------------------------|
+| Unity League    | ✅Scraping              |
+| MTG Elo Project | ✅Scraping              |
+| Topdeck         | ✅Scraping              |
+| Melee           | ✅Scraping / 🚧API (#1) |
 
 _Note: Some sites may have anti-bot protections that can lead to "Maximum number of redirects exceeded" or "403 Forbidden" errors depending on the execution environment._
 
