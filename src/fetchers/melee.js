@@ -16,13 +16,14 @@ class MeleeFetcher {
   parseHtml(html, url, username) {
     const $ = cheerio.load(html);
     const name = $('span[style*="font-size: xx-large"]').first().text().trim() || username;
-    const photo = $('.profile-button-column img').first().attr('src') || $('img.m-auto').attr('src');
+    // FIXME Photos cannot be loaded with unauthenticated requests from Melee.gg
+    // const photo = $('.profile-button-column img').first().attr('src') || $('img.m-auto').attr('src');
 
     const data = {
       source: 'Melee',
       url,
       name,
-      photo: photo ? (photo.startsWith('http') ? photo : `https://melee.gg${photo}`) : null,
+      // photo: photo ? (photo.startsWith('http') ? photo : `https://melee.gg${photo}`) : null,
       details: { }
     };
 
