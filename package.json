@@ -1,6 +1,6 @@
 {
   "name": "mtg-playerinfo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple NPM module and CLI tool to pull Magic: The Gathering player data from various sources",
   "main": "src/index.js",
   "bin": {
