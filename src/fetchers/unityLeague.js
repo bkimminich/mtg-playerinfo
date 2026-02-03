@@ -65,10 +65,10 @@ class UnityLeagueFetcher {
       headers.forEach((header, i) => {
         if (header && values[i]) {
           let val = values[i];
-          if (val.startsWith('#')) {
-            val = val.substring(1);
+          val = val.replace(/\D/g, ''); // remove non-numeric characters to support #23->23, 1st->1, and 42nd->42 etc.
+          if (val) {
+            data.details[`Rank ${header}`] = val;
           }
-          data.details[`Rank ${header}`] = val;
         }
       });
     }
