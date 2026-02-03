@@ -21,10 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run MTG Player Info Tool
-        run: |
-          node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle @k0shiii
-          node cli.js --unity-id 10328 --mtgelo-id e40ljd9z
-          node cli.js --unity-id 10211 --mtgelo-id 7112ynp9
-          node cli.js --unity-id 22582 --mtgelo-id vbpl2pzf
-          
+      - name: Run MTG Player Info Tool for sample player
+        run: node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
+

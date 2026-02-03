@@ -1,20 +1,26 @@
-# MTG Player Info Puller
+# MTG Player Info
+
+![GitHub stars](https://img.shields.io/github/stars/bkimminich/mtg-playerinfo.svg?label=GitHub%20%E2%98%85&style=flat)
+![node](https://img.shields.io/node/v/mtg-playerinfo.svg) [![npm](https://img.shields.io/npm/dm/mtg-playerinfo.svg)](https://www.npmjs.com/package/mtg-playerinfo) [![npm](https://img.shields.io/npm/dt/mtg-playerinfo.svg)](https://www.npmjs.com/package/mtg-playerinfo)
 
 A simple NPM module and CLI tool to pull Magic: The Gathering player data from various sources (Unity League, MTG Elo Project, Melee, and Topdeck).
 
 ## Installation
 
 ```bash
-npm install
+npm i -g mtg-player-info
 ```
 
 ## CLI Usage
 
-You can call the tool via `node cli.js` or after linking it with `npm link`.
-
-### Exact identity
 ```bash
-node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle @k0shiii
+mtg-player-info --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
+```
+
+or without previous installation
+
+```bash
+npx mtg-player-info --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
 ```
 
 ## Output Format
@@ -22,28 +28,35 @@ node cli.js --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck
 The tool returns a JSON object representing the player and their combined metadata. Redundant information like Name, Photo, Country, Age, and Hometown is merged into a `general` section, while source-specific data is kept in the `sources` section.
 
 ### Deduplication and Merging Logic
-- **Priority**: Merging follows a "first-come, first-served" approach based on the order of sources provided in the command line or processed by the manager. For instance, the first valid `photo` URL found will be used as the primary photo for the player profile.
+
+- **Priority**: Merging follows a "first-come, first-served" approach based on the order of sources provided in the command line or processed by the manager. For instance, the first `name` and first valid `photo` URL found will be used as the primary name and photo for the player.
 - **Deduplication**: If multiple IDs point to the exact same profile URL, the profile is only processed once to avoid redundant data in the `sources` section.
 - **General Metadata**: Fields like `Age`, `Country`, and `Hometown` are extracted from the first source that provides them and placed in the `general` section.
 
 Example output:
+
 ```json
 {
   "name": "Björn Kimminich",
   "photo": "https://unityleague.gg/media/player_profile/1000023225.jpg",
   "general": {
     "Age": "45",
+    "Bio": "Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face with its \"Change the target of target spell or ability with a single target\" mode.",
+    "Team": "Mull to Five",
     "Country": "de",
-    "Hometown": "Hamburg"
+    "Hometown": "Hamburg",
+    "Win Rate": "42.09%"
   },
   "sources": {
     "Unity League": {
       "url": "https://unityleague.gg/player/16215/",
       "data": {
         "Local organizer": "Mulligan TCG Shop",
-        "Rank Germany": "57",
-        "Rank Europe": "567",
-        "Rank Points": "274"
+        "Rank Germany": "58",
+        "Rank Europe": "584",
+        "Rank Points": "274",
+        "Record": "38-38-5",
+        "Win Rate": "49.0%"
       }
     },
     "MTG Elo Project": {
@@ -51,19 +64,21 @@ Example output:
       "data": {
         "player_id": "3irvwtmk",
         "current_rating": "1466",
-        "record": "9-12-1"
+        "record": "9-12-1",
+        "Win Rate": "40.91%"
       }
     },
     "Melee": {
       "url": "https://melee.gg/Profile/Index/k0shiii",
-      "data": {
-        "username": "k0shiii"
-      }
+      "data": {}
     },
     "Topdeck": {
       "url": "https://topdeck.gg/profile/@k0shiii",
       "data": {
-        "handle": "@k0shiii"
+        "Tournaments": "2",
+        "Record": "4-6-1",
+        "Win Rate": "36.36%",
+        "Conversion": "0%"
       }
     }
   }
@@ -72,11 +87,26 @@ Example output:
 
 ## Supported Sources
 
-| Site            | Method   |
-|-----------------|----------|
-| Unity League    | Scraping |
-| MTG Elo Project | Scraping |
-| Melee           | Scraping |
-| Topdeck         | Scraping |
+The following sites are currently supported based on HTML scraping and/or API calls. In general, API calls are preferred over scraping due to their higher reliability and independence from site structure changes.
 
-Note: Some sites may have anti-bot protections that can lead to "Maximum number of redirects exceeded" or "403 Forbidden" errors depending on the execution environment.
+| Site            | Method                                                                       |
+|-----------------|------------------------------------------------------------------------------|
+| Unity League    | ✅Scraping                                                                    |
+| MTG Elo Project | ✅Scraping                                                                    |
+| Topdeck         | ✅Scraping                                                                    |
+| Melee           | 🚧Scraping/API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) |
+
+_Note: Some sites may have anti-bot protections that can lead to "Maximum number of redirects exceeded" or "403 Forbidden" errors depending on the execution environment._
+
+## Contribution Guidelines
+
+1. All PRs _should_ have a dedicated scope (e.g. not mixing code refactorings with delivering a new feature) and reasonable size.
+2. Noise (e.g. unnecessary comments) generated by AI tools _must_ be removed before opening a PR.
+3. All Git commits within a PR _must_ be [signed off](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt--s) to indicate the contributor's agreement with the [Developer Certificate of Origin](https://developercertificate.org/).
+4. Particularly low-effort contributions (e.g. incomplete typo fixes in a single file, trivial text changes, code formatting) or any forms of potential "contribution farming" _must not_ be submitted as PRs.
+
+## Licensing
+
+[![license](https://img.shields.io/github/license/juice-shop/juice-shop.svg)](LICENSE)
+
+This program is free software: you can redistribute it and/or modify it under the terms of the [MIT license](LICENSE). MTG Player Info and any contributions are Copyright © by Bjoern Kimminich 2026.

@@ -35,6 +35,8 @@ class PlayerInfoManager {
 
     const seenUrls = new Set();
 
+    const winRates = [];
+
     results.forEach(res => {
       if (seenUrls.has(res.url)) return;
       seenUrls.add(res.url);
@@ -44,14 +46,24 @@ class PlayerInfoManager {
 
       if (res.details) {
         if (res.details.Age && !player.general.Age) player.general.Age = res.details.Age;
+        if (res.details.Bio && !player.general.Bio) player.general.Bio = res.details.Bio;
         if (res.details.Team && !player.general.Team) player.general.Team = res.details.Team;
         if (res.details.Country && !player.general.Country) player.general.Country = res.details.Country;
         if (res.details.Hometown && !player.general.Hometown) player.general.Hometown = res.details.Hometown;
+
+        const winRateStr = res.details['Win Rate'] || res.details.winRate;
+        if (winRateStr && typeof winRateStr === 'string') {
+          const winRate = parseFloat(winRateStr.replace('%', ''));
+          if (!isNaN(winRate)) {
+            winRates.push(winRate);
+          }
+        }
       }
 
       const sourceData = { ...res.details };
       if (res.source === 'Unity League') {
         delete sourceData.Age;
+        delete sourceData.Bio;
         delete sourceData.Hometown;
         delete sourceData.Team;
         delete sourceData.Country;
@@ -62,6 +74,11 @@ class PlayerInfoManager {
         data: sourceData
       };
     });
+
+    if (winRates.length > 0) {
+      const avgWinRate = winRates.reduce((a, b) => a + b, 0) / winRates.length;
+      player.general['Win Rate'] = avgWinRate.toFixed(2) + '%';
+    }
 
     return player;
   }

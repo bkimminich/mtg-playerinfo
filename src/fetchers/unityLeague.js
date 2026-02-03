@@ -17,7 +17,7 @@ class UnityLeagueFetcher {
     const $ = cheerio.load(html);
     const name = $('h1.d-inline').text().trim();
     let photo = $('.card-body img.img-fluid').first().attr('src');
-    if (photo && photo.includes('vertical.svg')) {
+    if (photo && !photo.includes('player_profile')) {
       photo = null;
     }
 
@@ -57,6 +57,11 @@ class UnityLeagueFetcher {
       data.details[key] = value;
     });
 
+    const bioElement = $('.card-body > small.mt-2').first();
+    if (bioElement.length > 0) {
+      data.details.Bio = bioElement.text().trim();
+    }
+
     const rankingTable = $('table.table-sm').first();
     if (rankingTable.length) {
       const headers = rankingTable.find('th').map((i, el) => $(el).text().trim()).get();
@@ -71,6 +76,21 @@ class UnityLeagueFetcher {
           }
         }
       });
+    }
+
+    // Extract tournament record and win rate
+    const overallRow = $('table.table tr').filter((i, el) => {
+      return $(el).find('td').first().text().trim() === 'Overall';
+    });
+
+    if (overallRow.length > 0) {
+      const cells = overallRow.find('td');
+      if (cells.length >= 3) {
+        const record = $(cells[1]).text().trim().replace(/\s+/g, '');
+        const winRate = $(cells[2]).text().trim();
+        data.details.Record = record;
+        data.details['Win Rate'] = winRate;
+      }
     }
 
     return data;

@@ -54,6 +54,19 @@ class MtgEloFetcher {
         record: record
       };
 
+      if (record && record.includes('-')) {
+        const [w, l, d] = record.split('-').map(Number);
+        if (!isNaN(w) && !isNaN(l)) {
+          const wins = w;
+          const losses = l;
+          const draws = isNaN(d) ? 0 : d;
+          const total = wins + losses + draws;
+          if (total > 0) {
+            details['Win Rate'] = ((wins / total) * 100).toFixed(2) + '%';
+          }
+        }
+      }
+
       return {
         source: 'MTG Elo Project',
         url: url,
