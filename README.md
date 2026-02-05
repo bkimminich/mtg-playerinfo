@@ -8,19 +8,19 @@ A simple NPM module and CLI tool to pull Magic: The Gathering player data from v
 ## Installation
 
 ```bash
-npm i -g mtg-player-info
+npm i -g mtg-playerinfo
 ```
 
 ## CLI Usage
 
 ```bash
-mtg-player-info --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
+mtg-playerinfo --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
 ```
 
 or without previous installation
 
 ```bash
-npx mtg-player-info --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
+npx mtg-playerinfo --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
 ```
 
 ## Output Format
@@ -37,48 +37,69 @@ Example output:
 
 ```json
 {
-  "name": "Björn Kimminich",
-  "photo": "https://unityleague.gg/media/player_profile/1000023225.jpg",
   "general": {
-    "Age": "45",
-    "Bio": "Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face with its \"Change the target of target spell or ability with a single target\" mode.",
-    "Team": "Mull to Five",
-    "Country": "de",
-    "Hometown": "Hamburg",
-    "Win Rate": "42.09%"
+    "name": "Björn Kimminich",
+    "photo": "https://unityleague.gg/media/player_profile/1000023225.jpg",
+    "age": "45",
+    "bio": "Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face with its \"Change the target of target spell or ability with a single target\" mode.",
+    "team": "Mull to Five",
+    "country": "de",
+    "hometown": "Hamburg",
+    "pronouns": "He/Him",
+    "facebook": "bjoern.kimminich",
+    "twitch": "koshiii",
+    "youtube": "@BjörnKimminich",
+    "win rate": "42.29%"
   },
   "sources": {
     "Unity League": {
       "url": "https://unityleague.gg/player/16215/",
       "data": {
-        "Local organizer": "Mulligan TCG Shop",
-        "Rank Germany": "58",
-        "Rank Europe": "584",
-        "Rank Points": "274",
-        "Record": "38-38-5",
-        "Win Rate": "49.0%"
+        "name": "Björn Kimminich",
+        "photo": "https://unityleague.gg/media/player_profile/1000023225.jpg",
+        "country": "de",
+        "age": "45",
+        "hometown": "Hamburg",
+        "local organizer": "Mulligan TCG Shop",
+        "team": "Mull to Five",
+        "bio": "Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face with its \"Change the target of target spell or ability with a single target\" mode.",
+        "rank germany": "64",
+        "rank europe": "563",
+        "rank points": "292",
+        "record": "42-41-5",
+        "win rate": "49.6%"
       }
     },
     "MTG Elo Project": {
       "url": "https://mtgeloproject.net/profile/3irvwtmk",
       "data": {
+        "name": "Bjoern Kimminich",
         "player_id": "3irvwtmk",
         "current_rating": "1466",
         "record": "9-12-1",
-        "Win Rate": "40.91%"
+        "win rate": "40.91%"
       }
     },
     "Melee": {
       "url": "https://melee.gg/Profile/Index/k0shiii",
-      "data": {}
+      "data": {
+        "name": "Björn Kimminich",
+        "pronouns": "He/Him",
+        "bio": "Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face.",
+        "facebook": "bjoern.kimminich",
+        "twitch": "koshiii",
+        "youtube": "@BjörnKimminich"
+      }
     },
     "Topdeck": {
       "url": "https://topdeck.gg/profile/@k0shiii",
       "data": {
-        "Tournaments": "2",
-        "Record": "4-6-1",
-        "Win Rate": "36.36%",
-        "Conversion": "0%"
+        "name": "Björn Kimminich",
+        "photo": "https://imagedelivery.net/kN_u_RUfFF6xsGMKYWhO1g/2a7b8d12-5924-4a58-5f9c-c0bf55766800/square",
+        "tournaments": "2",
+        "record": "4-6-1",
+        "win rate": "36.36%",
+        "conversion": "0%"
       }
     }
   }
@@ -94,7 +115,7 @@ The following sites are currently supported based on HTML scraping and/or API ca
 | Unity League    | ✅Scraping                                                                    |
 | MTG Elo Project | ✅Scraping                                                                    |
 | Topdeck         | ✅Scraping                                                                    |
-| Melee           | 🚧Scraping/API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) |
+| Melee           | ✅Scraping / 🚧API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) |
 
 _Note: Some sites may have anti-bot protections that can lead to "Maximum number of redirects exceeded" or "403 Forbidden" errors depending on the execution environment._
 
