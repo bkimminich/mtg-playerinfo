@@ -56,7 +56,10 @@ class MtgEloFetcher {
 
     if (!name) return null;
 
-    const details = {
+    const data = {
+      source: 'MTG Elo Project',
+      url: url,
+      name: name,
       player_id: id,
       current_rating: currentRating,
       record: record
@@ -70,17 +73,12 @@ class MtgEloFetcher {
         const draws = isNaN(d) ? 0 : d;
         const total = wins + losses + draws;
         if (total > 0) {
-          details['Win Rate'] = ((wins / total) * 100).toFixed(2) + '%';
+          data['win rate'] = ((wins / total) * 100).toFixed(2) + '%';
         }
       }
     }
 
-    return {
-      source: 'MTG Elo Project',
-      url: url,
-      name: name,
-      details: details
-    };
+    return data;
   }
 }
 

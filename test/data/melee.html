@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
     <title>Profile k0shiii | Melee</title>
-    <impact-site-verification value="****"></impact-site-verification>
+    <impact-site-verification value="4c243f18-8267-493f-a951-c8659ec151bc"></impact-site-verification>
     <meta content="@MeleePlatform" property="twitter:site"></meta>
     <meta content="0.3.62.22" name="version"></meta>
     <meta content="https://cdn.melee.gg/images/blankbrandimage.png" property="og:image"></meta>
@@ -39,7 +39,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link href="https://cdn.melee.gg/content/site.dependencies.min.css?v=0.3.62.22" rel="stylesheet"/>
 
-    <link href="/Content/site.min.css?v=0.3.62.22&lg=de" rel="stylesheet"/>
+    <link href="/Content/site.min.css?v=0.3.62.22&lg=en" rel="stylesheet"/>
 
 
 
@@ -49,7 +49,7 @@
     </script>
 
     <script id="data-tables-control-template" type="x-tmpl-mustache">    <div class="data-tables-filter-input-wrapper">
-        <input id="{{tableId}}-filter-input" class="form-control data-tables-filter-input" placeholder="Suchergebnisse..." aria-controls="{{tableId}}"/>
+        <input id="{{tableId}}-filter-input" class="form-control data-tables-filter-input" placeholder="Search results..." aria-controls="{{tableId}}"/>
     </div>
     {{#useFilters}}
     <div class="dropdown data-tables-filter-dropdown data-tables-filter-dropdown-wrapper" id="accordion-{{tableId}}">
@@ -77,19 +77,19 @@
             </div>
             {{/filters}}
             <div class="d-grid data-tables-filter-apply-row">
-                <a class="d-flex data-tables-filter-reset-button" href="#">Zurücksetzen</a>
-                <button class="btn btn-primary data-tables-filter-apply-button">Anwenden</button>
+                <a class="d-flex data-tables-filter-reset-button" href="#">Reset</a>
+                <button class="btn btn-primary data-tables-filter-apply-button">Apply</button>
             </div>
         </div>
     </div>
     {{/useFilters}}
     {{#serverSide}}
     <div class="dropdown data-tables-settings-dropdown data-tables-settings-dropdown-wrapper" id="accordion-{{tableId}}">
-        <button class="btn btn-secondary dropdown-toggle data-tables-settings-dropdown-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sichtbarkeit</button>
+        <button class="btn btn-secondary dropdown-toggle data-tables-settings-dropdown-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Visibility</button>
         <div class="dropdown-menu data-tables-settings-dropdown m-0 p-0">
             <div class="card data-tables-settings-dropdown-card">
                 <div class="card-header pointer text-left data-tables-settings-dropdown-header" data-toggle="collapse" data-target="#table-{{uuid}}-page-settings-collapse" aria-expanded="false">
-                    <div id="table-{{uuid}}-page-settings-header" class="card-header-title">Ergebnisse pro Seite</div>
+                    <div id="table-{{uuid}}-page-settings-header" class="card-header-title">Results Per Page</div>
                     <i class="fa-solid fa-caret-up text-warning ml-auto"></i>
                     <i class="fa-solid fa-caret-down text-warning ml-auto"></i>
                 </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="card data-tables-settings-dropdown-card">
                 <div class="card-header pointer text-left data-tables-settings-dropdown-header" data-toggle="collapse" data-target="#table-{{uuid}}-column-settings-collapse" aria-expanded="false">
-                    <div id="table-{{uuid}}-column-settings-header" class="card-header-title">Spaltensichtbarkeit</div>
+                    <div id="table-{{uuid}}-column-settings-header" class="card-header-title">Column Visibility</div>
                     <i class="fa-solid fa-caret-up text-warning ml-auto"></i>
                     <i class="fa-solid fa-caret-down text-warning ml-auto"></i>
                 </div>
@@ -126,25 +126,25 @@
                 </div>
             </div>
             <div class="d-grid data-tables-settings-apply-row">
-                <a class="d-flex data-tables-settings-reset-button" href="#">Zurücksetzen</a>
-                <button class="btn btn-primary data-tables-settings-apply-button">Anwenden</button>
+                <a class="d-flex data-tables-settings-reset-button" href="#">Reset</a>
+                <button class="btn btn-primary data-tables-settings-apply-button">Apply</button>
             </div>
         </div>
     </div>
     {{/serverSide}}
     {{#downloadable}}
     <div class="dropdown data-tables-exports-dropdown data-tables-exports-dropdown-wrapper">
-        <button class="btn btn-secondary dropdown-toggle data-tables-exports-dropdown-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Exporte</button>
+        <button class="btn btn-secondary dropdown-toggle data-tables-exports-dropdown-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Exports</button>
         <div class="dropdown-menu data-tables-exports-dropdown m-0 p-0">
             <div class="card-body d-flex data-tables-exports-collapse-card-body">
-                <button class="btn btn-secondary data-tables-exports-button text-nowrap" data-format="csv">Als CSV herunterladen</button>
-                <button class="btn btn-secondary data-tables-exports-button text-nowrap" data-format="json">Als JSON herunterladen</button>
+                <button class="btn btn-secondary data-tables-exports-button text-nowrap" data-format="csv">Download as CSV</button>
+                <button class="btn btn-secondary data-tables-exports-button text-nowrap" data-format="json">Download as JSON</button>
             </div>
         </div>
     </div>
     {{/downloadable}}
     {{#serverSide}}
-    <button class="btn btn-sm btn-primary data-tables-refresh-button" title="Drücken Sie diese Taste, um die Daten dieser Tabelle zu aktualisieren">
+    <button class="btn btn-sm btn-primary data-tables-refresh-button" title="Press to refresh this table's data">
         <i class="fa-solid fa-sync"></i>
     </button>
     {{/serverSide}}
@@ -152,7 +152,7 @@
     {{#selectedFilters}}
     <div class="data-tables-active-filter-container">
         {{column}}: {{text}}
-        <a class="data-tables-active-filter-remove" href="#" title="Diesen Filter löschen" data-column-index="{{columnIndex}}" data-value="{{value}}">
+        <a class="data-tables-active-filter-remove" href="#" title="Clear this filter" data-column-index="{{columnIndex}}" data-value="{{value}}">
             <span class="fa-solid fa-xmark-circle"></span>
         </a>
     </div>
@@ -460,15 +460,15 @@
         <div class="match-table-team-container">
             {{#Team}}
             {{#Name}}
-            Teamname: {{Name}}
+            Team Name: {{Name}}
             {{/Name}}
             {{#Players}}
             <div class="match-table-player-container">
                 {{#CheckedIn}}
-                <i class="fa-solid fa-check mr-2 text-success check-in-enabled" title="Spieler/Team hat im Match eingecheckt"></i>
+                <i class="fa-solid fa-check mr-2 text-success check-in-enabled" title="Player/Team has checked in for their match"></i>
                 {{/CheckedIn}}
                 {{^CheckedIn}}
-                <i class="fa-solid fa-times mr-2 text-danger check-in-enabled" title="Spieler/Team hat nicht im Match eingecheckt"></i>
+                <i class="fa-solid fa-times mr-2 text-danger check-in-enabled" title="Player/Team has not checked in for their match"></i>
                 {{/CheckedIn}}
                 <a class="open-player-card-link" data-toggle="hovercard" data-id="{{ID}}" data-type="adminPlayer" href="#">{{NameLastFirst}}<i class="fa-solid fa-info-circle ml-2"></i><i class="fa-solid fa-pen-to-square ml-2"></i></a>
                 {{#PronounsDescription}}
@@ -485,7 +485,7 @@
         <div class="match-table-team-container">
             {{#Team}}
             {{#Name}}
-            Teamname: {{Name}}
+            Team Name: {{Name}}
             {{/Name}}
             {{#Players}}
             <div class="match-table-player-container">
@@ -504,7 +504,7 @@
         <div class="match-table-team-container">
             {{#Team}}
             {{#Name}}
-            Teamname: {{Name}}
+            Team Name: {{Name}}
             {{/Name}}
             {{#Players}}
             <div class="match-table-player-container">
@@ -555,7 +555,7 @@
         <div class="match-table-team-container">
             {{#Team}}
             {{#Name}}
-            Teamname: {{Name}}
+            Team Name: {{Name}}
             {{/Name}}
             {{#Players}}
             <div class="match-table-player-container">
@@ -575,26 +575,26 @@
 
     <script src="https://cdn.melee.gg/scripts/site.min.js?v=0.3.62.22"></script>
     <script src="https://cdn.melee.gg/scripts/font-awesome.min.js?v=0.3.62.22"></script>
-    <script src="/Scripts/flattsware.core.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.filters.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.enums.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.standings.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.datatables.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.datetime.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.encode.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.regex.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.notify.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.spinner.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.forms.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.decklist.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.idle.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.hovercard.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.chart.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.formats.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.star-rating.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.progress.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.location.min.js?v=0.3.62.22&lg=de"></script>
-    <script src="/Scripts/flattsware.players.min.js?v=0.3.62.22&lg=de"></script>
+    <script src="/Scripts/flattsware.core.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.filters.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.enums.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.standings.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.datatables.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.datetime.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.encode.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.regex.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.notify.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.spinner.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.forms.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.decklist.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.idle.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.hovercard.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.chart.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.formats.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.star-rating.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.progress.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.location.min.js?v=0.3.62.22&lg=en"></script>
+    <script src="/Scripts/flattsware.players.min.js?v=0.3.62.22&lg=en"></script>
     <script src="/signalr/hubs?v=0.3.62.22"></script>
 
 
@@ -628,7 +628,7 @@
                         className = `info`
                 }
 
-                const message = `MeleeRT-Verbindung: ${announcement.Message}`
+                const message = `MeleeRT Connection: ${announcement.Message}`
 
                 $.notify(message, { autoHide: true, autoHideDelay: 8000, className: className, })
             }
@@ -680,7 +680,7 @@
                 debug.log(`MeleeRT is reconnecting`)
                 showSignalRNotification({
                     Type: `Warning`,
-                    Message: `MeleeRT versucht, sich wieder mit unseren Servern zu verbinden. Es kann zu Verzögerungen im Chat und bei der Aktualisierung der Paarungen kommen. Solltest du in ein oder zwei Minuten kein Update erhalten, aktualisiere bitte deinen Browser`,
+                    Message: `MeleeRT is attempting to reconnect to our servers. You may experience some delays in chat, pairings updates. If you do not receive an update in a minute or two, please refresh your browser`,
                 }, "reconnecting")
             })
 
@@ -692,7 +692,7 @@
                 {
                     showSignalRNotification({
                         Type: `Information`,
-                        Message: `MeleeRT hat sich erfolgreich wieder verbunden. Los gehts!`,
+                        Message: `MeleeRT has successfully reconnected. Game on!`,
                     }, "reconnected")
                 }
             }
@@ -716,7 +716,7 @@
                         connectionTimeout = setTimeout(() => { retryConnection() }, 10000)
                         showSignalRNotification({
                             Type: `Error`,
-                            Message: `MeleeRT hat die Verbindung zum Server vollständig verloren. Es wird in 10 Sekunden versuchen, die Verbindung wiederherzustellen. Es kann zu Verzögerungen im Chat, bei Paarungsaktualisierungen und anderen Echtzeitfunktionen kommen. Solltest du in ein oder zwei Minuten kein Update erhalten, aktualisiere bitte deinen Browser`,
+                            Message: `MeleeRT has fully disconnected from the server. It will try to reconnect in 10 seconds. You may experience some delays in chat, pairings updates, and other real-time functions. If you do not receive an update in a minute or two, please refresh your browser`,
                         }, "disconnected")
                     })
             }
@@ -730,9 +730,9 @@
             }, 60000)
         })
     </script>
-    <script src="/Scripts/wp-banners.min.js?v=0.3.62.22&lg=de"></script>
+    <script src="/Scripts/wp-banners.min.js?v=0.3.62.22&lg=en"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162951615-1"></script>
-    <script src="/Scripts/google-analytics.min.js?v=0.3.62.22&lg=de"></script>
+    <script src="/Scripts/google-analytics.min.js?v=0.3.62.22&lg=en"></script>
 
     <!-- Datadog RUM (CDN async) -->
     <script>
@@ -743,8 +743,8 @@
         })(window,document,'script','https://www.datadoghq-browser-agent.com/us5/v6/datadog-rum.js','DD_RUM')
         window.DD_RUM.onReady(function() {
             window.DD_RUM.init({
-                clientToken: '****',
-                applicationId: '****',
+                clientToken: 'pub22e31ccd740f290ba9b4a07ad7565c22',
+                applicationId: '2e019cb6-dc4b-4076-b6e6-c2e701b2d0eb',
                 site: 'us5.datadoghq.com',
                 service: 'web',
                 env: 'prod',
@@ -762,10 +762,10 @@
 </head>
 <body>
 
-<input id="current-user-id" type="hidden" value="********-****-****-****-************"/>
+<input id="current-user-id" type="hidden" value="e59718fe-23b6-475c-91b6-b393fc0f569d"/>
 
-<input id="current-language" type="hidden" value="German"/>
-<input id="current-language-tag" type="hidden" value="de"/>
+<input id="current-language" type="hidden" value="English"/>
+<input id="current-language-tag" type="hidden" value="en"/>
 
 
 <span id="hovercard"></span>
@@ -789,16 +789,16 @@
 <script id="hovercard-card-body" type="x-tmpl-mustache">    <img class="full-card-image" src="{{src}}" data-fallback="{{fallback}}" alt="{{name}}"/>
     <div style="width: 250px;">
         {{#tcgPlayerId}}
-        <a class="btn btn-sm btn-success w-100 mt-1" href="/Affiliate/Card/{{id}}?type=TcgPlayerCard">Bei TCGPlayer.com kaufen</a>
+        <a class="btn btn-sm btn-success w-100 mt-1" href="/Affiliate/Card/{{id}}?type=TcgPlayerCard">Buy at TCGPlayer.com</a>
         {{/tcgPlayerId}}
         {{#cardhoarderUrl}}
-        <a class="btn btn-sm btn-success w-100 mt-1" href="/Affiliate/Card/{{id}}?type=CardHoarderCard">Bei Cardhoarder.com kaufen</a>
+        <a class="btn btn-sm btn-success w-100 mt-1" href="/Affiliate/Card/{{id}}?type=CardHoarderCard">Buy at Cardhoarder.com</a>
         {{/cardhoarderUrl}}
         {{#cardhoarderRentUrl}}
-        <a class="btn btn-sm btn-success w-100 mt-1" href="/Affiliate/Card/{{id}}?type=CardHoarderRent">Bei Cardhoarder.com leihen</a>
+        <a class="btn btn-sm btn-success w-100 mt-1" href="/Affiliate/Card/{{id}}?type=CardHoarderRent">Rent at Cardhoarder.com</a>
         {{/cardhoarderRentUrl}}
         {{#cardhorderFoilUrl}}
-        <a class="btn btn-sm btn-success w-100 mt-1" href="/Affiliate/Card/{{id}}?type=CardHoarderFoil">Foil bei Cardhoarder.com kaufen</a>
+        <a class="btn btn-sm btn-success w-100 mt-1" href="/Affiliate/Card/{{id}}?type=CardHoarderFoil">Buy Foil at Cardhoarder.com</a>
         {{/cardhorderFoilUrl}}
     </div>
 </script>
@@ -807,21 +807,21 @@
         <tr>
             <td class="align-top">
                 {{#pronouns}}
-                <div title="Pronomen"><i class="fa-regular fa-user fa-fw text-muted mr-2"></i>{{pronouns}}</div>
+                <div title="Pronouns"><i class="fa-regular fa-user fa-fw text-muted mr-2"></i>{{pronouns}}</div>
                 {{/pronouns}}
                 {{#email}}
-                <div title="E-Mail">
+                <div title="Email">
                     <i class="fa-regular fa-envelope fa-fw text-muted mr-2"></i><a href="mailto:{{email}}">{{email}}</a>
                 </div>
                 {{/email}}
                 {{#screenName}}
-                <div title="Bildschirmname"><i class="fa-brands fa-wizards-of-the-coast fa-fw text-muted mr-2"></i>{{screenName}}</div>
+                <div title="Screen name"><i class="fa-brands fa-wizards-of-the-coast fa-fw text-muted mr-2"></i>{{screenName}}</div>
                 {{/screenName}}
                 {{#gemPlayerId}}
-                <div title="Flesh and Blood GEM ID"><i class="fa-regular fa-chess-king fa-fw text-muted mr-2"></i>{{gemPlayerId}}</div>
+                <div title="Flesh and Blood GEM Id"><i class="fa-regular fa-chess-king fa-fw text-muted mr-2"></i>{{gemPlayerId}}</div>
                 {{/gemPlayerId}}
                 {{#wizardsAccountEmail}}
-                <div title="Wizards Account E-Mail-Adresse">
+                <div title="Wizards Account Email">
                     <i class="fa-brands fa-wizards-of-the-coast fa-fw text-muted mr-2"></i><a href="mailto:{{wizardsAccountEmail}}">{{wizardsAccountEmail}}</a>
                 </div>
                 {{/wizardsAccountEmail}}
@@ -829,13 +829,13 @@
                 <div title="Discord"><i class="fa-brands fa-discord fa-fw text-muted mr-2"></i>{{discordUsername}}</div>
                 {{/discordUsername}}
                 {{#age}}
-                <div title="Alter"><i class="fa-regular fa-calendar-days fa-fw text-muted mr-2"></i>{{age}}</div>
+                <div title="Age"><i class="fa-regular fa-calendar-days fa-fw text-muted mr-2"></i>{{age}}</div>
                 {{/age}}
                 {{#region}}
-                <div title="Land/Region"><i class="fa-regular fa-map fa-fw text-muted mr-2"></i>{{region}}</div>
+                <div title="Country/Region"><i class="fa-regular fa-map fa-fw text-muted mr-2"></i>{{region}}</div>
                 {{/region}}
                 {{#language}}
-                <div title="Sprache"><i class="fa-regular fa-comment fa-fw text-muted mr-2"></i>{{language}}</div>
+                <div title="Language"><i class="fa-regular fa-comment fa-fw text-muted mr-2"></i>{{language}}</div>
                 {{/language}}
                 {{#twitchChannel}}
                 <div>
@@ -877,27 +877,27 @@
                     </tr>
                     {{#rank}}
                     <tr>
-                        <td>Rang:</td>
+                        <td>Rank:</td>
                         <td>{{rank}}</td>
                     </tr>
                     <tr>
-                        <td>Ergebnisse:</td>
+                        <td>Record:</td>
                         <td>{{record}}</td>
                     </tr>
                     <tr>
-                        <td>Punkte:</td>
+                        <td>Points:</td>
                         <td>{{points}}</td>
                     </tr>
                     {{/rank}}
                     {{#roundDropped}}
                     <tr>
-                        <td>Runde abgebrochen:</td>
+                        <td>Round Dropped:</td>
                         <td>{{roundDropped}}</td>
                     </tr>
                     {{/roundDropped}}
                     {{#removalReason}}
                     <tr>
-                        <td>Grund für die Entfernung:</td>
+                        <td>Removal Reason:</td>
                         <td>{{removalReason}}</td>
                     </tr>
                     {{/removalReason}}
@@ -918,10 +918,10 @@
         <table class="w-100">
             <thead>
             <tr class="border-bottom">
-                <th>Runde</th>
-                <th>Gegner</th>
-                <th>Deckliste</th>
-                <th>Ergebnis</th>
+                <th>Round</th>
+                <th>Opponent</th>
+                <th>Decklist</th>
+                <th>Result</th>
             </tr>
             </thead>
             <tbody>
@@ -1005,17 +1005,17 @@
             </div>
             {{/PodcastUrl}}
             <div>
-                Zahl der Turniere: {{TournamentCount}}
+                # of Tournaments: {{TournamentCount}}
             </div>
         </div>
     </div>
     <hr/>
-    <h5 class="text-info">Zukünftige Turniere</h5>
+    <h5 class="text-info">Upcoming Tournaments</h5>
     <table class="w-100">
         <thead>
         <tr class="border-bottom">
             <th>Name</th>
-            <th>Startdatum</th>
+            <th>Start Date</th>
         </tr>
         </thead>
         <tbody>
@@ -1029,18 +1029,18 @@
         {{/UpcomingTournaments}}
         {{^UpcomingTournaments}}
         <tr>
-            <td class="p-1" colspan="2">Keine Turniere gefunden</td>
+            <td class="p-1" colspan="2">No Tournaments Found</td>
         </tr>
         {{/UpcomingTournaments}}
         </tbody>
     </table>
     <hr/>
-    <h5 class="text-info">Vergangene Turniere</h5>
+    <h5 class="text-info">Past Tournaments</h5>
     <table class="w-100">
         <thead>
         <tr class="border-bottom">
             <th>Name</th>
-            <th>Startdatum</th>
+            <th>Start Date</th>
         </tr>
         </thead>
         <tbody>
@@ -1054,7 +1054,7 @@
         {{/PastTournaments}}
         {{^PastTournaments}}
         <tr>
-            <td class="p-1" colspan="2">Keine Turniere gefunden</td>
+            <td class="p-1" colspan="2">No Tournaments Found</td>
         </tr>
         {{/PastTournaments}}
         </tbody>
@@ -1080,17 +1080,17 @@
                 <i class="far fa-clock fa-fw text-muted mr-2"></i>{{Status}}
             </div>
             <div>
-                <i class="fas fa-users fa-fw text-muted mr-2"></i>{{ParticipatorCount}} Spieler
+                <i class="fas fa-users fa-fw text-muted mr-2"></i>{{ParticipatorCount}} Players
             </div>
         </div>
     </div>
     <hr/>
     <div class="d-flex flex-row">
         <div class="w-50 pr-1">
-            <a class="btn btn-sm btn-success w-100 mb-2" href="/Tournament/View/{{ID}}#pairings">Paarungen</a>
+            <a class="btn btn-sm btn-success w-100 mb-2" href="/Tournament/View/{{ID}}#pairings">Pairings</a>
         </div>
         <div class="w-50 pl-1">
-            <a class="btn btn-sm btn-success w-100 mb-2" href="/Tournament/View/{{ID}}#standings">Rangliste</a>
+            <a class="btn btn-sm btn-success w-100 mb-2" href="/Tournament/View/{{ID}}#standings">Standings</a>
         </div>
     </div>
 </script>
@@ -1138,7 +1138,7 @@
             <i class="fas fa-file fa-fw text-muted mr-2"></i>{{Via}}
         </div>
         <hr/>
-        <div>Inhalt:</div>
+        <div>Content:</div>
         <div>
             {{Content}}
         </div>
@@ -1147,7 +1147,7 @@
 <script id="hovercard-compare-decklist-body" type="x-tmpl-mustache">    <div class="d-flex flex-row">
         <div class="w-50">
             {{#Decklist.PlaneswalkerCount}}
-            <div class="text-info mt-2 pl-1">{{Decklist.PlaneswalkerCount}} Planeswalker</div>
+            <div class="text-info mt-2 pl-1">{{Decklist.PlaneswalkerCount}} Planeswalkers</div>
             {{#Decklist.Planeswalkers}}
             <div>
                 {{Quantity}} <a href="/Card/View/{{CardId}}">{{Name}}</a>
@@ -1156,7 +1156,7 @@
             {{/Decklist.PlaneswalkerCount}}
 
             {{#Decklist.CreatureCount}}
-            <div class="text-info mt-2 pl-1">{{Decklist.CreatureCount}} Kreaturen</div>
+            <div class="text-info mt-2 pl-1">{{Decklist.CreatureCount}} Creatures</div>
             {{#Decklist.Creatures}}
             <div>
                 {{Quantity}} <a href="/Card/View/{{CardId}}">{{Name}}</a>
@@ -1165,7 +1165,7 @@
             {{/Decklist.CreatureCount}}
 
             {{#Decklist.SpellCount}}
-            <div class="text-info mt-2 pl-1">{{Decklist.SpellCount}} Zaubersprüche</div>
+            <div class="text-info mt-2 pl-1">{{Decklist.SpellCount}} Spells</div>
             {{#Decklist.Spells}}
             <div>
                 {{Quantity}} <a href="/Card/View/{{CardId}}">{{Name}}</a>
@@ -1174,7 +1174,7 @@
             {{/Decklist.SpellCount}}
 
             {{#Decklist.ArtifactCount}}
-            <div class="text-info mt-2 pl-1">{{Decklist.ArtifactCount}} Artefakte</div>
+            <div class="text-info mt-2 pl-1">{{Decklist.ArtifactCount}} Artifacts</div>
             {{#Decklist.Artifacts}}
             <div>
                 {{Quantity}} <a href="/Card/View/{{CardId}}">{{Name}}</a>
@@ -1183,7 +1183,7 @@
             {{/Decklist.ArtifactCount}}
 
             {{#Decklist.EnchantmentCount}}
-            <div class="text-info mt-2 pl-1">{{Decklist.EnchantmentCount}} Verzauberungen</div>
+            <div class="text-info mt-2 pl-1">{{Decklist.EnchantmentCount}} Enchantments</div>
             {{#Decklist.Enchantments}}
             <div>
                 {{Quantity}} <a href="/Card/View/{{CardId}}">{{Name}}</a>
@@ -1193,7 +1193,7 @@
         </div>
         <div class="w-50">
             {{#Decklist.LandCount}}
-            <div class="text-info mt-2 pl-1">{{Decklist.LandCount}} Länder</div>
+            <div class="text-info mt-2 pl-1">{{Decklist.LandCount}} Lands</div>
             {{#Decklist.Lands}}
             <div>
                 {{Quantity}} <a href="/Card/View/{{CardId}}">{{Name}}</a>
@@ -1212,22 +1212,22 @@
         </div>
     </div>
     <div class="d-flex flex-row mt-4">
-        <button class="btn btn-sm btn-primary copy-hovercard-decklist-button mr-2" data-clipboard-text="{{Decklist.ArenaDecklistString}}"><i class="fas fa-copy mr-2"></i>In die Zwischenablage kopieren</button>
-        <a class="btn btn-sm btn-success" role="button" href="{{Decklist.ScreenshotUrl}}"><i class="fas fa-search mr-2"></i>Bild anzeigen</a>
+        <button class="btn btn-sm btn-primary copy-hovercard-decklist-button mr-2" data-clipboard-text="{{Decklist.ArenaDecklistString}}"><i class="fas fa-copy mr-2"></i>Copy to clipboard</button>
+        <a class="btn btn-sm btn-success" role="button" href="{{Decklist.ScreenshotUrl}}"><i class="fas fa-search mr-2"></i>View image</a>
     </div>
     <hr/>
     <div>
-        <h5 class="text-decoration-underline">Unterschiede zur aktuellen Deckliste</h5>
+        <h5 class="text-decoration-underline">Differences from current decklist</h5>
         <div class="d-flex flex-row">
             <div class="w-50">
-                <div class="text-info mt-2 pl-1">Maindeck</div>
+                <div class="text-info mt-2 pl-1">Main Deck</div>
                 {{#MainDeckDifferences}}
                 <div>
                     {{Sign}}{{Quantity}} <a href="/Card/View/{{CardId}}">{{CardName}}</a>
                 </div>
                 {{/MainDeckDifferences}}
                 {{^MainDeckDifferences}}
-                Die Maindecks sind identisch.
+                Main decks are identical.
                 {{/MainDeckDifferences}}
             </div>
             <div class="w-50">
@@ -1238,7 +1238,7 @@
                 </div>
                 {{/SideboardDifferences}}
                 {{^SideboardDifferences}}
-                Die Sideboards sind identisch.
+                Sideboards are identical.
                 {{/SideboardDifferences}}
             </div>
         </div>
@@ -1255,7 +1255,7 @@
 </script>
 <script id="hovercard-venue-body" type="x-tmpl-mustache">    <div>
         <div>
-            <i class="fa-solid fa-location-dot text-muted mr-2"></i>Für Anweisungen klicken<a href="{{AddressUrl}}"><div>
+            <i class="fa-solid fa-location-dot text-muted mr-2"></i>Click for Directions<a href="{{AddressUrl}}"><div>
     {{AddressStreetAddress}}
 </div>
 <div>
@@ -1269,7 +1269,7 @@
 </div></a>
         </div>
         <hr/>
-        <h5 class="text-info">Kontaktinformationen zum Veranstaltungsort:</h5>
+        <h5 class="text-info">Venue Contact Information:</h5>
         {{#ContactEmail}}
         <div>
             <i class="fa-solid fa-envelope text-muted mr-2"></i><a href="mailto:{{ContactEmail}}">{{ContactEmail}}</a>
@@ -1308,33 +1308,33 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto h-42">
                 <li class="nav-item">
-                    <a class="nav-link" href="/Home/WhatsNew">Was neu ist</a>
+                    <a class="nav-link" href="/Home/WhatsNew">What&#39;s New</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Search">Veranstaltungen finden</a>
+                    <a class="nav-link" href="/Search">Find Events</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Decklists">Decklisten</a>
+                    <a class="nav-link" href="/Decklists">Decklists</a>
                 </li>
                 <!-- Organizers -->
                 <li class="nav-item dropdown mega-dropdown">
-                    <a id="organizers-dropdown-link" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" aria-haspopup="true">Veranstalter</a>
+                    <a id="organizers-dropdown-link" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" aria-haspopup="true">Organizers</a>
                     <div class="dropdown-menu mega-dropdown-menu" aria-labelledby="organizers-dropdown-link">
                         <div class="container">
                             <div class="row pl-lg-3 pr-lg-3 w-100">
                                 <div class="col-md-6 col-sm-12">
-                                    <strong class="dropdown-header">Veranstalten</strong>
+                                    <strong class="dropdown-header">Organize</strong>
                                     <hr class="mt-0"/>
                                     <a class="mega-menu-dropdown-link add-organization-modal" href="#">
-                                        <i class="fas fa-caret-right"></i><span class="ml-3">Eine Organisation erstellen</span>
+                                        <i class="fas fa-caret-right"></i><span class="ml-3">Create an Organization</span>
                                     </a>
-                                    <a class="mega-menu-dropdown-link" href="/RCQ/Apply"><i class="fas fa-caret-right"></i><span class="ml-3">Auf Host-SCG-RCQs bewerben</span></a>
-                                    <a class="mega-menu-dropdown-link" href="https://help.melee.gg"><i class="fas fa-caret-right"></i><span class="ml-3">Dokumentation</span></a>
-                                    <a class="mega-menu-dropdown-link" href="/Organization/Index"><i class="fas fa-caret-right"></i><span class="ml-3">Alle Veranstalter</span></a>
-                                    <a class="mega-menu-dropdown-link" href="/Profile/Organizations"><i class="fas fa-caret-right"></i><span class="ml-3">Ihre Organisationen</span></a>
-                                    <a class="mega-menu-dropdown-link" href="/Organization/Dashboard"><i class="fas fa-caret-right"></i><span class="ml-3">Ihr Organizer Dashboard</span></a>
-                                    <a class="mega-menu-dropdown-link" href="/Tournament/Edit"><i class="fas fa-caret-right"></i><span class="ml-3">Ein Turnier erstellen</span></a>
-                                    <a class="mega-menu-dropdown-link" href="/TournamentHub/Edit"><i class="fas fa-caret-right"></i><span class="ml-3">Einen Turnier-Hub erstellen</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/RCQ/Apply"><i class="fas fa-caret-right"></i><span class="ml-3">Apply to host SCG RCQs</span></a>
+                                    <a class="mega-menu-dropdown-link" href="https://help.melee.gg"><i class="fas fa-caret-right"></i><span class="ml-3">Documentation</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/Organization/Index"><i class="fas fa-caret-right"></i><span class="ml-3">All Organizers</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/Profile/Organizations"><i class="fas fa-caret-right"></i><span class="ml-3">Your Organizations</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/Organization/Dashboard"><i class="fas fa-caret-right"></i><span class="ml-3">Your Organizer Dashboard</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/Tournament/Edit"><i class="fas fa-caret-right"></i><span class="ml-3">Create a Tournament</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/TournamentHub/Edit"><i class="fas fa-caret-right"></i><span class="ml-3">Create a Tournament Hub</span></a>
                                 </div>
                             </div>
                         </div>
@@ -1349,10 +1349,10 @@
                                 <div class="col-md-6 col-sm-12">
                                     <strong class="dropdown-header">Star City Games Regional Championships</strong>
                                     <hr class="mt-0"/>
-                                    <a class="mega-menu-dropdown-link" href="/RCQ"><i class="fas fa-caret-right"></i><span class="ml-3">Informationen zu SCG RCQ Event Kits</span></a>
-                                    <a class="mega-menu-dropdown-link" href="/RCQ/Apply"><i class="fas fa-caret-right"></i><span class="ml-3">Auf Host-SCG-RCQs bewerben</span></a>
-                                    <a class="mega-menu-dropdown-link" href="/RCQ/Purchase"><i class="fas fa-caret-right"></i><span class="ml-3">SCG RCQ Event Kits kaufen</span></a>
-                                    <a class="mega-menu-dropdown-link" href="/RCQ/Winners"><i class="fas fa-caret-right"></i><span class="ml-3">RCQ Siegerinformationen übermitteln/bearbeiten</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/RCQ"><i class="fas fa-caret-right"></i><span class="ml-3">Info on SCG RCQ Event Kits</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/RCQ/Apply"><i class="fas fa-caret-right"></i><span class="ml-3">Apply to host SCG RCQs</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/RCQ/Purchase"><i class="fas fa-caret-right"></i><span class="ml-3">Purchase SCG RCQ Event Kits</span></a>
+                                    <a class="mega-menu-dropdown-link" href="/RCQ/Winners"><i class="fas fa-caret-right"></i><span class="ml-3">Submit/Edit RCQ Winner Info</span></a>
                                 </div>
                             </div>
                         </div>
@@ -1361,63 +1361,63 @@
 
                 <li class="nav-item dropdown">
                     <a id="language-dropdown-link" class="nav-link dropdown-toggle text-warning" data-toggle="dropdown" href="#" aria-expanded="false" aria-haspopup="true">
-                        <i class="fa-duotone fa-globe mr-2" style="font-size: 20px"></i>Sprache
+                        <i class="fa-duotone fa-globe mr-2" style="font-size: 20px"></i>Language
                     </a>
                     <div id="language-partial-language-dropdown-menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="language-dropdown-link">
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Chinese">中文 (Chinesisch)</a>
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="English">English (Englisch)</a>
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="French">Fran&#231;ais (Französisch)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Chinese">中文 (Chinese)</a>
                         <a class="dropdown-item disabled" href="#">
-                            <i class="fa-duotone fa-check-circle mr-2 text-success"></i>Deutsch (Deutsch)
+                            <i class="fa-duotone fa-check-circle mr-2 text-success"></i>English (English)
                         </a>
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Italian">Italiano (Italienisch)</a>
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Japanese">日本語 (Japanisch)</a>
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Korean">한국어 (Koreanisch)</a>
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Portuguese">Portugu&#234;s (Portugiesisch)</a>
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Russian">русский (Russisch)</a>
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Spanish">Espa&#241;ol (Spanisch)</a>
-                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Czech">Čeština (Tschechisch)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="French">Fran&#231;ais (French)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="German">Deutsch (German)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Italian">Italiano (Italian)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Japanese">日本語 (Japanese)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Korean">한국어 (Korean)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Portuguese">Portugu&#234;s (Portuguese)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Russian">русский (Russian)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Spanish">Espa&#241;ol (Spanish)</a>
+                        <a class="dropdown-item language-partial-language-selector language-selector" href="#" data-language="Czech">Čeština (Czech)</a>
                     </div>
                 </li>
             </ul>
 
-            <form action="/Account/LogOff" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="****" /></form>    <ul class="navbar-nav">
+            <form action="/Account/LogOff" id="logoutForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="I-DI3ES5wKpCjEtSqc5WzijiM92JqaZpB8N9cw01swvUJBpC9ZiuSlwpwwHhdygQzr3buI9GkIgnQJAuD0lwfspavw0thG0c-ijrLxYVgs06db8mvaa7yXoWWP-i2l3XuqMY9g2" /></form>    <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a id="account-dropdown-link" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" aria-haspopup="true">
                     <i id="login-partial-profile-user" class="fa-solid fa-user fa-2x" style="display: none;"></i>
-                    <img class="login-partial-profile-image" src="https://cdn.melee.gg/userphotos/userprofiles/********-****-****-****-************.jpg?v=1" alt="k0shiii" onerror="onLoginPartialProfileImageError()"/>
+                    <img class="login-partial-profile-image" src="https://cdn.melee.gg/userphotos/userprofiles/e59718fe-23b6-475c-91b6-b393fc0f569d.jpg?v=1" alt="k0shiii" onerror="onLoginPartialProfileImageError()"/>
                 </a>
                 <div id="login-partial-account-dropdown-menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="account-dropdown-link">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-row">
-                                <img class="login-partial-profile-image mr-3" src="https://cdn.melee.gg/userphotos/userprofiles/********-****-****-****-************.jpg?v=1" alt="k0shiii" onerror="onLoginPartialProfileImageError()"/>
+                                <img class="login-partial-profile-image mr-3" src="https://cdn.melee.gg/userphotos/userprofiles/e59718fe-23b6-475c-91b6-b393fc0f569d.jpg?v=1" alt="k0shiii" onerror="onLoginPartialProfileImageError()"/>
                                 <div>
                                     <div class="d-flex w-100">
                                         <span class="font-size-md text-nowrap">Bj&#246;rn Kimminich</span>
-                                        <a class="text-right flex-grow-1 font-size-sm text-muted text-nowrap ml-3 my-auto" href="javascript:document.getElementById('logoutForm').submit()">Abmelden</a>
+                                        <a class="text-right flex-grow-1 font-size-sm text-muted text-nowrap ml-3 my-auto" href="javascript:document.getElementById('logoutForm').submit()">Sign Out</a>
                                     </div>
-                                    <div class="font-weight-normal text-muted text-nowrap mb-3">Angemeldet als <span class="font-weight-bold">k0shiii</span></div>
-                                    <a class="btn btn-outline-warning text-nowrap w-100 mb-3" href="/Profile/Account">Verwalten Sie Ihre Kontoeinstellungen</a>
-                                    <a class="text-white" href="/Actions">Empfohlene Maßnahmen<i class="fa-solid fa-circle-exclamation ml-2 text-danger"></i></a>
+                                    <div class="font-weight-normal text-muted text-nowrap mb-3">Signed in as <span class="font-weight-bold">k0shiii</span></div>
+                                    <a class="btn btn-outline-warning text-nowrap w-100 mb-3" href="/Profile/Account">Manage Your Account Settings</a>
+                                    <a class="text-white" href="/Actions">Recommended Actions<i class="fa-solid fa-circle-exclamation ml-2 text-danger"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex flex-wrap login-partial-grid">
-                        <a class="login-partial-grid-item login-partial-grid-item-1" href="/Profile/Tournaments">Ihre Turniere</a>
-                        <a class="login-partial-grid-item login-partial-grid-item-2" href="/Profile/Decklists">Deine Decklisten</a>
+                        <a class="login-partial-grid-item login-partial-grid-item-1" href="/Profile/Tournaments">Your Tournaments</a>
+                        <a class="login-partial-grid-item login-partial-grid-item-2" href="/Profile/Decklists">Your Decklists</a>
                     </div>
                     <hr class="login-partial-grid-hr"/>
                     <div class="d-flex flex-wrap login-partial-grid">
-                        <a class="login-partial-grid-item login-partial-grid-item-3" href="https://help.melee.gg">Dokumentation</a>
-                        <a class="login-partial-grid-item login-partial-grid-item-4" href="/Home/WhatsNew">Was neu ist<span id="whats-new-badge" class="fa fa-info-circle text-danger ml-2" style="display: none;"></span></a>
+                        <a class="login-partial-grid-item login-partial-grid-item-3" href="https://help.melee.gg">Documentation</a>
+                        <a class="login-partial-grid-item login-partial-grid-item-4" href="/Home/WhatsNew">What's New<span id="whats-new-badge" class="fa fa-info-circle text-danger ml-2" style="display: none;"></span></a>
                     </div>
                     <hr class="login-partial-grid-hr"/>
                     <div class="d-grid login-partial-footer-grid">
-                        <a class="text-right text-white text-nowrap" href="/Policy/Privacy">Datenschutzerklärung</a>
+                        <a class="text-right text-white text-nowrap" href="/Policy/Privacy">Privacy Policy</a>
                         <span class="text-white text-center">&#x2022;</span>
-                        <a class="text-left text-white text-nowrap" href="/Policy/Terms">Nutzungsbedingungen</a>
+                        <a class="text-left text-white text-nowrap" href="/Policy/Terms">Terms of Service</a>
                     </div>
                 </div>
             </li>
@@ -1494,13 +1494,15 @@
                     </a>
                     <div>
                         <span class="text-muted mr-2" style="font-size: x-large">k0shiii</span>
+                        <span class="text-muted mr-2">He/Him</span>
                     </div>
+                    <div style="max-width: 75%">Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face.</div>
                 </div>
             </div>
 
             <div class="profile-button-column flex-column">
-                <a class="btn btn-success text-nowrap submit-button " href="/Profile/Account" role="button"><img class="fa-solid fa-gear mr-2"></img>Profil Einstellungen</a>
-                <img class="m-auto" src="https://cdn.melee.gg/userphotos/userprofiles/********-****-****-****-************.jpg?v=1" alt="" style="height: 150px; width: 150px;" onerror="this.onerror=null;this.src='/images/blank-user-profile-photo.png';"/>
+                <a class="btn btn-success text-nowrap submit-button " href="/Profile/Account" role="button"><img class="fa-solid fa-gear mr-2"></img>Profile Settings</a>
+                <img class="m-auto" src="https://cdn.melee.gg/userphotos/userprofiles/e59718fe-23b6-475c-91b6-b393fc0f569d.jpg?v=1" alt="" style="height: 150px; width: 150px;" onerror="this.onerror=null;this.src='/images/blank-user-profile-photo.png';"/>
             </div>
         </div>
 
@@ -1513,7 +1515,7 @@
                 <img src="/images/GlitchIcon_Purple_64px.png" height="24" width="24" alt="Glitch"/> /koshiii
             </span>
 
-                    <span style="font-size: 25px; line-height: 24px;">Offline</span>
+                    <span style="font-size: 25px; line-height: 24px;">OFFLINE</span>
                 </div>
             </div>
 
@@ -1562,13 +1564,13 @@
             </script>        <hr/>
 
             <div class="mt-6">
-                <div class="d-flex flex-column flex-md-row "><div class="flex-grow-1"><h4 class="text-info">Spielerstatistik</h4></div><div class="flex-grow-2 button-container"><a class="btn btn-success text-nowrap " href="/Profile/DownloadStats" role="button"><img class="fa-solid fa-download mr-2"></img>Statistiken herunterladen</a></div></div>                            <span class="text-muted pull-right">* Only you can see these stats unless you make them public in your user settings</span>
+                <div class="d-flex flex-column flex-md-row "><div class="flex-grow-1"><h4 class="text-info">Player Statistics</h4></div><div class="flex-grow-2 button-container"><a class="btn btn-success text-nowrap " href="/Profile/DownloadStats" role="button"><img class="fa-solid fa-download mr-2"></img>Download Stats</a></div></div>                            <span class="text-muted pull-right">* Only you can see these stats unless you make them public in your user settings</span>
                 <div class="card border-success full-width">
                     <div class="card-body overflow-auto">
                         <table class="w-100">
                             <tr>
                                 <td>
-                                    <h4 class="text-success" style="white-space: nowrap">Aktuelle Statistiken</h4>
+                                    <h4 class="text-success" style="white-space: nowrap">Current Stats</h4>
                                 </td>
                                 <td class="pb-1">
                                     <span class="text-muted ml-2" style="white-space: nowrap">k0shiii</span>
@@ -1581,32 +1583,32 @@
                         <table class="table nowrap compact compact-override">
                             <thead>
                             <tr>
-                                <th data-toggle="tooltip" title="Gespielte Spiele">GP</th>
-                                <th data-toggle="tooltip" title="Gewonnene Spiele">GW</th>
-                                <th data-toggle="tooltip" title="Verlorene Spiele">GL</th>
-                                <th data-toggle="tooltip" title="Spiel-Differenz = (GW - GL)">GD</th>
-                                <th data-toggle="tooltip" title="Game Win Prozentsatz">GW%</th>
-                                <th data-toggle="tooltip" title="Gespielte Matches">MP</th>
-                                <th data-toggle="tooltip" title="Gewonnene Matches">MW</th>
-                                <th data-toggle="tooltip" title="Verlorene Matches">ML</th>
-                                <th data-toggle="tooltip" title="Match-Differenz = (MW - ML)">MD</th>
-                                <th data-toggle="tooltip" title="Prozentsatz der gewonnenen Matches">MW%</th>
-                                <th data-toggle="tooltip" title="Siegesspanne = ((GW - GL) / GP)">MoV</th>
+                                <th data-toggle="tooltip" title="Games Played">GP</th>
+                                <th data-toggle="tooltip" title="Games Won">GW</th>
+                                <th data-toggle="tooltip" title="Games Lost">GL</th>
+                                <th data-toggle="tooltip" title="Game Differential = (GW - GL)">GD</th>
+                                <th data-toggle="tooltip" title="Game Win Percentage">GW%</th>
+                                <th data-toggle="tooltip" title="Matches Played">MP</th>
+                                <th data-toggle="tooltip" title="Matches Won">MW</th>
+                                <th data-toggle="tooltip" title="Matches Lost">ML</th>
+                                <th data-toggle="tooltip" title="Match Differential = (MW - ML)">MD</th>
+                                <th data-toggle="tooltip" title="Match Win Percentage">MW%</th>
+                                <th data-toggle="tooltip" title="Margin of Victory = ((GW - GL) / GP)">MoV</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td data-toggle="tooltip" title="Gespielte Spiele">0</td>
-                                <td data-toggle="tooltip" title="Gewonnene Spiele">0</td>
-                                <td data-toggle="tooltip" title="Verlorene Spiele">0</td>
-                                <td data-toggle="tooltip" title="Spiel-Differenz = (GW - GL)">0</td>
-                                <td data-toggle="tooltip" title="Game Win Prozentsatz">0 %</td>
-                                <td data-toggle="tooltip" title="Gespielte Matches">0</td>
-                                <td data-toggle="tooltip" title="Gewonnene Matches">0</td>
-                                <td data-toggle="tooltip" title="Verlorene Matches">0</td>
-                                <td data-toggle="tooltip" title="Match-Differenz = (MW - ML)">0</td>
-                                <td data-toggle="tooltip" title="Prozentsatz der gewonnenen Matches">0 %</td>
-                                <td data-toggle="tooltip" title="Siegesspanne = ((GW - GL) / GP)">0 %</td>
+                                <td data-toggle="tooltip" title="Games Played">0</td>
+                                <td data-toggle="tooltip" title="Games Won">0</td>
+                                <td data-toggle="tooltip" title="Games Lost">0</td>
+                                <td data-toggle="tooltip" title="Game Differential = (GW - GL)">0</td>
+                                <td data-toggle="tooltip" title="Game Win Percentage">0%</td>
+                                <td data-toggle="tooltip" title="Matches Played">0</td>
+                                <td data-toggle="tooltip" title="Matches Won">0</td>
+                                <td data-toggle="tooltip" title="Matches Lost">0</td>
+                                <td data-toggle="tooltip" title="Match Differential = (MW - ML)">0</td>
+                                <td data-toggle="tooltip" title="Match Win Percentage">0%</td>
+                                <td data-toggle="tooltip" title="Margin of Victory = ((GW - GL) / GP)">0%</td>
                             </tr>
                             </tbody>
                         </table>
@@ -1615,7 +1617,7 @@
             </div>
 
             <div class="mt-6">
-                <div class="d-flex flex-column flex-md-row "><div class="flex-grow-1"><h4 class="text-info">Frühere Ergebnisse</h4></div><div class="flex-grow-2 button-container"></div></div>        <table class="table dataTable display full-width    " id="tournament-results-table"></table>
+                <div class="d-flex flex-column flex-md-row "><div class="flex-grow-1"><h4 class="text-info">Past Results</h4></div><div class="flex-grow-2 button-container"></div></div>        <table class="table dataTable display full-width    " id="tournament-results-table"></table>
             </div>
         </div>
 
@@ -1631,21 +1633,21 @@
 
         <script id="result-header-row-template" type="x-tmpl-mustache">
             <tr class="header-row">
-                <td colspan="4">PAIRINGS<a class="pull-right" href="/Tournament/View/{{tournamentId}}#pairings">Alle anzeigen</a></td>
+                <td colspan="4">PAIRINGS<a class="pull-right" href="/Tournament/View/{{tournamentId}}#pairings">View All</a></td>
             </tr>
         </script>
 
         <script id="standings-row-template" type="x-tmpl-mustache">
             <tr class="result-row">
-                <td><div>Rang:</div>{{rank}}</td>
-                <td><div>Punkte:</div>{{points}}</td>
-                <td colspan="2"><div>Tiebreaker:</div>OMWP: {{tiebreaker1}} | TGWP: {{tiebreaker2}} | OGWP: {{tiebreaker3}}</td>
+                <td><div>Rank:</div>{{rank}}</td>
+                <td><div>Points:</div>{{points}}</td>
+                <td colspan="2"><div>Tiebreakers:</div>OMWP: {{tiebreaker1}} | TGWP: {{tiebreaker2}} | OGWP: {{tiebreaker3}}</td>
             </tr>
         </script>
 
         <script id="standings-header-row-template" type="x-tmpl-mustache">
             <tr class="header-row">
-                <td colspan="4">AKTUELLER RANG<a class="pull-right" href="/Tournament/View/{{tournamentId}}#standings">Alle anzeigen</a></td>
+                <td colspan="4">CURRENT STANDING<a class="pull-right" href="/Tournament/View/{{tournamentId}}#standings">View All</a></td>
             </tr>
         </script>
     </div>
@@ -1672,22 +1674,22 @@
         let tournamentResultsDataTable = $tournamentResultsTable.DataTable(Flattsware.dataTables.defaultOptions(
             '9e2e3d6f-1b1b-4913-ae8f-2d464db7b737',
             `/Profile/GetResults/${userName}`,
-            'Ergebnisse',
+            'results',
             [
-                Flattsware.dataTables.calendarColumn('TournamentStartDate', 'Datum', false, true, true),
-                Flattsware.dataTables.column('TournamentName', 'Turnier', true, true, true, (data, type, row) => {
+                Flattsware.dataTables.calendarColumn('TournamentStartDate', 'Date', false, true, true),
+                Flattsware.dataTables.column('TournamentName', 'Tournament', true, true, true, (data, type, row) => {
                     return `<a data-toggle="hovercard" data-id="${row.TournamentId}" data-type="tournament" href="/Tournament/View/${row.TournamentId}">${data} <i class="fas fa-info-circle fa-fw"></i></a>`
                 }),
-                Flattsware.dataTables.column('Game', 'Spiel', false, true, true, (data, type, row) => {
+                Flattsware.dataTables.column('Game', 'Game', false, true, true, (data, type, row) => {
                     return row.GameDescription
                 }),
-                Flattsware.dataTables.column('DecklistId', 'Deckliste', false, false, true, (data, type, row) => {
+                Flattsware.dataTables.column('DecklistId', 'Decklist', false, false, true, (data, type, row) => {
                     if (!data) return null;
 
                     return `<a data-toggle="hovercard" data-id="${row.DecklistId}" data-type="decklist" href="/Decklist/View/${row.DecklistId}">${row.DecklistName} <i class="fas fa-info-circle fa-fw"></i> </a>`
                 }),
-                Flattsware.dataTables.column('Rank', 'Rang', false, true, true),
-                Flattsware.dataTables.column('Record', 'Ergebnisse', false, false, true),
+                Flattsware.dataTables.column('Rank', 'Rank', false, true, true),
+                Flattsware.dataTables.column('Record', 'Record', false, false, true),
                 Flattsware.dataTables.column('Format', 'Format', false, true, true, (data, type, row) => {
                     return row.FormatDescription
                 }),
@@ -1704,7 +1706,7 @@
     <div class="container pt-5">
         <div class="row">
             <div class="footer-column col-12 col-md-6 col-lg-3 text-center">
-                <h6>Folge uns</h6>
+                <h6>Follow Us</h6>
                 <div class="m-2">
                     <a class="text-facebook" target="_blank" rel="nofollow noopener noreferrer" href="https://www.facebook.com/Melee.gg">
                         <span class="fa-brands fa-2x fa-facebook"></span>
@@ -1718,30 +1720,30 @@
                 </div>
             </div>
             <div class="footer-column col-12 col-md-6 col-lg-3">
-                <h6>Turniere</h6>
+                <h6>Tournaments</h6>
                 <div>
-                    <a class="footer-link" href="/Tournament/Index">Turniere</a>
-                    <a class="footer-link" href="/Organization/Create">Veranstalter werden</a>
-                    <a class="footer-link" href="/Decklists">Decklisten</a>
+                    <a class="footer-link" href="/Tournament/Index">Tournaments</a>
+                    <a class="footer-link" href="/Organization/Create">Become an Organizer</a>
+                    <a class="footer-link" href="/Decklists">Decklists</a>
                 </div>
             </div>
             <div class="footer-column col-12 col-md-6 col-lg-3">
-                <h6>Hilfreiche Links</h6>
+                <h6>Helpful Links</h6>
                 <div>
-                    <a class="footer-link" href="https://help.melee.gg">Dokumentation und Leitfäden</a>
-                    <a class="footer-link" href="https://help.melee.gg/docs/faq/">Häufig gestellte Fragen</a>
-                    <a class="footer-link" href="/Policy/Payments">Teilnahmegebühren und Zahlungen</a>
-                    <a class="footer-link" href="/Policy/SLA">Dienstleistungsvereinbarung</a>
-                    <a class="footer-link" href="/swagger">Daten-API</a>
+                    <a class="footer-link" href="https://help.melee.gg">Documentation and Guides</a>
+                    <a class="footer-link" href="https://help.melee.gg/docs/faq/">Frequently Asked Questions</a>
+                    <a class="footer-link" href="/Policy/Payments">Entry Fees and Payments</a>
+                    <a class="footer-link" href="/Policy/SLA">Service Level Agreements</a>
+                    <a class="footer-link" href="/swagger">Data API</a>
                 </div>
             </div>
             <div class="footer-column col-12 col-md-6 col-lg-3">
                 <h6>Melee</h6>
                 <div>
-                    <a class="footer-link" href="https://help.melee.gg/docs/contact-melee/">Kontakt</a>
-                    <a class="footer-link" href="/Home/WhatsNew">Was neu ist</a>
-                    <a class="footer-link" href="/Home/About">Über uns</a>
-                    <a class="footer-link" href="/Home/Careers">Karriere und Möglichkeiten</a>
+                    <a class="footer-link" href="https://help.melee.gg/docs/contact-melee/">Contact</a>
+                    <a class="footer-link" href="/Home/WhatsNew">What's New</a>
+                    <a class="footer-link" href="/Home/About">About Us</a>
+                    <a class="footer-link" href="/Home/Careers">Careers and Opportunities</a>
                 </div>
             </div>
         </div>
@@ -1750,27 +1752,27 @@
     <div class="footer-corp">
         <img width="40" height="54" src="/images/keyrune-logo.png"/>
         <span>
-        Alle Originalinhalte auf dieser Seite stammen von &copy; 2019-2026 Keyrune Incorporated, seinen Lizenzgebern oder seinen Partnern und dürfen ohne ausdrückliche Genehmigung nicht verwendet oder reproduziert werden. Alle Marken sind Eigentum ihrer jeweiligen Inhaber. v0.3.62.22
+        All original content on this page is &copy; 2019-2026 Keyrune Incorporated, its licensors, or its partners and may not be used or reproduced without explicit permission. All trademarks are the property of their respective owners. v0.3.62.22
     </span>
     </div>
 
     <div class="footer-legal">
-        <span>Rechtliche Informationen</span>
+        <span>Legal Information</span>
         <div class="legal-links">
-            <a class="privacy-policy-button" href="/Policy/Privacy">Datenschutzerklärung</a>
+            <a class="privacy-policy-button" href="/Policy/Privacy">Privacy Policy</a>
             <a class="d-none d-md-block">|</a>
-            <a href="/Policy/Terms">Nutzungsbedingungen</a>
+            <a href="/Policy/Terms">Terms of Service</a>
             <a class="d-none d-md-block">|</a>
             <a href="/Policy/Cookies">Cookies Policy</a>
             <a class="d-none d-md-block">|</a>
-            <a href="#" class="cookie-settings-link" data-return-url="/Profile/Index/k0shiii">Cookie-Einstellungen</a>
+            <a href="#" class="cookie-settings-link" data-return-url="/Profile/Index/k0shiii">Cookies Settings</a>
             <a class="d-none d-md-block">|</a>
-            <a href="/Policy/SubmitPrivacyReport">Melden Sie unbefugte Datenfreigabe</a>
+            <a href="/Policy/SubmitPrivacyReport">Report Unauthorized Data Sharing</a>
         </div>
     </div>
 
-    <script src="/Scripts/Views/Account/account.universal.actions.min.js?v=0.3.62.22&lg=de"></script>
-    <link href="/Content/Views/Account/add-organization.min.css?v=0.3.62.22&lg=de" rel="stylesheet"/>
+    <script src="/Scripts/Views/Account/account.universal.actions.min.js?v=0.3.62.22&lg=en"></script>
+    <link href="/Content/Views/Account/add-organization.min.css?v=0.3.62.22&lg=en" rel="stylesheet"/>
 
 
     <div id="add-org-form-modal" class="modal fade" role="dialog" aria-hidden="true">
@@ -1784,11 +1786,11 @@
                         </button>
                     </div>
                     <div id="add-org-form-modal-body" class="modal-body add-org-modal-body">
-                        <input name="__RequestVerificationToken" type="hidden" value="****" />
+                        <input name="__RequestVerificationToken" type="hidden" value="3xaHWjyo2G2GH7Uro3JOhc_8PZLOp5l5zQ5LrlBr9OwXYEJDqHekSbXqH4NedzSE2wg05YDrkrpnHpE7j8S_drnr_23tg6KmyYmlVPrEEHS7EyDI7gacLx-FWM3PEKstDBLjag2" />
                         <div class="col-sm-12 col-md-12 col-lg-12 p-0 m-0">
                             <div class="text-muted">Create private tournaments for your friends or open enrollment to thousands of Melee users!</div>
                             <div class="pt-8px col-sm-12 col-md-12 col-lg-12 pl-0">
-                                <span class="pb-4px" for="Name">Name der Organisation</span><span class="pl-1 text-danger font-size-sm font-italic" title="erforderlich">*</span>
+                                <span class="pb-4px" for="Name">Organization Name</span><span class="pl-1 text-danger font-size-sm font-italic" title="required">*</span>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-12 pl-0 pt-2px pr-0">
                                 <input type="text" class="form-control text-box single-line" data-val="true" data-val-required="The Organization Name field is required." id="add-org-organization-name" required="required" name="Name" value=""
@@ -1796,7 +1798,7 @@
                                 <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
                             </div>
                             <div class="pt-12px col-sm-12 col-md-12 col-lg-12 pl-0 ">
-                                <span class="pb-4px" for="ContactEmail">Kontakt E-Mail</span><span class="pl-1 text-danger font-size-sm font-italic" title="erforderlich">*</span>
+                                <span class="pb-4px" for="ContactEmail">Contact Email</span><span class="pl-1 text-danger font-size-sm font-italic" title="required">*</span>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-12 pl-0 pt-2px pr-0">
                                 <input type="email" class="form-control text-box single-line" data-val="true" data-val-required="The Contact Email field is required." id="add-org-organization-email" name="ContactEmail" value="" required="required">
@@ -1810,14 +1812,14 @@
                                     <div class="">
                                         <input type="checkbox" class="data-tables-editable-checkbox" value="true" id="add-org-organization-marketing" name="OrganizerMarketing" checked>
                                     </div>
-                                    <div class="flex-fill pl-8px">Auswählen, um E-Mails von Melee über zukünftige Updates und neue Features zu erhalten</div>
+                                    <div class="flex-fill pl-8px">Opt-in to receive emails from Melee about future updates and new features</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
-                        <button id="add-org-cancel-button" type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fa-solid fa-arrow-left mr-2"></i>Abbrechen</button>
-                        <a id="add-org-apply-button" type="button" class="organization-apply-button btn text-nowrap btn-warning" href="#">Bewerbung absenden</a>
+                        <button id="add-org-cancel-button" type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fa-solid fa-arrow-left mr-2"></i>Cancel</button>
+                        <a id="add-org-apply-button" type="button" class="organization-apply-button btn text-nowrap btn-warning" href="#">Submit Application</a>
                     </div>
                 </form>
             </div>
@@ -1835,13 +1837,13 @@
         <div class="modal-content">
             <div id="confirmation-modal-body" class="modal-body text-center">
                 <p id="confirmation-modal-confirmation-field">
-                    <i id="confirmation-modal-danger-icon" class="fa-solid fa-exclamation-circle mr-2"></i>Sind Sie sicher?
+                    <i id="confirmation-modal-danger-icon" class="fa-solid fa-exclamation-circle mr-2"></i>Are you sure?
                 </p>
                 <div id="confirmation-modal-message-field"></div>
             </div>
             <div class="modal-footer d-flex justify-content-between">
-                <button id="confirmation-modal-close-button" type="button" class="btn text-nowrap btn-outline-secondary"><i class="fa-solid fa-arrow-left mr-2"></i>Abbrechen</button>
-                <button id="confirmation-modal-submit-button" type="button" class="btn text-nowrap">Bestätigen</button>
+                <button id="confirmation-modal-close-button" type="button" class="btn text-nowrap btn-outline-secondary"><i class="fa-solid fa-arrow-left mr-2"></i>Cancel</button>
+                <button id="confirmation-modal-submit-button" type="button" class="btn text-nowrap">Confirm</button>
             </div>
         </div>
     </div>
@@ -1855,15 +1857,15 @@
                 <input id="submission-modal-value-field" class="form-control"/>
             </div>
             <div class="modal-footer d-flex justify-content-between">
-                <button id="submission-modal-close-button" type="button" class="btn text-nowrap btn-outline-secondary"><i class="fa-solid fa-arrow-left mr-2"></i>Abbrechen</button>
-                <button id="submission-modal-submit-button" type="button" class="btn text-nowrap">Senden</button>
+                <button id="submission-modal-close-button" type="button" class="btn text-nowrap btn-outline-secondary"><i class="fa-solid fa-arrow-left mr-2"></i>Cancel</button>
+                <button id="submission-modal-submit-button" type="button" class="btn text-nowrap">Submit</button>
             </div>
         </div>
     </div>
 </div>
 
-<div id="popup-form-modal" class="modal fade" tabindex="-1" role="dialog"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><div class="modal-header"><h5 id="popup-form-modal-title" class="modal-title">-</h5> <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Schließen"><span aria-hidden="true">&times;</span></button></div><div id="popup-form-modal-body" class="modal-body"></div></div></div></div>
-<div id="audit-logging-modal" class="modal fade" tabindex="-1" role="dialog"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><div class="modal-header"><h5 id="audit-logging-modal-title" class="modal-title">Audit Logs</h5> <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Schließen"><span aria-hidden="true">&times;</span></button></div><div id="audit-logging-modal-body" class="modal-body"></div></div></div></div>
+<div id="popup-form-modal" class="modal fade" tabindex="-1" role="dialog"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><div class="modal-header"><h5 id="popup-form-modal-title" class="modal-title">-</h5> <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div id="popup-form-modal-body" class="modal-body"></div></div></div></div>
+<div id="audit-logging-modal" class="modal fade" tabindex="-1" role="dialog"><div class="modal-dialog modal-xl" role="document"><div class="modal-content"><div class="modal-header"><h5 id="audit-logging-modal-title" class="modal-title">Audit Logs</h5> <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div id="audit-logging-modal-body" class="modal-body"></div></div></div></div>
 <div id="site-persistent-notification-modal" class="modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -1878,11 +1880,11 @@
                 <hr class="modal-divider my-3"/>
                 <div id="site-persistent-notification-modal-content-buttons" class="d-flex flex-row flex-gap-1 w-100">
                     <div class="gateway-button-help-links flex-grow-1 my-auto">
-                        <a class="my-auto" href="https://discord.melee.gg/">Holen Sie sich Hilfe über Discord</a>
+                        <a class="my-auto" href="https://discord.melee.gg/">Get help via Discord</a>
                         &bullet;
-                        <a class="my-auto" href="mailto:contact@melee.gg">Hilfe per E-Mail erhalten</a>
+                        <a class="my-auto" href="mailto:contact@melee.gg">Get help via email</a>
                     </div>
-                    <a type="button" class="btn btn-outline-warning" href="https://help.melee.gg">Mehr erfahren</a>
+                    <a type="button" class="btn btn-outline-warning" href="https://help.melee.gg">Learn More</a>
                 </div>
             </div>
         </div>

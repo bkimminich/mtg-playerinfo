@@ -16,6 +16,8 @@ class MeleeFetcher {
   parseHtml(html, url, username) {
     const $ = cheerio.load(html);
     const name = $('span[style*="font-size: xx-large"]').first().text().trim() || username;
+    const pronouns = $('.profile-details span.text-muted.mr-2').filter((i, el) => $(el).text().includes('/')).first().text().trim();
+    const bio = $('.profile-details div[style*="max-width: 75%"]').first().text().trim();
     // FIXME Photos cannot be loaded with unauthenticated requests from Melee.gg
     // const photo = $('.profile-button-column img').first().attr('src') || $('img.m-auto').attr('src');
 
@@ -23,9 +25,37 @@ class MeleeFetcher {
       source: 'Melee',
       url,
       name,
-      // photo: photo ? (photo.startsWith('http') ? photo : `https://melee.gg${photo}`) : null,
-      details: { }
+      pronouns: pronouns || null,
+      bio: bio || null,
+      // photo: photo ? (photo.startsWith('http') ? photo : `https://melee.gg${photo}`) : null
     };
+
+    $('.social-link').each((i, el) => {
+      const href = $(el).attr('href');
+      if (href) {
+        try {
+          const urlObj = new URL(href);
+          const platform = urlObj.hostname.replace('www.', '').split('.')[0];
+          let handle = urlObj.pathname.split('/').filter(Boolean).pop();
+          if (handle) {
+            handle = decodeURIComponent(handle);
+          }
+          if (platform === 'youtube' && handle.startsWith('@')) {
+            // keep @ for youtube
+          } else if (platform === 'facebook') {
+            // handle is correct
+          } else if (platform === 'twitch') {
+            // handle is correct
+          }
+          if (handle) {
+            const label = platform.charAt(0).toLowerCase() + platform.slice(1);
+            data[label] = handle;
+          }
+        } catch (e) {
+          // ignore invalid URLs
+        }
+      }
+    });
 
     return data;
   }

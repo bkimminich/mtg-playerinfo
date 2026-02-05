@@ -27,8 +27,6 @@ class PlayerInfoManager {
 
   mergeData(results) {
     const player = {
-      name: null,
-      photo: null,
       general: {},
       sources: {}
     };
@@ -41,33 +39,32 @@ class PlayerInfoManager {
       if (seenUrls.has(res.url)) return;
       seenUrls.add(res.url);
 
-      if (!player.name && res.name) player.name = res.name;
-      if (!player.photo && res.photo) player.photo = res.photo;
+      const generalProps = ['name', 'photo', 'age', 'bio', 'team', 'country', 'hometown', 'pronouns', 'facebook', 'twitch', 'youtube'];
+      generalProps.forEach(prop => {
+        if (res[prop] && !player.general[prop]) {
+          player.general[prop] = res[prop];
+        }
+      });
 
-      if (res.details) {
-        if (res.details.Age && !player.general.Age) player.general.Age = res.details.Age;
-        if (res.details.Bio && !player.general.Bio) player.general.Bio = res.details.Bio;
-        if (res.details.Team && !player.general.Team) player.general.Team = res.details.Team;
-        if (res.details.Country && !player.general.Country) player.general.Country = res.details.Country;
-        if (res.details.Hometown && !player.general.Hometown) player.general.Hometown = res.details.Hometown;
-
-        const winRateStr = res.details['Win Rate'] || res.details.winRate;
-        if (winRateStr && typeof winRateStr === 'string') {
-          const winRate = parseFloat(winRateStr.replace('%', ''));
-          if (!isNaN(winRate)) {
-            winRates.push(winRate);
-          }
+      const winRateStr = res['win rate'] || res.winRate;
+      if (winRateStr && typeof winRateStr === 'string') {
+        const winRate = parseFloat(winRateStr.replace('%', ''));
+        if (!isNaN(winRate)) {
+          winRates.push(winRate);
         }
       }
 
-      const sourceData = { ...res.details };
-      if (res.source === 'Unity League') {
-        delete sourceData.Age;
-        delete sourceData.Bio;
-        delete sourceData.Hometown;
-        delete sourceData.Team;
-        delete sourceData.Country;
-      }
+      const sourceData = { ...res };
+      delete sourceData.source;
+      delete sourceData.url;
+      delete sourceData.name;
+      delete sourceData.photo;
+
+      generalProps.forEach(prop => {
+        if (player.general[prop] === res[prop]) {
+          delete sourceData[prop];
+        }
+      });
 
       player.sources[res.source] = {
         url: res.url,
@@ -77,7 +74,7 @@ class PlayerInfoManager {
 
     if (winRates.length > 0) {
       const avgWinRate = winRates.reduce((a, b) => a + b, 0) / winRates.length;
-      player.general['Win Rate'] = avgWinRate.toFixed(2) + '%';
+      player.general['win rate'] = avgWinRate.toFixed(2) + '%';
     }
 
     return player;

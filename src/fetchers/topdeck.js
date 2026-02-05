@@ -37,15 +37,15 @@ class TopdeckFetcher {
               });
 
               if (totalTournaments > 0) {
-                playerInfo.details['Tournaments'] = totalTournaments.toString();
-                playerInfo.details['Record'] = `${wins}-${losses}-${draws}`;
-                playerInfo.details['Win Rate'] = ((wins / (wins + losses + draws)) * 100).toFixed(2) + '%';
+                playerInfo['tournaments'] = totalTournaments.toString();
+                playerInfo['record'] = `${wins}-${losses}-${draws}`;
+                playerInfo['win rate'] = ((wins / (wins + losses + draws)) * 100).toFixed(2) + '%';
               }
             } else {
-              playerInfo.details['Tournaments'] = stats.totalTournaments || playerInfo.details['Tournaments'] || '0';
-              playerInfo.details['Record'] = stats.overallRecord || playerInfo.details['Record'] || '0-0-0';
-              playerInfo.details['Win Rate'] = stats.overallWinRate || playerInfo.details['Win Rate'] || '0.00%';
-              playerInfo.details['Conversion'] = stats.conversionRate || playerInfo.details['Conversion'] || '0.00%';
+              playerInfo['tournaments'] = stats.totalTournaments || playerInfo['tournaments'] || '0';
+              playerInfo['record'] = stats.overallRecord || playerInfo['record'] || '0-0-0';
+              playerInfo['win rate'] = stats.overallWinRate || playerInfo['win rate'] || '0.00%';
+              playerInfo['conversion'] = stats.conversionRate || playerInfo['conversion'] || '0.00%';
             }
           }
         } catch (statsError) {
@@ -69,31 +69,31 @@ class TopdeckFetcher {
       source: 'Topdeck',
       url,
       name,
-      photo: photo ? (photo.startsWith('http') ? photo : `https://topdeck.gg${photo}`) : null,
-      details: { }
+      photo: photo ? (photo.startsWith('http') ? photo : `https://topdeck.gg${photo}`) : null
     };
 
     const statsMap = {
-      'totalTournaments': 'Tournaments',
-      'overallRecord': 'Record',
-      'overallWinRate': 'Win Rate',
-      'conversionRate': 'Conversion'
+      'totalTournaments': 'tournaments',
+      'overallRecord': 'record',
+      'overallWinRate': 'win rate',
+      'conversionRate': 'conversion'
     };
 
     Object.entries(statsMap).forEach(([id, label]) => {
       const val = $(`#${id}`).text().trim();
       if (val) {
-        data.details[label] = val;
+        data[label] = val;
       }
     });
 
-    if (Object.keys(data.details).length === 1) {
+    const currentStats = Object.keys(data).filter(k => Object.values(statsMap).includes(k));
+    if (currentStats.length <= 1) {
       $('.stats-container, .player-stats').each((i, el) => {
         $(el).find('.stat').each((j, statEl) => {
-          const label = $(statEl).find('.label').text().trim();
+          const label = $(statEl).find('.label').text().trim().toLowerCase();
           const value = $(statEl).find('.value').text().trim();
           if (label && value) {
-            data.details[label] = value;
+            data[label] = value;
           }
         });
       });

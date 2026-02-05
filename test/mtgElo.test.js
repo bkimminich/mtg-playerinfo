@@ -20,14 +20,12 @@ test('MtgEloFetcher.parseHtml extracts name and details including computed Win R
   assert.ok(result, 'Should return a result object');
   assert.equal(result.source, 'MTG Elo Project');
   assert.equal(result.url, url);
-  assert.ok(result.name && result.name.length > 0);
-
-  assert.ok(result.details);
-  assert.equal(result.details.player_id, id);
-  if (result.details.record) {
-    assert.match(result.details.record, /^\d+-\d+(-\d+)?$/);
+  assert.equal(result.name, 'Bjoern Kimminich');
+  assert.equal(result.player_id, id);
+  if (result.record) {
+    assert.match(result.record, /^\d+-\d+(-\d+)?$/);
   }
-  if (result.details['Win Rate']) {
-    assert.match(result.details['Win Rate'], /^\d+(\.\d+)?%$/);
+  if (result['win rate']) {
+    assert.match(result['win rate'], /^\d+(\.\d+)?%$/);
   }
 });

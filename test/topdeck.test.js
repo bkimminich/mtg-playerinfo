@@ -20,21 +20,14 @@ test('TopdeckFetcher.parseHtml extracts stats from DOM when available', () => {
   assert.ok(result, 'Should return a result object');
   assert.equal(result.source, 'Topdeck');
   assert.equal(result.url, url);
-
-  // Name fallback to handle if not present
-  assert.ok(result.name && result.name.length > 0);
-
-  // Stats placeholders are present in the template and should be scraped if filled by server-side rendering
-  // Our fixture includes the IDs and may default to 0 values.
-  assert.ok(result.details && typeof result.details === 'object');
-  // Accept either filled numbers or defaults (0) depending on the fixture state
-  if (result.details['Tournaments']) {
-    assert.match(result.details['Tournaments'], /^\d+$/);
+  assert.equal(result.name, 'Björn Kimminich');
+  if (result['tournaments']) {
+    assert.match(result['tournaments'], /^\d+$/);
   }
-  if (result.details['Record']) {
-    assert.match(result.details['Record'], /^\d+-\d+-\d+$/);
+  if (result['record']) {
+    assert.match(result['record'], /^\d+-\d+-\d+$/);
   }
-  if (result.details['Win Rate']) {
-    assert.match(result.details['Win Rate'], /^\d+(\.\d+)?%$/);
+  if (result['win rate']) {
+    assert.match(result['win rate'], /^\d+(\.\d+)?%$/);
   }
 });

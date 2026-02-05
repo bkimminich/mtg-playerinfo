@@ -25,8 +25,7 @@ class UnityLeagueFetcher {
       source: 'Unity League',
       url,
       name,
-      photo: photo ? (photo.startsWith('http') ? photo : `https://unityleague.gg${photo}`) : null,
-      details: {}
+      photo: photo ? (photo.startsWith('http') ? photo : `https://unityleague.gg${photo}`) : null
     };
 
     const headerFlag = $('.card-body i.fi').first();
@@ -34,16 +33,16 @@ class UnityLeagueFetcher {
       const classes = headerFlag.attr('class').split(' ');
       const countryClass = classes.find(c => c.startsWith('fi-'));
       if (countryClass) {
-        data.details.Country = countryClass.replace('fi-', '');
+        data.country = countryClass.replace('fi-', '');
       }
     }
 
     $('dt.small.text-muted').each((i, el) => {
-      const key = $(el).text().trim().replace(/:$/, '');
+      const key = $(el).text().trim().replace(/:$/, '').toLowerCase();
       const dd = $(el).next('dd');
       let value = dd.text().trim();
 
-      if (key === 'Country') {
+      if (key === 'country') {
         const flagIcon = dd.find('i.fi');
         if (flagIcon.length > 0) {
           const classes = flagIcon.attr('class').split(' ');
@@ -54,12 +53,12 @@ class UnityLeagueFetcher {
         }
       }
 
-      data.details[key] = value;
+      data[key] = value;
     });
 
     const bioElement = $('.card-body > small.mt-2').first();
     if (bioElement.length > 0) {
-      data.details.Bio = bioElement.text().trim();
+      data.bio = bioElement.text().trim();
     }
 
     const rankingTable = $('table.table-sm').first();
@@ -72,7 +71,7 @@ class UnityLeagueFetcher {
           let val = values[i];
           val = val.replace(/\D/g, ''); // remove non-numeric characters to support #23->23, 1st->1, and 42nd->42 etc.
           if (val) {
-            data.details[`Rank ${header}`] = val;
+            data[`rank ${header.toLowerCase()}`] = val;
           }
         }
       });
@@ -88,8 +87,8 @@ class UnityLeagueFetcher {
       if (cells.length >= 3) {
         const record = $(cells[1]).text().trim().replace(/\s+/g, '');
         const winRate = $(cells[2]).text().trim();
-        data.details.Record = record;
-        data.details['Win Rate'] = winRate;
+        data.record = record;
+        data['win rate'] = winRate;
       }
     }
 
