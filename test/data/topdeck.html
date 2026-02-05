@@ -1,0 +1,664 @@
+
+<meta name="player-id" content="****"/><!DOCTYPE html><html lang="en" data-bs-theme="dark"><head><meta charset="utf-8"><title>Björn Kimminich - Profile</title><!-- SEO Meta Tags--><meta name="description" content="Björn Kimminich's tournament profile and stats"><meta name="keywords" content="magic, magic the gathering, cedh, edh, competitive, commander, events, tournament, software, pairing software"><meta name="author" content="Zain Nayer"><!-- Viewport--><meta name="viewport" content="width=device-width, initial-scale=1"><!-- PWA meta tags--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="TopDeck.gg"><!-- Font Awesome - Async load to prevent render blocking--><link rel="preconnect" href="https://kit.fontawesome.com" crossorigin><link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin><script src="https://kit.fontawesome.com/3df2a3da01.js" crossorigin="anonymous" async></script><!-- Manifest--><link rel="manifest" href="/manifest.json"><!-- Apple App Store Banner--><meta name="apple-itunes-app" content="app-id=6581480935"><!-- Favicon and Touch Icons--><link rel="apple-touch-icon" sizes="192x192" href="/icons/192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/topdeck-favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/topdeck-favicon/favicon-16x16.png"><!-- Meta Tags Media--><meta name="theme-color" content="#6ca6ea"><meta name="og:title" content="Björn Kimminich - Profile"><meta name="og:description" content="Björn Kimminich's tournament profile and stats"><meta property="og:image" content="https://imagedelivery.net/kN_u_RUfFF6xsGMKYWhO1g/aa6d70ad-de73-4c09-a4d7-1e64d5ed6d00/cover"><meta name="twitter:title" content="Björn Kimminich - Profile"><meta property="twitter:image" content="https://imagedelivery.net/kN_u_RUfFF6xsGMKYWhO1g/aa6d70ad-de73-4c09-a4d7-1e64d5ed6d00/cover"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@TopDeckGG_"><!-- Global site tag (gtag.js) - Google Analytics--><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-56527VG23P"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-56527VG23P');
+</script><!-- Scroll Bar--><style>::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #6ca6ea !important;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #355072 !important;
+}</style><style>.notification-item {
+    cursor: pointer;
+}
+</style><!-- Page loading styles--><style>.page-loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all .4s .2s ease-in-out;
+    transition: all .4s .2s ease-in-out;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9999;
+}
+.page-loading.active {
+    opacity: 1;
+    visibility: visible;
+}
+.page-loading-inner {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+    opacity: 0;
+}
+.page-loading.active > .page-loading-inner {
+    opacity: 1;
+}
+.page-loading-inner > span {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #737491;
+}
+.page-spinner {
+    display: inline-block;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-bottom: .75rem;
+    vertical-align: text-bottom;
+    border: .15em solid #6ca6ea;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: spinner .75s linear infinite;
+    animation: spinner .75s linear infinite;
+}
+@-webkit-keyframes spinner {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spinner {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+</style><!-- Page loading scripts--><script>(function () {
+    window.onload = function () {
+        var preloader = document.querySelector('.page-loading');
+        preloader.classList.remove('active');
+    };
+})();
+</script><!-- Vendor Styles--><link rel="stylesheet" media="screen" href="/vendor/simplebar/dist/simplebar.min.css"/><!-- Custom Styles--><!-- Main Theme Styles + Bootstrap--><link rel="stylesheet" media="screen" href="/css/theme.min.css?v2.2"><link rel="stylesheet" href="/css/etemplate.css?v1.1"><!-- Enhancement layer (loads after theme to override)--><!-- Firebase--><script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js" defer data-cfasync="false"></script><script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js" defer data-cfasync="false"></script><script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js" defer data-cfasync="false"></script><script src="/js/cookie.js" defer data-cfasync="false"></script><!-- Moment - Deferred to prevent blocking--><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script><!-- Jquery - Conditionally deferred on Event Hub only--><script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script><!-- Notyf--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"><script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js" defer></script></head><!-- Body--><body style="background-color:#0a0e17;"><!-- Page loading spinner--><div class="page-loading active"><div class="page-loading-inner"><div class="page-spinner"></div><span>Loading...</span></div></div><div class="offcanvas offcanvas-end" id="notificationOffcanvas" tabindex="-1"><div class="offcanvas-header"><h5 class="offcanvas-title">Notifications</h5><button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body"></div></div><main class="page-wrapper"><!-- Sign In Modal--><div class="modal fade" id="modal-signin" tabindex="-1"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content border-0"><div class="view show" id="modal-signin-view"><div class="modal-header border-0 bg-primary px-4"><h4 class="modal-title text-light">Sign in</h4><button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="btn-close "></button></div><div class="modal-body px-4 bg-dark"><form class="needs-validation" id="LoginForm" novalidate><div class="mb-3"><div class="input-group"><i class="ai-mail position-absolute top-50 start-0 translate-middle-y ms-3"></i><input class="form-control rounded" id="loginEmail" type="email" placeholder="Email" required></div></div><div class="mb-3"><div class="input-group"><i class="ai-lock position-absolute top-50 start-0 translate-middle-y ms-3"></i><div class="password-toggle w-100"><input class="form-control" id="loginPassword" type="password" placeholder="Password" required><label class="password-toggle-btn" aria-label="Show/hide password"><input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span></label></div></div></div><div class="d-flex justify-content-between align-items-center mb-3 mb-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="keep-signed"><label class="form-check-label fs-sm" for="keep-signed">Keep me signed in</label></div><a class="nav-link-style fs-ms" href="/forgot-password">Forgot password?</a></div><button class="btn btn-primary d-block w-100" id="loginSubmit" type="submit">Sign in</button><p class="fs-sm pt-3 mb-0">Don't have an account? <a href='#' class='fw-medium' data-view='#modal-signup-view'>Sign up</a></p></form></div></div><div class="view" id="modal-signup-view"><div class="modal-header border-0 bg-primary px-4"><h4 class="modal-title text-light">Sign up</h4><button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="btn-close"></button></div><div class="modal-body px-4 bg-dark"><p class="fs-ms text-muted">Registration takes less than a minute!</p><form class="needs-validation" id="RegisterForm" novalidate><div class="mb-3"><input class="form-control" id="regName" type="text" placeholder="Full name" required></div><div class="mb-3"><input class="form-control" id="regEmail" type="email" placeholder="Email" required></div><div class="mb-3 password-toggle"><input class="form-control" id="regPass1" type="password" placeholder="Password" required><label class="password-toggle-btn" aria-label="Show/hide password"><input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span></label></div><div class="mb-3 password-toggle"><input class="form-control" id="regPass2" type="password" placeholder="Confirm password" required><label class="password-toggle-btn" aria-label="Show/hide password"><input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span></label></div><div class="mb-3 form-check"><input class="form-check-input" id="regAgree" type="checkbox" required><label class="form-check-label">I agree to the <a href="/privacy-policy" target="_blank">Privacy Policy </a>and <a href="/terms-and-conditions" target="_blank">Terms and Conditions</a></label></div><div class="mb-3 form-check"><input class="form-check-input" id="regNewsletter" type="checkbox" checked><label class="form-check-label">Subscribe to our <a href="https://newsletter.topdeck.gg/">monthly newsletter</a></label></div><button class="btn btn-primary d-block w-100" id="regSubmit" type="submit">Sign up</button><p class="text-danger fs-sm pt-1 mb-0" id="signup-error" style="display: none"></p><p class="fs-sm pt-3 mb-0">Already have an account? <a href='#' class='fw-medium' data-view='#modal-signin-view'>Sign in</a></p></form></div></div></div></div></div><script src="/js/account/login.js?v1.4"></script><!-- Navbar (Solid background)--><!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.--><header class="header navbar navbar-expand-lg navbar-light bg-dark navbar-sticky" data-scroll-header data-fixed-element><div class="container px-0 px-xl-3"><button class="navbar-toggler ms-n2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#primaryMenu"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4" href="/"><img class="d-none d-lg-block" src="/img/logo/TopDeckNoBorder.png" alt="TopDeck.gg" width="58"><img class="d-lg-none" src="/img/logo/TopDeckFullWhiteNS.png" alt="TopDeck.gg" width="150"></a><div class="d-flex align-items-center order-lg-3 ms-lg-auto"><button class="btn btn-link text-white p-0 position-relative" id="notificationDrawerToggle" data-bs-toggle="offcanvas" data-bs-target="#notificationOffcanvas"><i class="fa-solid fa-bell align-middle"></i><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary d-none" id="notificationBadge">0<span class="visually-hidden">unread notifications</span></span></button><div class="dropdown ms-3"><a class="nav-link-style position-relative d-flex align-items-center" href="#" data-bs-toggle="dropdown"><div class="position-relative" style="width: 32px; height: 32px;"><img class="rounded-circle w-100 h-100" src="https://imagedelivery.net/kN_u_RUfFF6xsGMKYWhO1g/2a7b8d12-5924-4a58-5f9c-c0bf55766800/square" style="object-fit: cover; background-color: #0a0e17;" alt="Profile"><div class="position-absolute" style="bottom: 0; right: 0; background-color: rgba(10, 14, 23, 0.9); width: 12px; height: 12px; border-radius: 50%; transform: translate(25%, 25%);"><i class="ai-chevron-down text-white position-absolute" style="font-size: .5rem; left: 50%; top: 50%; transform: translate(-50%, -50%);"></i></div></div></a><ul class="dropdown-menu dropdown-menu-end" style="width: 5rem;"><li><div class="dropdown-header fs-sm text-truncate">Björn Kimminich</div></li><li><a class="dropdown-item d-flex align-items-center" href="/profile"><i class="ai-user fs-base opacity-60 me-2"></i>Profile</a></li><li><a class="dropdown-item d-flex align-items-center" href="/account/events"><i class="ai-calendar fs-base opacity-60 me-2"></i>My Events</a></li><li><a class="dropdown-item d-flex align-items-center" href="/deck/deck-visualizer"><i class="fa-solid fa-layer-group fs-base opacity-60 me-2"></i>Deck Visualizer</a></li><li><a class="dropdown-item d-flex align-items-center" href="/account"><i class="ai-settings fs-base opacity-60 me-2"></i>Account</a></li><li class="dropdown-divider"></li><li><a class="dropdown-item d-flex align-items-center" href="/account/staff"><i class="fa-solid fa-staff fs-base opacity-60 me-2"></i>Staffed Events</a></li><li class="dropdown-divider"></li><li><button class="dropdown-item d-flex align-items-center" onclick="EndSession()"><i class="ai-log-out fs-base opacity-60 me-2"></i>Sign out</button></li></ul></div></div><script>const UID = "****";</script><script src="/js/notification-drawer.js?1.6" defer></script><div class="offcanvas offcanvas-collapse order-lg-2" id="primaryMenu"><div class="offcanvas-header navbar-shadow"><h5 class="mt-1 mb-0">Menu</h5><button class="btn-close btn-close-white lead" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body"><!-- Menu--><ul class="navbar-nav"><li class="nav-item dropdown dropdown-mega"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Events</a><div class="dropdown-menu"><div class="dropdown-column mb-0"><h5 class="dropdown-header">Browse Events</h5><a class="dropdown-item" href="/">All Events</a><a class="dropdown-item" href="/magic-the-gathering">Magic: The Gathering</a><a class="dropdown-item" href="/pokemon">Pokémon</a><a class="dropdown-item" href="/yu-gi-oh">Yu-Gi-Oh!</a><a class="dropdown-item" href="/one-piece">One Piece</a><a class="dropdown-item" href="/gundam">Gundam TCG</a><a class="dropdown-item" href="/star-wars-unlimited">Star Wars Unlimited</a><a class="dropdown-item" href="/disney-lorcana">Disney Lorcana</a></div><div class="dropdown-column mb-0"><h5 class="dropdown-header d-none d-lg-block">&nbsp;</h5><a class="dropdown-item" href="/riftbound">Riftbound</a><a class="dropdown-item" href="/marvel-snap">Marvel Snap</a><a class="dropdown-item" href="/naruto">Naruto Mythos TCG</a><a class="dropdown-item" href="/world-of-kylia">Hadrai'da Ascendant</a><a class="dropdown-item" href="/beyblade">Beyblade</a><a class="dropdown-item" href="/cardfight-vanguard">Cardfight Vanguard</a><a class="dropdown-item" href="/digimon">Digimon</a><a class="dropdown-item" href="/flesh-and-blood">Flesh and Blood</a></div><div class="dropdown-column mb-0"><h5 class="dropdown-header d-none d-lg-block">&nbsp;</h5><a class="dropdown-item" href="/shadowverse-evolve">Shadowverse: Evolve</a><a class="dropdown-item" href="/sorcery-contested-realm">Sorcery: Contested Realm</a><a class="dropdown-item" href="/altered">Altered</a><a class="dropdown-item" href="/rush-of-ikorr">Rush of Ikorr</a><a class="dropdown-item" href="/cookierun-braverse">CookieRun: Braverse</a><a class="dropdown-item" href="/lairen-la-historia">Lairen: La Historia</a><a class="dropdown-item" href="/settlers-of-catan">Settlers of Catan</a><a class="dropdown-item" href="/gudnak">Gudnak</a></div></div></li><li class="nav-item"><a class="nav-link" href="/subscribe">Subscribe</a></li><li class="nav-item"><a class="nav-link" href="/hubs">Find Stores</a></li><li class="nav-item dropdown dropdown-mega"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Leaderboards</a><div class="dropdown-menu"><div class="dropdown-column mb-2 mb-lg-0"><h5 class="dropdown-header">Magic: The Gathering</h5><a class="dropdown-item" href="/elo/magic-the-gathering/edh">EDH</a><a class="dropdown-item" href="/elo/magic-the-gathering/pauper-edh">Pauper EDH</a><a class="dropdown-item" href="/elo/magic-the-gathering/standard">Standard</a><a class="dropdown-item" href="/elo/magic-the-gathering/pioneer">Pioneer</a><a class="dropdown-item" href="/elo/magic-the-gathering/modern">Modern</a><a class="dropdown-item" href="/elo/magic-the-gathering/legacy">Legacy</a><a class="dropdown-item" href="/elo/magic-the-gathering/pauper">Pauper</a><a class="dropdown-item" href="/elo/magic-the-gathering/vintage">Vintage</a><a class="dropdown-item" href="/elo/magic-the-gathering/premodern">Premodern</a><a class="dropdown-item" href="/elo/magic-the-gathering/limited">Limited</a><a class="dropdown-item" href="/elo/magic-the-gathering/canadian-highlander">Canadian Highlander</a><a class="dropdown-item" href="/elo/magic-the-gathering/duel-commander">Duel Commander</a><a class="dropdown-item" href="/elo/magic-the-gathering/tiny-leaders">Tiny Leaders</a><a class="dropdown-item" href="/elo/magic-the-gathering/7pt-highlander">7pt Highlander</a><a class="dropdown-item" href="/championship-series-2026/leaderboard">Championship Series 2026</a></div><div class="dropdown-column mb-2 mb-lg-0"><h5 class="dropdown-header">Star Wars Unlimited</h5><a class="dropdown-item" href="/elo/star-wars-unlimited/premier">Premier</a><a class="dropdown-item" href="/elo/star-wars-unlimited/draft">Draft</a><a class="dropdown-item" href="/elo/star-wars-unlimited/twin-suns">Twin Suns</a><div class="dropdown-divider"></div><h5 class="dropdown-header my-2">Yu-Gi-Oh!</h5><a class="dropdown-item" href="/elo/yu-gi-oh/advanced">Advanced</a><a class="dropdown-item" href="/elo/yu-gi-oh/edison">Edison</a><a class="dropdown-item" href="/elo/yu-gi-oh/goat">Goat</a><a class="dropdown-item" href="/elo/yu-gi-oh/domain">Domain</a><div class="dropdown-divider"></div><h5 class="dropdown-header my-2">Pokémon</h5><a class="dropdown-item" href="/elo/pokemon/standard">Standard</a><a class="dropdown-item" href="/elo/pokemon/expanded">Expanded</a><a class="dropdown-item" href="/elo/pokemon/legacy">Legacy</a></div><div class="dropdown-column mb-2 mb-lg-0"><h5 class="dropdown-header">More Games</h5><a class="dropdown-item" href="/elo/marvel-snap">Marvel Snap</a><a class="dropdown-item" href="/elo/lorcana">Disney Lorcana</a><a class="dropdown-item" href="/elo/one-piece">One Piece</a><a class="dropdown-item" href="/elo/digimon">Digimon</a><a class="dropdown-item" href="/elo/shadowverse-evolve">Shadowverse Evolve</a><a class="dropdown-item" href="/elo/flesh-and-blood">Flesh and Blood</a><a class="dropdown-item" href="/elo/sorcery-contested-realm">Sorcery: Contested Realm</a><a class="dropdown-item" href="/elo/altered/standard">Altered: Standard</a><a class="dropdown-item" href="/elo/altered/draft">Altered: Draft</a><a class="dropdown-item" href="/elo/beyblade/x">Beyblade X</a></div></div></li><li class="nav-item"><a class="nav-link" href="/championship-series-2026">Championship Series</a></li><li class="nav-item"><a class="nav-link" href="https://shop.topdeck.gg/" target="_blank">Merch</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a><ul class="dropdown-menu"><li><h6 class="dropdown-header">Community</h6></li><li><a class="dropdown-item" href="https://newsletter.topdeck.gg/" target="_blank"><i class="fa-solid fa-envelope opacity-60 me-2"></i>Newsletter</a></li><li><a class="dropdown-item" href="/blog"><i class="fa-solid fa-newspaper opacity-60 me-2"></i>What's New</a></li><li><a class="dropdown-item" href="https://discord.topdeck.gg/" target="_blank"><i class="fa-brands fa-discord opacity-60 me-2"></i>Discord Bot</a></li><div class="dropdown-divider"></div><li><h6 class="dropdown-header">Resources</h6></li><li><a class="dropdown-item" href="/docs/tournaments-v2"><i class="fa-solid fa-code opacity-60 me-2"></i>API Documentation</a></li><li><a class="dropdown-item" href="/help"><i class="fa-solid fa-circle-question opacity-60 me-2"></i>Help Center</a></li><div class="dropdown-divider"></div><li><h6 class="dropdown-header">Mobile App</h6></li><li><a class="dropdown-item" href="https://apple.co/3A4Z0FK" target="_blank"><i class="fa-brands fa-apple opacity-60 me-2"></i>Download on iOS</a></li><li><a class="dropdown-item" href="https://play.google.com/store/apps/details?id=com.topdeck.app" target="_blank"><i class="fa-brands fa-google-play opacity-60 me-2"></i>Download on Android</a></li></ul></li></ul></div></div></div></header><script>function EndSession(){
+    fetch("/endSession", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+        },
+    }).then((ret) => {
+        location.reload();
+    });
+}</script><!-- Page content--><div class="offcanvas offcanvas-end w-100" id="viewDecklistOffcanvas" tabindex="-1" aria-labelledby="viewDecklistOffcanvasLabel" aria-hidden="true"><div class="offcanvas-header bg-primary"><h5 class="offcanvas-title" id="viewDecklistOffcanvasLabel">Decklist</h5><button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body bg-dark"><pre class="mb-3"><code class="language-json" id="decklistContent"></code></pre></div></div><script src="/js/supportedGames?t=1770296652604"></script><script>function viewTextDecklist(decklist, title, tournamentId = null, playerId = null, game = null) {
+    // Use dynamically served games list
+    const supportedGames = window.SUPPORTED_GAMES;
+
+    // Check if we should use the new deck page
+    if (game && supportedGames.has(game) && tournamentId && playerId) {
+        // Open the new deck page
+        const deckUrl = `/deck/${tournamentId}/${playerId}`;
+        window.open(deckUrl, '_blank');
+        return;
+    }
+
+    // Handle different decklist formats for offcanvas fallback
+    let formattedDecklist;
+    if (typeof decklist === 'string') {
+        // Try the more comprehensive unescaping first if available
+        if (typeof unescapeDecklistFromStorage === 'function') {
+            formattedDecklist = unescapeDecklistFromStorage(decklist);
+        } else {
+            // Fallback to simple newline replacement
+            formattedDecklist = decklist.replace(/\\n/g, '\n');
+        }
+    } else {
+        formattedDecklist = String(decklist);
+    }
+
+    // Set content and title
+    document.getElementById('decklistContent').textContent = formattedDecklist;
+    document.getElementById('viewDecklistOffcanvasLabel').textContent = title + ' - Decklist';
+
+    // Show the offcanvas
+    new bootstrap.Offcanvas(document.getElementById('viewDecklistOffcanvas')).show();
+}
+</script><style>@media (min-width: 768px) {
+    #viewDecklistOffcanvas {
+        width: 580px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    #viewDecklistOffcanvas {
+        width: 660px !important;
+    }
+}</style><!-- Hero Section with Cover Photo--><div class="position-relative overflow-hidden"><div class="position-relative" style="height: 280px; background-image: url(https://imagedelivery.net/kN_u_RUfFF6xsGMKYWhO1g/aa6d70ad-de73-4c09-a4d7-1e64d5ed6d00/cover); background-size: cover; background-position: center;"><div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.2"></div></div><!-- Decorative wave divider--><div class="position-absolute bottom-0 w-100"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none" style="height: 50px; width: 100%;"><path fill="#0a0e17" d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,42.7C840,32,960,32,1080,37.3C1200,43,1320,53,1380,58.7L1440,64L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z"></path></svg></div></div><!-- Profile Card--><div class="container position-relative"><div class="card bg-dark text-white shadow-lg border-0 rounded-4 mt-n5 position-relative" style="z-index: 2;"><div class="card-body py-4 px-md-4"><div class="row align-items-start"><!-- Avatar Column--><div class="col-lg-2 col-md-3 text-center text-md-start mb-4 mb-md-0"><div class="position-relative mx-auto" style="width: fit-content;"><img class="rounded-circle shadow-lg" src="https://imagedelivery.net/kN_u_RUfFF6xsGMKYWhO1g/2a7b8d12-5924-4a58-5f9c-c0bf55766800/square" alt="Profile Picture" style="width: 140px; height: 140px; object-fit: cover; margin-top: -70px; border: 4px solid #0a0e17; background-color: #0a0e17;"></div></div><!-- Player Info & About--><div class="col-lg-5 col-md-9 my-sm-auto mb-4"><h2 class="text-white fw-bold mb-1">Björn Kimminich</h2><div class="d-flex flex-wrap mt-2 gap-2"><a class="btn btn-social bs-outline bs-twitter bs-dark me-2" href="https://twitter.com/bkimminich" target="_blank"><i class="fa-brands fa-twitter"></i></a></div><div class="d-flex flex-wrap gap-2 mt-3" id="badgeContainer"></div></div><!-- Stats Card--><div class="col-lg-5 mx-auto"><div class="card bg-dark border-0 shadow-lg rounded-4 position-relative overflow-hidden"><!-- Decorative gradient background--><div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(45deg, rgba(90, 79, 158, 0.2), rgba(0, 0, 0, 0)); opacity: 0.7; z-index: 0;"></div><div class="card-body position-relative p-4" style="z-index: 1;"><h4 class="text-white fw-bold mb-4" id="statsTitle">Player Stats</h4><div class="row g-3"><div class="col-6"><div class="d-flex align-items-center"><i class="fa-solid fa-trophy text-warning fs-3 me-3"></i><div><h5 class="text-white mb-0 fw-bold" id="totalTournaments">0</h5><p class="text-light small mb-0">Tournaments</p></div></div></div><div class="col-6"><div class="d-flex align-items-center"><i class="fa-solid fa-chart-line text-success fs-3 me-3"></i><div><h5 class="text-white mb-0 fw-bold" id="overallRecord">0-0-0</h5><p class="text-light small mb-0">Record</p></div></div></div><div class="col-6"><div class="d-flex align-items-center"><i class="fa-solid fa-percentage text-info fs-3 me-3"></i><div><h5 class="text-white mb-0 fw-bold" id="overallWinRate">0%</h5><p class="text-light small mb-0">Win Rate</p></div></div></div><div class="col-6"><div class="d-flex align-items-center"><i class="fa-solid fa-bolt text-danger fs-3 me-3"></i><div><h5 class="text-white mb-0 fw-bold" id="conversionRate">0%</h5><p class="text-light small mb-0">Conversion</p></div></div></div></div></div></div></div></div></div></div><!-- Modern Pill Tabs--><div class="card bg-dark border-0 shadow-sm rounded-4 mt-4 p-3"><div class="card-body p-0"><ul class="nav nav-pills gap-2 mb-0" role="tablist"><li class="nav-item"><a class="nav-link active py-3 rounded-3" href="#history" data-bs-toggle="tab"><i class="fa-solid fa-trophy me-2"></i>Tournaments</a></li></ul></div></div><!-- Content tabs--><div class="tab-content mt-4 mb-5"><!-- Tournament History Tab--><div class="tab-pane fade show active" id="history"><div class="card bg-dark border-0 rounded-4 shadow-lg py-4 px-3 px-sm-4"><!-- Filters Section--><div class="d-flex flex-wrap gap-3 mb-4 align-items-center"><!-- Format Dropdown - Modern style--><div class="dropdown"><button class="btn btn-outline-secondary dropdown-toggle" id="formatDropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-layer-group me-2"></i><span id="formatDropdownLabel">All Formats</span></button><ul class="dropdown-menu border-0 shadow"><li><a class="dropdown-item" href="#" data-value="all">All Formats</a></li></ul></div><!-- Year Dropdown - Modern style--><div class="dropdown"><button class="btn btn-outline-secondary dropdown-toggle" id="yearDropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-calendar-alt me-2"></i><span id="yearDropdownLabel">All Years</span></button><ul class="dropdown-menu border-0 shadow"><li><a class="dropdown-item" href="#" data-value="all">All Years</a></li></ul></div></div><h3 class="card-title text-white fw-bold"><i class="fa-solid fa-history me-2 text-info"></i>Tournament History</h3><div class="tournament-list" id="tournamentList"></div></div></div></div></div></main><footer class="footer bg-black py-5"><div class="container pt-md-2 pt-lg-3"><div class="row pt-sm-2"><!-- Logo, description, and social column--><div class="col-md-4 col-lg-3 pb-2 pb-md-0 mb-4 mb-md-0"><a class="d-block mb-3 mb-md-4" href="/"><img class="img-fluid" src="/img/logo/TopDeckFullWhiteNS.png" alt="TopDeck.gg" style="max-width: 200px;"></a><p class="text-muted pb-2 pb-md-3 mb-3 fs-sm">Discover, organize, and compete in trading card game events. Connect with players worldwide and elevate your game.</p><div class="d-flex gap-1"><a class="btn-social bs-outline bs-light bs-facebook bs-lg me-2" href="https://discord.gg/RjS3mDf3wt" target="_blank"><i class="fa-brands fa-discord"></i></a><a class="btn-social bs-outline bs-light bs-youtube bs-lg me-2" href="https://www.youtube.com/@TopDeckGG_" target="_blank"><i class="fa-brands fa-youtube"></i></a></div></div><!-- Nested columns for links--><div class="col-md-8 col-lg-7 offset-lg-2"><div class="row row-cols-1 row-cols-sm-3"><!-- Company column--><div class="col mb-4 mb-md-0"><div class="widget widget-light"><h4 class="widget-title mb-3">Company</h4><ul><li><a class="widget-link" href="/subscribe">Run a Tournament</a></li><li><a class="widget-link" href="https://newsletter.topdeck.gg/">Newsletter</a></li><li><a class="widget-link" href="/docs/tournaments-v2">API Documentation</a></li><li><a class="widget-link" href="/championship-series-2026">Championship Series</a></li></ul></div></div><!-- Support column--><div class="col mb-4 mb-md-0"><div class="widget widget-light"><h4 class="widget-title mb-3">Support</h4><ul><li><a class="widget-link" href="/cdn-cgi/l/email-protection#d1b2bebfa5b0b2a591a5bea1b5b4b2baffb6b6">Contact Us</a></li><li><a class="widget-link" href="/cdn-cgi/l/email-protection#94f9f1f0fdf5d4e0fbe4f0f1f7ffbaf3f3">Media Inquiries</a></li><li><a class="widget-link" href="/privacy-policy" target="_blank">Privacy Policy</a></li><li><a class="widget-link" href="/terms-and-conditions" target="_blank">Terms & Conditions</a></li></ul></div></div><!-- Install App column--><div class="col"><h4 class="h6 fw-bold pb-2 mb-0 mb-lg-1">Install App</h4><a class="btn btn-outline-secondary d-inline-flex align-items-center px-3 py-2 mt-3 me-3 me-md-0" href="https://apple.co/3A4Z0FK" role="button" style="min-width: 160px;"><i class="fa-brands fa-apple fs-xl me-2"></i><span class="d-flex flex-column align-items-start"><small class="fs-xs text-white-50">Download on the</small><span class="fs-sm">App Store</span></span></a><a class="btn btn-outline-secondary d-inline-flex align-items-center px-3 py-2 mt-3 me-3 me-md-0" href="https://play.google.com/store/apps/details?id=com.topdeck.app" role="button" style="min-width: 160px;"><i class="fa-brands fa-google-play fs-xl me-2"></i><span class="d-flex flex-column align-items-start"><small class="fs-xs text-white-50">Get it on</small><span class="fs-sm">Google Play</span></span></a></div></div></div></div></div></footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.addEventListener('DOMContentLoaded', function () {
+    // Template variables for decklist viewing
+    const playerUsername = "@k0shiii";
+    const playerId = "****";
+
+    // Initialize UI with loading states
+    let statsTitle = document.getElementById('statsTitle');
+    const badgeContainer = document.getElementById('badgeContainer');
+    const tournamentList = document.getElementById('tournamentList');
+
+    // Add loading indicators using Bootstrap 5
+    document.getElementById('statsTitle').parentElement.classList.add('position-relative');
+    document.getElementById('statsTitle').parentElement.innerHTML += `
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-dark bg-opacity-75" style="z-index: 10; border-radius: 0.5rem;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    `;
+
+    tournamentList.innerHTML = `
+        <div class="text-center py-5">
+            <div class="spinner-border text-primary mb-3" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="text-muted mb-0">Loading tournament data...</p>
+        </div>
+    `;
+
+    // Store these as global variables to be used after data load
+    let gameFormats = {};
+    let topFinishes = {};
+    let yearlyStats = {};
+    let tdcsData = null;
+
+    let selectedFormat = 'all';
+    let selectedYear = 'all';
+
+    // Fetch player data from API
+    fetchPlayerData(playerId);
+
+    // API function to get player data
+    async function fetchPlayerData(playerId) {
+        try {
+            const response = await fetch(`/profile/${playerId}/stats`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch player data');
+            }
+
+            const data = await response.json();
+
+            // Store the data globally
+            gameFormats = data.gameFormats || {};
+            topFinishes = data.topFinishes || {};
+            yearlyStats = data.yearlyStats || {};
+            tdcsData = data.tdcsData || null;
+
+            // Remove loading indicators
+            const loadingOverlay = document.getElementById('statsTitle').parentElement.querySelector('.position-absolute');
+            if (loadingOverlay) {
+                loadingOverlay.remove();
+            }
+
+            statsTitle = document.getElementById('statsTitle');
+
+            // Initialize the UI with the data
+            initializeUI();
+
+            // Populate the UI with data
+            updateStatistics();
+
+        } catch (error) {
+            console.error('Error fetching player data:', error);
+            tournamentList.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="fa-solid fa-exclamation-circle me-2"></i>
+                    Failed to load tournament data. Please try refreshing the page.
+                </div>
+            `;
+        }
+    }
+
+    function initializeUI() {
+        // Initialize dropdowns with available formats and years
+        populateDropdowns();
+
+        // Set up event handlers
+        setupEventHandlers();
+    }
+
+    function populateDropdowns() {
+        // Format dropdown
+        const formatDropdown = document.querySelector('#formatDropdown + .dropdown-menu');
+        formatDropdown.innerHTML = '<li><a class="dropdown-item" href="#" data-value="all">All Formats</a></li>';
+
+        Object.keys(gameFormats).forEach(format => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a class="dropdown-item" href="#" data-value="${format}">${format}</a>`;
+            formatDropdown.appendChild(li);
+        });
+
+        // Year dropdown
+        const yearDropdown = document.querySelector('#yearDropdown + .dropdown-menu');
+        yearDropdown.innerHTML = '<li><a class="dropdown-item" href="#" data-value="all">All Years</a></li>';
+
+        if (yearlyStats) {
+            Object.keys(yearlyStats).sort((a, b) => b - a).forEach(year => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a class="dropdown-item" href="#" data-value="${year}">${year}</a>`;
+                yearDropdown.appendChild(li);
+            });
+        }
+    }
+
+    function setupEventHandlers() {
+        // Dropdown click handlers
+        document.querySelectorAll('#formatDropdown + .dropdown-menu a').forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
+                selectedFormat = item.getAttribute('data-value');
+                document.getElementById('formatDropdownLabel').textContent = item.textContent;
+                updateStatistics();
+            });
+        });
+
+        document.querySelectorAll('#yearDropdown + .dropdown-menu a').forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
+                selectedYear = item.getAttribute('data-value');
+                document.getElementById('yearDropdownLabel').textContent = item.textContent;
+                updateStatistics();
+            });
+        });
+    }
+
+    function updateStatistics() {
+        updateTitles(selectedFormat, selectedYear);
+        updateFormatStats(selectedFormat, selectedYear);
+        updateTournamentList(selectedFormat, selectedYear);
+        updateTdcsTab();
+    }
+
+    function updateTitles(format, year) {
+        const formatText = format === 'all' ? 'Player' : format;
+        const yearText = year === 'all' ? '' : ` ${year}`;
+        statsTitle.textContent = `${formatText} Stats${yearText}`;
+    }
+
+    function updateFormatStats(format, year) {
+        // Clear badges first - this ensures badges are completely reset when changing formats/years
+        badgeContainer.innerHTML = '';
+
+        let stats;
+        if (year === 'all') {
+            stats = format === 'all' ? calculateOverallStats() : calculateFormatStats(format);
+        } else {
+            // When a specific year is selected
+            if (format === 'all') {
+                // All formats for a specific year
+                stats = yearlyStats[year]?.overall;
+            } else {
+                // Specific format for a specific year
+                stats = yearlyStats[year]?.[format];
+            }
+        }
+
+        if (!stats) {
+            // If no stats for the selected format/year combination, show zeros
+            document.getElementById('totalTournaments').textContent = '0';
+            document.getElementById('overallRecord').textContent = '0-0-0';
+            document.getElementById('overallWinRate').textContent = '0.00%';
+            document.getElementById('conversionRate').textContent = '0.00%';
+            return;
+        }
+
+        document.getElementById('totalTournaments').textContent = stats.totalTournaments;
+        document.getElementById('overallRecord').textContent = `${stats.wins}-${stats.losses}-${stats.draws}`;
+        const totalGames = stats.wins + stats.losses + stats.draws;
+        const winRate = totalGames > 0 ? ((stats.wins / totalGames) * 100).toFixed(2) + '%' : '0.00%';
+        document.getElementById('overallWinRate').textContent = winRate;
+
+        const topFinishesCount = stats.firstPlaceFinishes + stats.top2 + stats.top4 + stats.top8 + stats.top10 + stats.top16;
+        const conversionRate = stats.topCutEligible > 0 ? ((topFinishesCount / stats.topCutEligible) * 100).toFixed(2) + '%' : '0.00%';
+        document.getElementById('conversionRate').textContent = conversionRate;
+
+        const createBadge = (label, value, color) => {
+            if (value > 0) {
+                const badge = document.createElement('span');
+                badge.className = 'badge me-1 mb-2';
+                badge.style.cssText = `background-color: ${color}; color: #1e1e1e !important;`;
+                badge.innerHTML = `<i class="fa-solid fa-medal me-1"></i>${label}: ${value}`;
+                badgeContainer.appendChild(badge);
+            }
+        };
+
+        // Only create badges if there are stats
+        createBadge('Wins', stats.firstPlaceFinishes, '#ffc321');
+        createBadge('Finals', stats.top2 + stats.top4, '#C0C0C0');
+        createBadge('Top 8', stats.top8, '#f08035');
+        createBadge('Top 10', stats.top10, '#3d85c6');
+        createBadge('Top 16', stats.top16, '#f08035');
+    }
+
+    function updateTournamentList(format, year) {
+        tournamentList.innerHTML = '';
+
+        // If no gameFormats, show empty state
+        if (Object.keys(gameFormats).length === 0) {
+            tournamentList.innerHTML = `
+                <div class="text-center py-5">
+                    <p class="text-muted">No tournament data available</p>
+                </div>
+            `;
+            return;
+        }
+
+        // Filter formats based on selection
+        const formatsToShow = format === 'all'
+            ? Object.entries(gameFormats)
+            : [[format, gameFormats[format]]].filter(([_, tournaments]) => tournaments);
+
+        if (formatsToShow.length === 0) {
+            tournamentList.innerHTML = `
+                <div class="text-center py-5">
+                    <p class="text-muted">No tournaments found for the selected criteria</p>
+                </div>
+            `;
+            return;
+        }
+
+        formatsToShow.forEach(([formatName, tournaments]) => {
+            // Filter tournaments by year if a specific year is selected
+            const filteredTournaments = year === 'all'
+                ? tournaments
+                : tournaments.filter(t => new Date(t.date).getFullYear().toString() === year);
+
+            if (filteredTournaments.length > 0) {
+                // Format header with a more modern design
+                const formatHeader = document.createElement('div');
+                formatHeader.className = 'd-flex align-items-center mt-4 mb-3';
+                formatHeader.innerHTML = `
+                    <div class="p-2 rounded-3 me-2" style="background-color: rgba(90, 79, 158, 0.3);">
+                        <i class="fa-solid fa-dice-d20 text-light"></i>
+                    </div>
+                    <h5 class="mb-0 text-white">${formatName}</h5>
+                `;
+                tournamentList.appendChild(formatHeader);
+
+                // Create a container for the tournament cards in this format
+                const cardContainer = document.createElement('div');
+                cardContainer.className = 'row g-3';
+                tournamentList.appendChild(cardContainer);
+
+                filteredTournaments.forEach(tournament => {
+                    // Get placement for styling
+                    const placement = parseInt(tournament.placement);
+                    let placementClass = '';
+                    let placementIcon = '';
+
+                    if (placement === 1) {
+                        placementClass = 'border-warning';
+                        placementIcon = '<i class="fa-solid fa-trophy text-warning me-1"></i>';
+                    } else if (placement <= 4) {
+                        placementClass = 'border-info';
+                        placementIcon = '<i class="fa-solid fa-medal text-info me-1"></i>';
+                    } else if (placement <= 8) {
+                        placementClass = 'border-primary';
+                        placementIcon = '<i class="fa-solid fa-award text-primary me-1"></i>';
+                    }
+
+                    // Tournament card with enhanced styling
+                    const tournamentCol = document.createElement('div');
+                    tournamentCol.className = 'col-12 col-md-6 col-lg-4';
+
+                    const tournamentCard = document.createElement('div');
+                    tournamentCard.className = `card h-100 bg-secondary text-white shadow-sm ${placementClass ? 'border-start' : ''} ${placementClass}`;
+
+                    // Calculate match percentages for the progress bar
+                    const [wins, losses, draws] = tournament.record.split('-').map(Number);
+                    const matches = wins + losses + draws;
+                    const winPercentage = matches > 0 ? Math.round((wins / matches) * 100) : 0;
+                    const lossPercentage = matches > 0 ? Math.round((losses / matches) * 100) : 0;
+                    const drawPercentage = matches > 0 ? Math.round((draws / matches) * 100) : 0;
+
+                    // Format date nicely
+                    const tournamentDate = new Date(tournament.date);
+                    const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
+                    const formattedDate = tournamentDate.toLocaleDateString(undefined, dateOptions);
+
+                    tournamentCard.innerHTML = `
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="card-title mb-1 text-truncate">${tournament.name}</h6>
+                            <div class="mb-2">
+                                <span class="badge bg-dark text-light border border-light">${formattedDate}</span>
+                            </div>
+
+                            <div class="mt-2 mb-3">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <div>
+                                        ${placementIcon}
+                                        <span class="text-light">${tournament.placement} of ${tournament.size}</span>
+                                    </div>
+                                    <div class="text-light">
+                                        ${tournament.record}
+                                    </div>
+                                </div>
+
+                                <div class="progress rounded-pill" style="height: 8px;" title="${wins} wins, ${losses} losses, ${draws} draws">
+                                    ${wins > 0 ? `<div class="progress-bar bg-success" role="progressbar" style="width: ${winPercentage}%" aria-valuenow="${winPercentage}" aria-valuemin="0" aria-valuemax="100"></div>` : ''}
+                                    ${losses > 0 ? `<div class="progress-bar bg-danger" role="progressbar" style="width: ${lossPercentage}%" aria-valuenow="${lossPercentage}" aria-valuemin="0" aria-valuemax="100"></div>` : ''}
+                                    ${draws > 0 ? `<div class="progress-bar bg-warning" role="progressbar" style="width: ${drawPercentage}%" aria-valuenow="${drawPercentage}" aria-valuemin="0" aria-valuemax="100"></div>` : ''}
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-wrap gap-2 mt-auto">
+                                <a href="${tournament.bracketLink}" target="_blank" class="btn btn-sm btn-outline-secondary">
+                                    <i class="fa-solid fa-link me-1"></i>Bracket
+                                </a>
+                                ${tournament.decklist ? `
+                                    <button type="button" class="btn btn-sm btn-outline-secondary decklist-btn"
+                                            data-decklist="${tournament.decklist}"
+                                            data-tournament-name="${tournament.name}"
+                                            data-tournament-id="${tournament.id}"
+                                            data-format="${formatName}">
+                                        <i class="fa-solid fa-cards-blank me-1"></i>Decklist
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+
+                    tournamentCol.appendChild(tournamentCard);
+                    cardContainer.appendChild(tournamentCol);
+                });
+            }
+        });
+
+        // If no tournaments were found after filtering
+        if (tournamentList.innerHTML === '') {
+            tournamentList.innerHTML = `
+                <div class="text-center py-5">
+                    <p class="text-muted">No tournaments found for the selected criteria</p>
+                </div>
+            `;
+        }
+
+        // Add event listeners for decklist buttons
+        document.querySelectorAll('.decklist-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const decklist = this.dataset.decklist;
+                const tournamentName = this.dataset.tournamentName;
+                const tournamentId = this.dataset.tournamentId;
+                const playerIdentifier = playerUsername || playerId;
+
+                const format = this.dataset.format;
+                const baseGame = format.includes(':') ? format.split(':').slice(0, 2).join(':').trim() : format;
+
+                viewTextDecklist(decklist, tournamentName, tournamentId, playerIdentifier, baseGame);
+            });
+        });
+    }
+
+    function updateTdcsTab() {
+        // First, update the tab visibility
+        const tabList = document.querySelector('.nav-pills');
+        const existingTab = document.querySelector('a[href="#championship"]');
+
+        if (tdcsData) {
+            // Show the tab if TDCS data exists
+            if (!existingTab) {
+                const tabItem = document.createElement('li');
+                tabItem.className = 'nav-item';
+                tabItem.innerHTML = `
+                    <a class="nav-link py-3 rounded-3" href="#championship" data-bs-toggle="tab">
+                        <i class="fa-solid fa-award me-2"></i>
+                        Series
+                    </a>
+                `;
+                tabList.appendChild(tabItem);
+            }
+
+            // Create or update the tab content
+            const tabContent = document.querySelector('.tab-content');
+            let championshipPane = document.getElementById('championship');
+
+            if (!championshipPane) {
+                championshipPane = document.createElement('div');
+                championshipPane.id = 'championship';
+                championshipPane.className = 'tab-pane fade';
+                tabContent.appendChild(championshipPane);
+            }
+
+            championshipPane.innerHTML = `
+                <div class="card bg-secondary text-white shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-4">TopDeck Championship Series 2026</h4>
+
+                        <div class="text-center mb-5">
+                            <p class="fs-6 mb-1">Total Points</p>
+                            <h2 class="fw-bold text-highlight">${tdcsData.points}</h2>
+                        </div>
+
+                        ${generateTierContent()}
+                    </div>
+                </div>
+            `;
+        } else {
+            // Remove the tab if no TDCS data
+            if (existingTab) {
+                existingTab.parentElement.remove();
+            }
+
+            const championshipPane = document.getElementById('championship');
+            if (championshipPane) {
+                championshipPane.remove();
+            }
+        }
+    }
+
+    function generateTierContent() {
+        const tiers = ['Diamond', 'Platinum', 'Gold', 'Silver', 'Bronze'];
+        let content = '';
+
+        tiers.forEach(tier => {
+            if (tdcsData.tierBreakdown && tdcsData.tierBreakdown[tier] && tdcsData.tierBreakdown[tier].length > 0) {
+                content += `
+                    <div class="d-flex align-items-center mb-3 mt-5">
+                        <img src="/img/tdcs/new/TD${tier}.png" alt="${tier} Tier" style="height: 40px; width: auto; margin-right: 12px;">
+                        <h5 class="mb-0">${tier} Tier</h5>
+                    </div>
+
+                    <div class="row g-3">
+                `;
+
+                tdcsData.tierBreakdown[tier].forEach(item => {
+                    if (item.tournamentName && item.points > 0) {
+                        content += `
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card bg-dark text-white h-100 shadow-sm">
+                                    <div class="card-body d-flex flex-column justify-content-between">
+                                        <div class="mb-3">
+                                            <h6 class="card-title mb-1">${item.tournamentName}</h6>
+                                            <p class="text-muted mb-0 small">(${item.standing} of ${item.totalPlayers})</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-end mt-auto">
+                                            <span class="fw-bold">${item.points} pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                });
+
+                content += '</div>';
+            }
+        });
+
+        return content;
+    }
+
+    function calculateOverallStats() {
+        let overallStats = {
+            totalTournaments: 0, topCutEligible: 0, wins: 0, losses: 0, draws: 0,
+            firstPlaceFinishes: 0, top2: 0, top4: 0, top8: 0, top10: 0, top16: 0
+        };
+
+        Object.values(topFinishes).forEach(formatFinishes => {
+            Object.keys(overallStats).forEach(key => {
+                if (key in formatFinishes) {
+                    overallStats[key] += formatFinishes[key];
+                }
+            });
+        });
+
+        Object.values(gameFormats).forEach(tournaments => {
+            overallStats.totalTournaments += tournaments.length;
+            tournaments.forEach(t => {
+                const [wins, losses, draws] = t.record.split('-').map(Number);
+                overallStats.wins += wins;
+                overallStats.losses += losses;
+                overallStats.draws += draws;
+                if (t.topCut > 0) {
+                    overallStats.topCutEligible++;
+                }
+            });
+        });
+
+        return overallStats;
+    }
+
+    function calculateFormatStats(format) {
+        // If the format doesn't exist, return empty stats
+        if (!gameFormats[format] || !topFinishes[format]) {
+            return {
+                totalTournaments: 0, topCutEligible: 0, wins: 0, losses: 0, draws: 0,
+                firstPlaceFinishes: 0, top2: 0, top4: 0, top8: 0, top10: 0, top16: 0
+            };
+        }
+
+        const formatStats = {
+            ...topFinishes[format],
+            totalTournaments: gameFormats[format].length,
+            topCutEligible: 0,
+            wins: 0, losses: 0, draws: 0
+        };
+
+        gameFormats[format].forEach(t => {
+            const [wins, losses, draws] = t.record.split('-').map(Number);
+            formatStats.wins += wins;
+            formatStats.losses += losses;
+            formatStats.draws += draws;
+            if (t.topCut > 0) {
+                formatStats.topCutEligible++;
+            }
+        });
+
+        return formatStats;
+    }
+});</script><!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll data-fixed-element><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ai-arrow-up">   </i></a><!-- Vendor scrits: js libraries and plugins--><script src="/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script><script src="/vendor/simplebar/dist/simplebar.min.js"></script><script src="/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script><!-- Main theme script--><script src="/js/theme.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"0e3ccdaf832b48f5a3585d27a3a6e921","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>
+
