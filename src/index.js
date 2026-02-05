@@ -57,8 +57,6 @@ class PlayerInfoManager {
       const sourceData = { ...res };
       delete sourceData.source;
       delete sourceData.url;
-      delete sourceData.name;
-      delete sourceData.photo;
 
       generalProps.forEach(prop => {
         if (player.general[prop] === res[prop]) {
