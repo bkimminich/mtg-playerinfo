@@ -58,12 +58,6 @@ class PlayerInfoManager {
       delete sourceData.source;
       delete sourceData.url;
 
-      generalProps.forEach(prop => {
-        if (player.general[prop] === res[prop]) {
-          delete sourceData[prop];
-        }
-      });
-
       player.sources[res.source] = {
         url: res.url,
         data: sourceData
