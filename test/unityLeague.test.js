@@ -23,7 +23,7 @@ test('UnityLeagueFetcher.parseHtml extracts profile, photo, ranks and stats', ()
   assert.equal(result.photo, 'https://unityleague.gg/media/player_profile/1000023225.jpg');
   assert.equal(result.country, 'de');
   assert.equal(result['rank germany'], '64');
-  assert.equal(result['rank europe'], '562');
+  assert.equal(result['rank europe'], '563');
   assert.equal(result['rank points'], '292');
   assert.equal(result.record, '42-41-5');
   assert.equal(result['win rate'], '49.6%');

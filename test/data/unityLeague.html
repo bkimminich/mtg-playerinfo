@@ -2,460 +2,337 @@
 
 
 
-
 <!DOCTYPE html>
 <html class="h-100" lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>
-        Björn Kimminich
-    </title>
-    <meta name="description" content="Compete in Europe's premier Magic: The Gathering tournament series 'European Unity League'. Gather points at events to win big prizes!">
-    <meta property="og:image" content="/static/unityleague.gg/horizontal.png"/>
-    <meta name="keywords" content="European Unity League, Magic: The Gathering, Europe, events, tournaments, ranking, leaderboard"/>
-    <link rel="stylesheet" href="/static/style8.css" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css"  crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
-
-</head>
-<body class="d-flex flex-column h-100">
-<nav class="navbar navbar-expand-lg bg-primary d-print-none">
-    <div class="container">
-
-        <a class="navbar-brand" href="/" title="European Unity League - Premier Magic tournament series">
-            <img src="/static/unityleague.gg/horizontal.svg" height="40" class="d-inline-block align-top" alt="European Unity League Logo">
-        </a>
-
-
-        <button class="navbar-toggler m-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/ranking" title="View your country's leaderboard.">Leaderboard</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/events" title="Find Magic: The Gathering events in Europe">Events</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="infoDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Info
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>
+    Björn Kimminich
+</title>
+        <meta name="description" content="Compete in Europe's premier Magic: The Gathering tournament series 'European Unity League'. Gather points at events to win big prizes!">
+        <meta property="og:image" content="/static/unityleague.gg/horizontal.png"/>
+        <meta name="keywords" content="European Unity League, Magic: The Gathering, Europe, events, tournaments, ranking, leaderboard"/>
+        <link rel="stylesheet" href="/static/style8.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic:wght@400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css"  crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+        
+    </head>
+    <body class="d-flex flex-column h-100">
+        <nav class="navbar navbar-expand-lg bg-primary d-print-none">
+            <div class="container">
+                
+                    <a class="navbar-brand" href="/" title="European Unity League - Premier Magic tournament series">
+                        <img src="/static/unityleague.gg/horizontal.svg" height="40" class="d-inline-block align-top" alt="European Unity League Logo">
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="infoDropDown">
-                        <li>
-                            <a class="dropdown-item" href="/info/" title="Learn how points are calculated and the types of events available.">
-                                League system
-                            </a>
-                        </li>
-                        <li><a class="dropdown-item" href="/info/organizer" title="Learn how to organize events and award points for them.">Organizer tutorial</a></li>
-
-                        <li>
-                            <a class="dropdown-item" href="/info/player" title="Learn the steps needed to collect points for the Unity League.">
-                                Participate as player
-                            </a>
-                        </li>
+                
+                
+                <button class="navbar-toggler m-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        
 
 
-                        <li>
-                            <a class="dropdown-item" href="/articles/" title="Latest news and articles">
-                                News & articles
-                            </a>
-                        </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/ranking" title="View your country's leaderboard.">Leaderboard</a>
+    </li>
 
-                    </ul>
-                </li>
+<li class="nav-item">
+    <a class="nav-link" href="/events" title="Find Magic: The Gathering events in Europe">Events</a>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="infoDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Info
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="infoDropDown">
+        <li>
+            <a class="dropdown-item" href="/info/" title="Learn how points are calculated and the types of events available.">
+                League system
+            </a>
+        </li>
+        <li><a class="dropdown-item" href="/info/organizer" title="Learn how to organize events and award points for them.">Organizer tutorial</a></li>
+        
+            <li>
+                <a class="dropdown-item" href="/info/player" title="Learn the steps needed to collect points for the Unity League.">
+                    Participate as player
+                </a>
+            </li>
+        
+        
+            <li>
+                <a class="dropdown-item" href="/articles/" title="Latest news and articles">
+                    News & articles
+                </a>
+            </li>
+        
+    </ul>
+</li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Welcome, Björn</a>
-                    <ul class="dropdown-menu" aria-labelledby="userDropDown">
-
-                        <li><a class="dropdown-item" href="/player/16215/">Player profile</a></li>
-                        <div class="dropdown-divider"></div>
-
-
-                        <li><a class="dropdown-item" href="/info/organizer">Become an organizer</a></li>
-                        <div class="dropdown-divider"></div>
-
-
-
-
-                        <li><a class="dropdown-item" href="/accounts/password_change/">Change password</a></li>
-                        <li>
-                            <form method="post" action="/accounts/logout/">
-                                <input type="hidden" name="csrfmiddlewaretoken" value="****">
-                                <button type="submit" class="dropdown-item">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-
-
-            </ul>
-        </div>
+    <div class="m-1"></div>
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <a class=" btn btn-outline-secondary" href="/accounts/register/">Register</a>
+        <a class=" btn btn-secondary" href="/accounts/login/">Login</a>
     </div>
-</nav>
-<main class="flex-shrink-0 pb-2">
-    <div class="container-sm py-3">
-
-        <br>
 
 
-        <div class="alert alert-success" role="alert">
-
-            Check out the new league system for 2026. New <em>multipliers</em> and support for <em>custom leagues</em>:
-            <a class="btn btn-success btn-sm" href="https://unityleague.gg/info" title="Title">League system</a>
-            <a class="btn btn-success btn-sm" href="https://unityleague.gg/info/organizer" title="Title">Organizer tutorial</a>
-        </div>
-
-
-
-
-
-
-
-
-        <div class="row g-4">
-            <div class="col-lg-7 col-12">
-                <div class="card mb-2" style="border-radius: 0.6cm;">
-                    <div class="row card-body">
-                        <div class="col-12 mb-2 d-flex flex-row justify-content-between">
-                            <div>
-                                <h1 class="d-inline me-2">Björn Kimminich</h1>
-
-                            </div>
-
-                            <i class="h1 fi fi-de"></i>
-
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="flex-shrink-0 pb-2">
+            <div class="container-sm py-3">
+                
+                    <br>
+                    
+                        
+                            <div class="alert alert-success" role="alert">
+                        
+                        Check out the new league system for 2026. New <em>multipliers</em> and support for <em>custom leagues</em>:
+<a class="btn btn-success btn-sm" href="https://unityleague.gg/info" title="Title">League system</a>
+<a class="btn btn-success btn-sm" href="https://unityleague.gg/info/organizer" title="Title">Organizer tutorial</a>
                         </div>
+                    
+                
+                
+                
+                
+                
+                
 
+    <div class="row g-4">
+        <div class="col-lg-7 col-12">
+            <div class="card mb-2" style="border-radius: 0.6cm;">
+                <div class="row card-body">
+                    <div class="col-12 mb-2 d-flex flex-row justify-content-between">
+                        <div>
+                            <h1 class="d-inline me-2">Björn Kimminich</h1>
+                            
+                        </div>
+                        
+                            <i class="h1 fi fi-de"></i>
+                        
+                    </div>
+                    
                         <div class="col-lg-4 col-8 mb-2" style="overflow: hidden; max-height: 450px;">
                             <img class="img-fluid" src="/media/player_profile/1000023225.jpg" alt="Björn Kimminich" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
                         </div>
-
-                        <div class="col-lg-8 col-4">
-                            <dl class="row mb-0">
-
+                    
+                    <div class="col-lg-8 col-4">
+                        <dl class="row mb-0">
+                            
                                 <div class="col-lg-6"><dt class="small text-muted">Age </dt><dd>45</dd></div>
-
-
+                            
+                            
                                 <div class="col-lg-6"><dt class="small text-muted">Hometown </dt><dd>Hamburg</dd></div>
-
-
+                            
+                            
                                 <div class="col-lg-6"><dt class="small text-muted">Local organizer </dt><dd>Mulligan TCG Shop</dd></div>
-
-
+                            
+                            
                                 <div class="col-lg-6"><dt class="small text-muted">Team </dt><dd>Mull to Five</dd></div>
-
-                            </dl>
-
-
-
-
-                            <div class="d-flex flex-wrap gap-2 align-items-center d-lg-flex d-none">
-                                <img class="img-fluid" style="width:80px" src="/static/unityleague.gg/vertical.svg" alt="European Unity League Logo" />
-                                <div class="flex-grow-1">
-                                    <table class="table table-sm my-0">
-                                        <thead>
-                                        <tr>
-
-                                            <th scope="col"><a href="/ranking/2026/DE/">
-                                                Germany
-                                            </a>
-                                            </th>
+                            
+                        </dl>
+                        
+                        
 
 
-                                            <th scope="col">
-                                                <a href="/ranking/2026/global/">
-                                                    Europe
-                                                </a>
-                                            </th>
-
-                                            <th scope="col">Points</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-
-                                            <td>64th</td>
-
-
-                                            <td>562nd</td>
-
-                                            <td>292</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-
-
-                        </div>
+    <div class="d-flex flex-wrap gap-2 align-items-center d-lg-flex d-none">
+        <img class="img-fluid" style="width:80px" src="/static/unityleague.gg/vertical.svg" alt="European Unity League Logo" />
+        <div class="flex-grow-1">
+            <table class="table table-sm my-0">
+                <thead>
+                    <tr>
+                        
+                            <th scope="col"><a href="/ranking/2026/DE/">
+                                Germany
+                            </a>
+                            </th>
+                        
+                        
+                            <th scope="col">
+                                <a href="/ranking/2026/global/">
+                                    Europe
+                                </a>
+                            </th>
+                        
+                        <th scope="col">Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                            <td>64th</td>
+                        
+                        
+                            <td>563rd</td>
+                        
+                        <td>292</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 
-                        <div class="d-flex flex-wrap gap-2 align-items-center d-lg-none">
-                            <img class="img-fluid" style="width:80px" src="/static/unityleague.gg/vertical.svg" alt="European Unity League Logo" />
-                            <div class="flex-grow-1">
-                                <table class="table table-sm my-0">
-                                    <thead>
-                                    <tr>
-
-                                        <th scope="col"><a href="/ranking/2026/DE/">
-                                            Germany
-                                        </a>
-                                        </th>
+                    </div>
+                    
 
 
-                                        <th scope="col">
-                                            <a href="/ranking/2026/global/">
-                                                Europe
-                                            </a>
-                                        </th>
+    <div class="d-flex flex-wrap gap-2 align-items-center d-lg-none">
+        <img class="img-fluid" style="width:80px" src="/static/unityleague.gg/vertical.svg" alt="European Unity League Logo" />
+        <div class="flex-grow-1">
+            <table class="table table-sm my-0">
+                <thead>
+                    <tr>
+                        
+                            <th scope="col"><a href="/ranking/2026/DE/">
+                                Germany
+                            </a>
+                            </th>
+                        
+                        
+                            <th scope="col">
+                                <a href="/ranking/2026/global/">
+                                    Europe
+                                </a>
+                            </th>
+                        
+                        <th scope="col">Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                            <td>64th</td>
+                        
+                        
+                            <td>563rd</td>
+                        
+                        <td>292</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-                                        <th scope="col">Points</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
 
-                                        <td>64th</td>
-
-
-                                        <td>562nd</td>
-
-                                        <td>292</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-
-                        <div class="d-flex flex-wrap gap-2 mt-2">
-
-
-
-
-                        </div>
-
-
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+                        
+                            
+                        
+                        
+                    </div>
+                    
+                    
                         <small class="mt-2">Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face with its &quot;Change the target of target spell or ability with a single target&quot; mode.</small>
-
-
-                    </div>
+                    
+                    
                 </div>
-
-
-                <a class="btn btn-secondary-light my-2" href="/player/profile/update">Edit player profile</a>
-
-
-
-
             </div>
 
-            <div class="col-lg-5 col-12">
+            
+            
 
-                <h2>We match results based on <em class="text-secondary-light">your full name!</em></h2>
-                <div class="bg-primary p-3 rounded d-inline-block border">
-                    <span class="me-2">League-ID</span>
-                    <span class="badge bg-secondary-light fw-bold text-black">Björn Kimminich</span>
-                </div>
-
-                <form method="post" action="/accounts/name-change" class="my-3">
-                    <input type="hidden" name="csrfmiddlewaretoken" value="****">
-
-
-                    <form  method="post" > <input type="hidden" name="csrfmiddlewaretoken" value="****"> <div
-                            class="row" > <div id="div_id_first_name" class="mb-3 col"> <label
-                            for="id_first_name" class="form-label">
-                        First name
-                    </label> <input type="text" name="first_name" value="Björn" maxlength="150" disabled class="textinput form-control" id="id_first_name"> </div> <div id="div_id_last_name" class="mb-3 col"> <label
-                            for="id_last_name" class="form-label">
-                        Last name
-                    </label> <input type="text" name="last_name" value="Kimminich" maxlength="150" disabled class="textinput form-control" id="id_last_name"> </div> </div>
-                        <div
-                        > </div> </form>
-
-                </form>
-                <h3>Tournament accounts</h3>
-                <div class="d-flex flex-column gap-2">
-
-
-                    <div class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#companionModal" style="cursor: pointer;">
-
-                        <i class="fa-solid fa-circle-check text-success me-2" aria-label="Companion App connected" title="Companion App connected"></i>
-
-                        <span>Companion App</span>
-
-                        <i class="fa-solid fa-circle-info ms-2 text-secondary-light small" aria-label="More info how to connect Companion App" title="More info how to connect Companion App"></i>
-
-                    </div>
-
-
-
-
-
-
-
-                    <div class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#meleeModal" style="cursor: pointer;">
-
-                        <i class="fa-solid fa-circle-check text-success me-2" aria-label="Melee.gg connected" title="Melee.gg connected"></i>
-
-                        <span>Melee.gg</span>
-
-                        <i class="fa-solid fa-circle-info ms-2 text-secondary-light small" aria-label="More info how to connect Melee.gg" title="More info how to connect Melee.gg"></i>
-
-                    </div>
-
-
-
-                </div>
-
-
-                <div class="modal fade" id="companionModal" tabindex="-1" aria-labelledby="companionModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="companionModalLabel">Set up Companion App</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <ol>
-                                    <li>Open the Magic: The Gathering <b><a href="https://magic.wizards.com/en/products/companion-app" target="_blank" rel="noopener noreferrer">Companion App</a></b> and login</li>
-                                    <li>Go to the <em>Play</em> tab on the bottom navigation bar</li>
-                                    <li>Click on <em>Joining as</em> followed by your name on top of the screen</li>
-                                    <li>Enter your first and last name and <b>Submit</b></li>
-                                </ol>
-                                <p>From now on, when your organizer reports results from Companion, they will be correctly reported to your Unity League account.</p>
-                                <h6 class="h5">Inform organizers</h6>
-                                <p>
-                                    Check if your <a href="/organizer/">local organizer</a> is already reporting events on Unity League.
-                                    <br><a class="btn btn-sm btn-secondary" href="/organizer/">Organizer list</a>
-                                </p>
-                                <p>If not, please inform them about the opportunity report events and award points for the Unity League.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="modal fade" id="meleeModal" tabindex="-1" aria-labelledby="meleeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="meleeModalLabel">Set up Melee.gg</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <ol>
-                                    <li>Open <a href="https://melee.gg/Account/SignIn" target="_blank" rel="noopener noreferrer"><b>Melee.gg</b></a> and login</li>
-                                    <li>Go to <a href="https://melee.gg/Profile/Account" target="_blank" rel="noopener noreferrer">Manage Your Account Settings</a></li>
-                                    <li>Make sure <b>Display username by default</b> is <b>not</b> checked</li>
-                                    <li>Go to <a href="https://melee.gg/Profile/Settings" target="_blank" rel="noopener noreferrer">Profile</a></li>
-                                    <li>Click on <b>Edit</b> next to your <b>First Name</b> and <b>Last Name</b></li>
-                                    <li>Enter your names and <b>Save</b></li>
-                                </ol>
-                                <p>After changing your Melee settings, it will take 3-4 days until your results are fully transferred over to your account.
-                                    <br>Please note, not all Melee events count for the Unity League. The green checkmark is shown once the first eligible Melee event is reported.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
+            
         </div>
 
-        <h2 class="mt-3">Achievements in Season 2026</h2>
+        <div class="col-lg-5 col-12">
+            
+                <div class="card bg-gradient bg-primary rounded border-secondary  border-2">
+                    <div class="card-body text-center">
+                        
+                            <img src="/static/european_magic_cup.png" class="img-fluid" alt="European Magic Cup Logo" style="height: 250px;">
+                        
+                        <h5 class="card-title mb-2 mt-4 text-secondary">🎯 Your journey starts here</h5>
+                        <p class="card-text">Track your matches, rank up, and get your own player card!</p>
+                        <a href="/accounts/register/" class="btn btn-secondary-light  btn-sm mt-2">Register now!</a>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
 
+    <h2 class="mt-3">Achievements in Season 2026</h2>
+    
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="season_dropdown_button" data-bs-toggle="dropdown" aria-expanded="false">
-                Season 2026
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="season_dropdown_button">
-
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="season_dropdown_button" data-bs-toggle="dropdown" aria-expanded="false">
+            Season 2026
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="season_dropdown_button">
+            
                 <li><a class="dropdown-item" href="/player/16215/season/2026">Season 2026</a></li>
-
+            
                 <li><a class="dropdown-item" href="/player/16215/season/eu2025">Season 2025</a></li>
+            
+        </ul>
+    </div>
 
-            </ul>
-        </div>
 
-
-
+    
         <div class="container">
             <div class="row">
-
-                <div class="col-lg-6 p-0 pe-lg-5 my-4">
-                    <h3 class="text-lg-center">League Points</h3>
-                    <div class="table-responsive">
-                        <table class="table table-striped m-0">
-                            <thead>
-                            <tr>
-
-                                <th></th>
-
-                                <th>Grand Prix</th>
-
-                                <th>Premier</th>
-
-                                <th>Regular</th>
-
-                                <th>Total</th>
-
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            <tr>
-
-                                <td>League Points</td>
-
-                                <td>36</td>
-
-                                <td>78</td>
-
-                                <td>178</td>
-
-                                <td>292</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Events</td>
-
-                                <td>1</td>
-
-                                <td>1</td>
-
-                                <td>20</td>
-
-                                <td>22</td>
-
-                            </tr>
-
-                            </tbody>
-                        </table>
+                
+                    <div class="col-lg-6 p-0 pe-lg-5 my-4">
+                        <h3 class="text-lg-center">League Points</h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped m-0">
+                                <thead>
+                                    <tr>
+                                        
+                                            <th></th>
+                                        
+                                            <th>Grand Prix</th>
+                                        
+                                            <th>Premier</th>
+                                        
+                                            <th>Regular</th>
+                                        
+                                            <th>Total</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                        <tr>
+                                            
+                                                <td>League Points</td>
+                                            
+                                                <td>36</td>
+                                            
+                                                <td>78</td>
+                                            
+                                                <td>178</td>
+                                            
+                                                <td>292</td>
+                                            
+                                        </tr>
+                                    
+                                        <tr>
+                                            
+                                                <td>Events</td>
+                                            
+                                                <td>1</td>
+                                            
+                                                <td>1</td>
+                                            
+                                                <td>20</td>
+                                            
+                                                <td>22</td>
+                                            
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
+                
 
-
-
+                
             </div>
         </div>
 
@@ -464,101 +341,101 @@
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
-                    <tr>
-                        <th scope="col">Format</th>
-                        <th scope="col">Record</th>
-                        <th scope="col">
+                        <tr>
+                            <th scope="col">Format</th>
+                            <th scope="col">Record</th>
+                            <th scope="col">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-html="true"
                                       title="How many <b><em>match points</em></b> the player earned compared to the <b><em>maximum possible</em></b>."
                                       data-bs-placement="bottom">
                                     Match-win % <i class="fa-solid fa-info-circle"></i>
                                 </span>
-                        </th>
-                        <th scope="col">
+                            </th>
+                            <th scope="col">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-html="true"
                                       title="How many matches the player <b><em>won</em></b> compared to all matches they <b><em>won or lost</em></b>."
                                       data-bs-placement="bottom">
                                     Win-loss ratio <i class="fa-solid fa-info-circle"></i>
                                 </span>
-                        </th>
-                        <th scope="col">
+                            </th>
+                            <th scope="col">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-html="true"
                                       title="How many <b><em>draws</em></b> the player had compared to all matches they <b><em>played</em></b>."
                                       data-bs-placement="bottom">
                                     Draw % <i class="fa-solid fa-info-circle"></i>
                                 </span>
-                        </th>
-                    </tr>
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
+                        
+                            <tr>
 
-                    <tr>
+                                
+                                    <td>Pauper</td>
+                                    <td>2 - 1 - 0</td>
+                                    <td>66.7%</td>
+                                    <td>66.7%</td>
+                                    <td>0.0%</td>
+                                
+                            </tr>
+                        
+                            <tr>
 
+                                
+                                    <td>Standard</td>
+                                    <td>24 - 25 - 3</td>
+                                    <td>48.1%</td>
+                                    <td>49.0%</td>
+                                    <td>5.8%</td>
+                                
+                            </tr>
+                        
+                            <tr>
 
-                        <td>Pauper</td>
-                        <td>2 - 1 - 0</td>
-                        <td>66.7%</td>
-                        <td>66.7%</td>
-                        <td>0.0%</td>
+                                
+                                    <td>Modern</td>
+                                    <td>16 - 15 - 2</td>
+                                    <td>50.5%</td>
+                                    <td>51.6%</td>
+                                    <td>6.1%</td>
+                                
+                            </tr>
+                        
+                            <tr>
 
-                    </tr>
-
-                    <tr>
-
-
-                        <td>Standard</td>
-                        <td>24 - 25 - 3</td>
-                        <td>48.1%</td>
-                        <td>49.0%</td>
-                        <td>5.8%</td>
-
-                    </tr>
-
-                    <tr>
-
-
-                        <td>Modern</td>
-                        <td>16 - 15 - 2</td>
-                        <td>50.5%</td>
-                        <td>51.6%</td>
-                        <td>6.1%</td>
-
-                    </tr>
-
-                    <tr>
-
-
-                        <td><b>Overall</b></td>
-                        <td><b>42 - 41 - 5</b></td>
-                        <td><b>49.6%</b></td>
-                        <td><b>50.6%</b></td>
-                        <td><b>5.7%</b></td>
-
-                    </tr>
-
+                                
+                                    <td><b>Overall</b></td>
+                                    <td><b>42 - 41 - 5</b></td>
+                                    <td><b>49.6%</b></td>
+                                    <td><b>50.6%</b></td>
+                                    <td><b>5.7%</b></td>
+                                
+                            </tr>
+                        
                     </tbody>
                 </table>
             </div>
         </div>
+    
 
+    
 
-
-
-        <div class="my-4">
-            <h2>Event history</h2>
-            <div class="alert alert-secondary d-inline-flex align-items-center pe-4" role="alert" style="width: auto;">
-                <div><i class="fa fa-trophy me-3" style="font-size: 1.5rem;"></i></div>
-                <div>
-                    <p class="mb-1">Want to collect points at local events?</p>
-                    Tell your local organizer to register them <a href="/info/organizer" class="fw-bold">here</a>!
-                </div>
+    <div class="my-4">
+        <h2>Event history</h2>
+        <div class="alert alert-secondary d-inline-flex align-items-center pe-4" role="alert" style="width: auto;">
+            <div><i class="fa fa-trophy me-3" style="font-size: 1.5rem;"></i></div>
+            <div>
+                <p class="mb-1">Want to collect points at local events?</p>
+                Tell your local organizer to register them <a href="/info/organizer" class="fw-bold">here</a>!
             </div>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
                     <tr>
                         <th scope="col">Rank</th>
                         <th scope="col">Event/Date</th>
@@ -566,18 +443,18 @@
                         <th scope="col">Record</th>
                         <th scope="col">Type/Format</th>
                     </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr>
-                        <td>2nd</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Wed, 04.02.2026</div>
-                                <a href="/events/29010/">Pauper @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                </thead>
+                <tbody>
+                    
+                        <tr>
+                            <td>2nd</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Wed, 04.02.2026</div>
+                                    <a href="/events/29010/">Pauper @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -590,29 +467,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 1 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 1 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Pauper</div>
                                 </div>
-                                <div>Pauper</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>9th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Mon, 02.02.2026</div>
-                                <a href="/events/21167/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>9th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Mon, 02.02.2026</div>
+                                    <a href="/events/21167/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -625,29 +502,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 2 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 2 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>5th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Mon, 26.01.2026</div>
-                                <a href="/events/21166/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>5th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Mon, 26.01.2026</div>
+                                    <a href="/events/21166/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -660,29 +537,29 @@
     ">
                                     10
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 1 - 1</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 1 - 1</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>13th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Fri, 23.01.2026</div>
-                                <a href="/events/23330/">Modern @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>13th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Fri, 23.01.2026</div>
+                                    <a href="/events/23330/">Modern @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -695,29 +572,29 @@
     ">
                                     3
                                 </span>
-                        </td>
-                        <td class="text-nowrap">0 - 4 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">0 - 4 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Modern</div>
                                 </div>
-                                <div>Modern</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>5th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Mon, 19.01.2026</div>
-                                <a href="/events/21165/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>5th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Mon, 19.01.2026</div>
+                                    <a href="/events/21165/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -730,29 +607,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 2 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 2 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>434th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Sat, 10.01.2026</div>
-                                <a href="/events/24360/">[Lyon Sat 09:00] Magic Spotlight Series - Lyon 2026</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>434th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Sat, 10.01.2026</div>
+                                    <a href="/events/24360/">[Lyon Sat 09:00] Magic Spotlight Series - Lyon 2026</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -765,29 +642,29 @@
     ">
                                     78
                                 </span>
-                        </td>
-                        <td class="text-nowrap">3 - 4 - 1</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/premier.svg" alt="Premier" style="height: 24px;" title="Premier" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">3 - 4 - 1</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/premier.svg" alt="Premier" style="height: 24px;" title="Premier" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>3rd</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Mon, 05.01.2026</div>
-                                <a href="/events/21163/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>3rd</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Mon, 05.01.2026</div>
+                                    <a href="/events/21163/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -800,29 +677,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 1 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 1 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>4th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Fri, 02.01.2026</div>
-                                <a href="/events/23327/">Modern @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>4th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Fri, 02.01.2026</div>
+                                    <a href="/events/23327/">Modern @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -835,29 +712,29 @@
     ">
                                     10
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 1 - 1</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 1 - 1</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Modern</div>
                                 </div>
-                                <div>Modern</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>3rd</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Mon, 29.12.2025</div>
-                                <a href="/events/21162/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>3rd</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Mon, 29.12.2025</div>
+                                    <a href="/events/21162/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -870,29 +747,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 1 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 1 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>11th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Mon, 22.12.2025</div>
-                                <a href="/events/21161/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>11th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Mon, 22.12.2025</div>
+                                    <a href="/events/21161/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -905,29 +782,29 @@
     ">
                                     6
                                 </span>
-                        </td>
-                        <td class="text-nowrap">1 - 3 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">1 - 3 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>7th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Fri, 19.12.2025</div>
-                                <a href="/events/17746/">Modern @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>7th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Fri, 19.12.2025</div>
+                                    <a href="/events/17746/">Modern @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -940,29 +817,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 2 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 2 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Modern</div>
                                 </div>
-                                <div>Modern</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>8th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Mon, 15.12.2025</div>
-                                <a href="/events/21160/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>8th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Mon, 15.12.2025</div>
+                                    <a href="/events/21160/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -975,29 +852,29 @@
     ">
                                     7
                                 </span>
-                        </td>
-                        <td class="text-nowrap">1 - 2 - 1</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">1 - 2 - 1</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>2nd</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Fri, 12.12.2025</div>
-                                <a href="/events/17745/">Modern @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>2nd</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Fri, 12.12.2025</div>
+                                    <a href="/events/17745/">Modern @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1010,29 +887,29 @@
     ">
                                     15
                                 </span>
-                        </td>
-                        <td class="text-nowrap">4 - 1 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">4 - 1 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Modern</div>
                                 </div>
-                                <div>Modern</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>3rd</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Mon, 08.12.2025</div>
-                                <a href="/events/17754/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>3rd</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Mon, 08.12.2025</div>
+                                    <a href="/events/17754/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1045,29 +922,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 1 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 1 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>14th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Fri, 28.11.2025</div>
-                                <a href="/events/17743/">Modern @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>14th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Fri, 28.11.2025</div>
+                                    <a href="/events/17743/">Modern @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1080,29 +957,29 @@
     ">
                                     4
                                 </span>
-                        </td>
-                        <td class="text-nowrap">0 - 3 - 1</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">0 - 3 - 1</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Modern</div>
                                 </div>
-                                <div>Modern</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>7th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Fri, 21.11.2025</div>
-                                <a href="/events/17742/">Modern @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>7th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Fri, 21.11.2025</div>
+                                    <a href="/events/17742/">Modern @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1115,29 +992,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 2 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 2 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Modern</div>
                                 </div>
-                                <div>Modern</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>2nd</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Tue, 11.11.2025</div>
-                                <a href="/events/17682/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>2nd</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Tue, 11.11.2025</div>
+                                    <a href="/events/17682/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1150,29 +1027,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 1 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 1 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>5th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Fri, 07.11.2025</div>
-                                <a href="/events/17740/">Modern @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>5th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Fri, 07.11.2025</div>
+                                    <a href="/events/17740/">Modern @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1185,29 +1062,29 @@
     ">
                                     12
                                 </span>
-                        </td>
-                        <td class="text-nowrap">3 - 1 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">3 - 1 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Modern</div>
                                 </div>
-                                <div>Modern</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>551st</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Sat, 01.11.2025</div>
-                                <a href="/events/17844/">Magic Spotlight Series - Liverpool 2025</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>551st</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Sat, 01.11.2025</div>
+                                    <a href="/events/17844/">Magic Spotlight Series - Liverpool 2025</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1220,29 +1097,29 @@
     ">
                                     36
                                 </span>
-                        </td>
-                        <td class="text-nowrap">1 - 4 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/grand_prix.svg" alt="Grand Prix" style="height: 24px;" title="Grand Prix" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">1 - 4 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/grand_prix.svg" alt="Grand Prix" style="height: 24px;" title="Grand Prix" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>4th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Tue, 28.10.2025</div>
-                                <a href="/events/17680/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>4th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Tue, 28.10.2025</div>
+                                    <a href="/events/17680/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1255,29 +1132,29 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 1 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 1 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>3rd</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Fri, 24.10.2025</div>
-                                <a href="/events/17738/">Modern @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>3rd</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Fri, 24.10.2025</div>
+                                    <a href="/events/17738/">Modern @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1290,29 +1167,29 @@
     ">
                                     12
                                 </span>
-                        </td>
-                        <td class="text-nowrap">3 - 1 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">3 - 1 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Modern</div>
                                 </div>
-                                <div>Modern</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>6th</td>
-                        <td>
-                            <div  class="d-flex flex-column-reverse flex-lg-row">
-                                <div style="min-width: 150px;" >Tue, 21.10.2025</div>
-                                <a href="/events/17630/">Standard @ Mulligan</a>
-                            </div>
-                        </td>
-                        <td>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>6th</td>
+                            <td>
+                                <div  class="d-flex flex-column-reverse flex-lg-row">
+                                    <div style="min-width: 150px;" >Tue, 21.10.2025</div>
+                                    <a href="/events/17630/">Standard @ Mulligan</a>
+                                </div>
+                            </td>
+                            <td>
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1325,144 +1202,139 @@
     ">
                                     9
                                 </span>
-                        </td>
-                        <td class="text-nowrap">2 - 2 - 0</td>
-                        <td>
-                            <div class="d-flex flex-column flex-lg-row">
-                                <div style="min-width: 150px;">
-
-                                    <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
-
+                            </td>
+                            <td class="text-nowrap">2 - 2 - 0</td>
+                            <td>
+                                <div class="d-flex flex-column flex-lg-row">
+                                    <div style="min-width: 150px;">
+                                        
+                                            <img  src="/static/types/text_icons/regular.svg" alt="Regular" style="height: 24px;" title="Regular" itemprop="image">
+                                        
+                                    </div>
+                                    <div>Standard</div>
                                 </div>
-                                <div>Standard</div>
-                            </div>
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
-            </div>
+                            </td>
+                        </tr>
+                    
+                </tbody>
+            </table>
         </div>
-
-
     </div>
-</main>
-<footer class=" footer mt-auto bg-primary">
-    <div class="px-5 py-5 container">
-        <div class="row g-4">
-            <div class="col-md-6">
-                <ul class="nav">
-                    <li class="nav-item"> <a href="mailto:info@unityleague.gg" class="nav-link px-2 text-body-secondary">Contact us</a></li>
-                    <li class="nav-item">  <a href="/legal/privacy/" class="nav-link px-2 text-body-secondary">Privacy Policy</a></li>
-                    <li class="nav-item">  <a href="/legal/terms/" class="nav-link px-2 text-body-secondary">Terms of Use</a></li>
-                    <li class="nav-item">  <a href="/legal/imprint/" class="nav-link px-2 text-body-secondary">Imprint</a></li>
-                </ul>
+
+
             </div>
-            <div class="col-md-6">
-                <ul class="nav float-md-end">
-                    <li class="me-3"><a class="text-body-secondary" href="/discord/" target="_blank"><i class="fa-brands fa-discord" style="font-size:24px;"></i></a></li>
-                    <li class="me-3"><a class="text-body-secondary" href="https://twitter.com/unityleaguemtg" target="_blank"><i class="fa-brands fa-x-twitter" style="font-size:24px;"></i></a></li>
-                    <li class="me-3"><a class="text-body-secondary" href="https://bsky.app/profile/unityleaguemtg.bsky.social" target="_blank"><i class="fa-brands fa-bluesky" style="font-size:24px;"></i></a></li>
-                    <li class="me-3"><a class="text-body-secondary" href="https://instagram.com/unityleaguemtg" target="_blank"><i class="fa-brands fa-instagram" style="font-size:24px;"></i></a></li>
-                    <li class="me-3"><a class="text-body-secondary" href="https://facebook.com/unityleaguemtg" target="_blank"><i class="fa-brands fa-facebook" style="font-size:24px;"></i></a></li>
-                    <li class="me-3"><a class="text-body-secondary" href="https://twitch.tv/unityleaguemtg" target="_blank"><i class="fa-brands fa-twitch" style="font-size:24px;"></i></a></li>
-                    <li class="me-3"><a class="text-body-secondary" href="https://www.youtube.com/@unityleaguemtg" target="_blank"><i class="fa-brands fa-youtube" style="font-size:24px;"></i></a></li>
-                    <p class="me-3">@unityleaguemtg</p>
-                </ul>
-            </div>
-            <div class="border-bottom my-3"></div>
-            <div class="col-md-8">
-                <p class="mb-2 text-muted" style="font-size: 0.7em;">
-                    &copy;2026 Mana Grid, Ltd liab Co All rights reserved. Content cannot be used or reproduced without consent.
-                    <br>
-
-                    Wizards of the Coast, Magic: The Gathering, and their logos are trademarks of Wizards of the Coast LLC &copy;. Mana Grid is not endorsed or approved by or endorsed by Wizards of the Coast LLC.
-
-                </p>
-            </div>
-            <div class="col-md-4">
-                <div class="float-md-end">
-
-                    Logged in as k0shiii,
-                    <span><form method="post" action="/accounts/logout/" class="d-inline">
-                                    <input type="hidden" name="csrfmiddlewaretoken" value="****">
-                                    <button type="submit" class="btn btn-link text-muted p-0">logout</button>
-                                </form></span>
-
+        </main>
+        <footer class=" footer mt-auto bg-primary">
+            <div class="px-5 py-5 container">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <ul class="nav">
+                            <li class="nav-item"> <a href="mailto:info@unityleague.gg" class="nav-link px-2 text-body-secondary">Contact us</a></li>
+                            <li class="nav-item">  <a href="/legal/privacy/" class="nav-link px-2 text-body-secondary">Privacy Policy</a></li>
+                            <li class="nav-item">  <a href="/legal/terms/" class="nav-link px-2 text-body-secondary">Terms of Use</a></li>
+                            <li class="nav-item">  <a href="/legal/imprint/" class="nav-link px-2 text-body-secondary">Imprint</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="nav float-md-end">
+                            <li class="me-3"><a class="text-body-secondary" href="/discord/" target="_blank"><i class="fa-brands fa-discord" style="font-size:24px;"></i></a></li>
+                            <li class="me-3"><a class="text-body-secondary" href="https://twitter.com/unityleaguemtg" target="_blank"><i class="fa-brands fa-x-twitter" style="font-size:24px;"></i></a></li>
+                            <li class="me-3"><a class="text-body-secondary" href="https://bsky.app/profile/unityleaguemtg.bsky.social" target="_blank"><i class="fa-brands fa-bluesky" style="font-size:24px;"></i></a></li>
+                            <li class="me-3"><a class="text-body-secondary" href="https://instagram.com/unityleaguemtg" target="_blank"><i class="fa-brands fa-instagram" style="font-size:24px;"></i></a></li>
+                            <li class="me-3"><a class="text-body-secondary" href="https://facebook.com/unityleaguemtg" target="_blank"><i class="fa-brands fa-facebook" style="font-size:24px;"></i></a></li>
+                            <li class="me-3"><a class="text-body-secondary" href="https://twitch.tv/unityleaguemtg" target="_blank"><i class="fa-brands fa-twitch" style="font-size:24px;"></i></a></li>
+                            <li class="me-3"><a class="text-body-secondary" href="https://www.youtube.com/@unityleaguemtg" target="_blank"><i class="fa-brands fa-youtube" style="font-size:24px;"></i></a></li>
+                            <p class="me-3">@unityleaguemtg</p>
+                        </ul>
+                    </div>
+                    <div class="border-bottom my-3"></div>
+                    <div class="col-md-8">
+                        <p class="mb-2 text-muted" style="font-size: 0.7em;">
+                            &copy;2026 Mana Grid, Ltd liab Co All rights reserved. Content cannot be used or reproduced without consent.
+                            <br>
+                            
+                                Wizards of the Coast, Magic: The Gathering, and their logos are trademarks of Wizards of the Coast LLC &copy;. Mana Grid is not endorsed or approved by or endorsed by Wizards of the Coast LLC.
+                            
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="float-md-end">
+                            
+                                <a href="/accounts/login/" class="btn btn-secondary">Login</a>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</footer>
+        </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-
-<script src="/static/init_tooltips.js"></script>
+        
+    <script src="/static/init_tooltips.js"></script>
 
 
+        
+            
 
+            <template id="cookie-consent__cookie-bar">
+                <div class="cookie-bar fixed-bottom w-100 bg-secondary-light border-top shadow p-3" style="z-index: 2000;">
+                    <div class="container d-flex flex-column flex-md-row align-items-start align-items-md-center  gap-2">
+                        <div class="text-black small">We use cookies for core functionality and, with your consent, analytics cookies to help us improve the Unity League experience.</div>
+                        <div class="d-flex gap-2 align-items-center">
+                            <a href="/cookies/" class="text-black text-decoration-underline small p-0">
+                                More info
+                            </a>
+                            <button type="button" class="cookie-consent__decline btn btn-outline-primary btn-sm">
+                                Decline
+                            </button>
+                            <button type="button" class="cookie-consent__accept btn btn-primary btn-sm">
+                                Accept
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </template>
 
+            <script id="cookie-consent__cookie-groups" type="application/json">[{"varname": "analytics", "name": "Analytics", "description": "Usage statistics and behavioral analytics.", "is_required": false}]</script>
 
-<template id="cookie-consent__cookie-bar">
-    <div class="cookie-bar fixed-bottom w-100 bg-secondary-light border-top shadow p-3" style="z-index: 2000;">
-        <div class="container d-flex flex-column flex-md-row align-items-start align-items-md-center  gap-2">
-            <div class="text-black small">We use cookies for core functionality and, with your consent, analytics cookies to help us improve the Unity League experience.</div>
-            <div class="d-flex gap-2 align-items-center">
-                <a href="/cookies/" class="text-black text-decoration-underline small p-0">
-                    More info
-                </a>
-                <button type="button" class="cookie-consent__decline btn btn-outline-primary btn-sm">
-                    Decline
-                </button>
-                <button type="button" class="cookie-consent__accept btn btn-primary btn-sm">
-                    Accept
-                </button>
-            </div>
-        </div>
-    </div>
-</template>
+            
+            
+            
 
-<script id="cookie-consent__cookie-groups" type="application/json">[{"varname": "analytics", "name": "Analytics", "description": "Usage statistics and behavioral analytics.", "is_required": false}]</script>
+            <script type="module">
+                import {showCookieBar} from '/static/cookie_consent/cookiebar.module.js';
+                showCookieBar({
+                    statusUrl: '/cookies/status/',
+                    templateSelector: '#cookie-consent__cookie-bar',
+                    cookieGroupsSelector: '#cookie-consent__cookie-groups',
+                    onAccept: (cookieGroups) => {
+                        const enabled = cookieGroups.some(g => g.varname === 'analytics');
+                        if (!enabled) return;
 
+                        const tpl = document.getElementById('analytics-scripts')?.content;
+                        if (!tpl) return;
 
+                        document.body.appendChild(tpl.cloneNode(true));
+                    },
+                });
+            </script>
 
-
-
-<script type="module">
-    import {showCookieBar} from '/static/cookie_consent/cookiebar.module.js';
-    showCookieBar({
-        statusUrl: '/cookies/status/',
-        templateSelector: '#cookie-consent__cookie-bar',
-        cookieGroupsSelector: '#cookie-consent__cookie-groups',
-        onAccept: (cookieGroups) => {
-            const enabled = cookieGroups.some(g => g.varname === 'analytics');
-            if (!enabled) return;
-
-            const tpl = document.getElementById('analytics-scripts')?.content;
-            if (!tpl) return;
-
-            document.body.appendChild(tpl.cloneNode(true));
-        },
-    });
-</script>
-
-<template id="analytics-scripts">
-    <script type="text/javascript">
-        console.log("Loading analytics")
-    </script>
-
-    <script type="text/javascript">
-        console.log("Loading clarity");
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "ub6iesnnrn");
-    </script>
-
-</template>
-
-</body>
+            <template id="analytics-scripts">
+                <script type="text/javascript">
+                    console.log("Loading analytics")
+                </script>
+                
+                    <script type="text/javascript">
+                        console.log("Loading clarity");
+                        (function(c,l,a,r,i,t,y){
+                            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                        })(window, document, "clarity", "script", "ub6iesnnrn");
+                    </script>
+                
+            </template>
+        
+    </body>
 </html>
-
