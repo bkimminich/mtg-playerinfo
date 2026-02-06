@@ -22,16 +22,17 @@ class PlayerInfoManager {
     if (options.topdeckHandle) results.push(await this.fetchers.topdeck.fetchById(options.topdeckHandle));
 
     const filteredResults = results.filter(r => r !== null);
-    return this.mergeData(filteredResults);
+    return this.mergeData(filteredResults, options.verbose);
   }
 
-  mergeData(results) {
+  mergeData(results, verbose = false) {
     const player = {
       general: {},
       sources: {}
     };
 
     const seenUrls = new Set();
+    const firstSeenValues = {};
 
     const winRates = [];
 
@@ -41,8 +42,20 @@ class PlayerInfoManager {
 
       const generalProps = ['name', 'photo', 'age', 'bio', 'team', 'country', 'hometown', 'pronouns', 'facebook', 'twitch', 'youtube'];
       generalProps.forEach(prop => {
-        if (res[prop] && !player.general[prop]) {
-          player.general[prop] = res[prop];
+        if (res[prop]) {
+          if (!player.general[prop]) {
+            player.general[prop] = res[prop];
+            firstSeenValues[prop] = res[prop];
+            if (verbose) {
+              console.log(`⬆️: Promoted '${prop}' from ${res.source} to general information: ${res[prop]}`);
+            }
+          } else if (verbose) {
+            if (res[prop] === firstSeenValues[prop]) {
+              console.log(`🆗: ${res.source} has the same '${prop}' as seen before: ${res[prop]}`);
+            } else {
+              console.log(`${prop === 'photo' ? '🆕': '🆚'}️: ${res.source} has different '${prop}' than seen before: ${res[prop]} (instead of ${firstSeenValues[prop]})`);
+            }
+          }
         }
       });
 

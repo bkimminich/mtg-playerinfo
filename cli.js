@@ -12,6 +12,7 @@ program
   .option('--mtgelo-id <id>', 'MTG Elo Project Player ID')
   .option('--melee-user <username>', 'Melee Username')
   .option('--topdeck-handle <handle>', 'Topdeck Handle')
+  .option('-v, --verbose', 'Print consistency check information to console')
   .action(async (options) => {
     if (!options.unityId && !options.mtgeloId && !options.meleeUser && !options.topdeckHandle) {
       console.error('Error: Please provide at least one search option (unity-id, mtgelo-id, melee-user, or topdeck-handle).');

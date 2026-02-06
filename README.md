@@ -25,15 +25,15 @@ npx mtg-playerinfo --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --
 
 ## Output Format
 
-The tool returns a JSON object representing the player and their combined metadata. Redundant information like Name, Photo, Country, Age, and Hometown is merged into a `general` section, while source-specific data is kept in the `sources` section.
+The tool returns a JSON object representing the player and their combined metadata. Redundant information like name, photo, country, age, and hometown is merged into a `general` section, while source-specific data is kept in the `sources` section.
 
-### Deduplication and Merging Logic
+### General meta-data and merging priority
 
-- **Priority**: Merging follows a "first-come, first-served" approach based on the order of sources provided in the command line or processed by the manager. For instance, the first `name` and first valid `photo` URL found will be used as the primary name and photo for the player.
-- **Deduplication**: If multiple IDs point to the exact same profile URL, the profile is only processed once to avoid redundant data in the `sources` section.
-- **General Metadata**: Fields like `Age`, `Country`, and `Hometown` are extracted from the first source that provides them and placed in the `general` section.
+General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` are extracted from the first source that provides them and placed in the `general` section. Merging follows a "first-come, first-served" approach based on the order of sources provided in the command line or processed by the manager. In the [CLI usage example](#cli-usage) above, the source priority is `Unity League` > `MTG Elo Project` > `Melee` > `Topdeck`.
 
-Example output:
+> If you notice any inconsistencies or unexpected fields values, you can run the tool with the `-v` or `--verbose` flag to see the full list of extracted fields and if they were promoted to the `general` section or deviated from a previous source.
+
+### Example output
 
 ```json
 {
@@ -110,11 +110,11 @@ Example output:
 
 The following sites are currently supported based on HTML scraping and/or API calls. In general, API calls are preferred over scraping due to their higher reliability and independence from site structure changes.
 
-| Site            | Method                                                                       |
-|-----------------|------------------------------------------------------------------------------|
-| Unity League    | ✅Scraping                                                                    |
-| MTG Elo Project | ✅Scraping                                                                    |
-| Topdeck         | ✅Scraping                                                                    |
+| Site            | Method                                                                          |
+|-----------------|---------------------------------------------------------------------------------|
+| Unity League    | ✅Scraping                                                                       |
+| MTG Elo Project | ✅Scraping                                                                       |
+| Topdeck         | ✅Scraping / ✅API                                                                |
 | Melee           | ✅Scraping / 🚧API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) |
 
 _Note: Some sites may have anti-bot protections that can lead to "Maximum number of redirects exceeded" or "403 Forbidden" errors depending on the execution environment._
