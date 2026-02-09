@@ -9,7 +9,7 @@ function readFixture(name) {
   return fs.readFileSync(path.join(__dirname, 'data', name), 'utf8');
 }
 
-test('UnityLeagueFetcher.parseHtml extracts profile, photo, ranks and stats', () => {
+test('UnityLeagueFetcher: parseHtml extracts profile, photo, ranks and stats', () => {
   const html = readFixture('unityLeague.html');
   const url = 'https://unityleague.gg/player/16215/';
   const fetcher = new UnityLeagueFetcher();

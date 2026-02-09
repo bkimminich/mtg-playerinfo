@@ -9,7 +9,7 @@ function readFixture(name) {
   return fs.readFileSync(path.join(__dirname, 'data', name), 'utf8');
 }
 
-test('MeleeFetcher.parseHtml extracts basic profile info', () => {
+test('MeleeFetcher: parseHtml extracts basic profile info', () => {
   const html = readFixture('melee.html');
   const url = 'https://melee.gg/Profile/Index/k0shiii';
   const username = 'k0shiii';

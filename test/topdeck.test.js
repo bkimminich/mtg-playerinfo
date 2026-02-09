@@ -9,7 +9,7 @@ function readFixture(name) {
   return fs.readFileSync(path.join(__dirname, 'data', name), 'utf8');
 }
 
-test('TopdeckFetcher.parseHtml extracts stats from DOM when available', () => {
+test('TopdeckFetcher: parseHtml extracts stats from DOM when available', () => {
   const html = readFixture('topdeck.html');
   const handle = '@k0shiii';
   const url = `https://topdeck.gg/profile/${handle}`;

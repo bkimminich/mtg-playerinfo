@@ -9,7 +9,7 @@ function readFixture(name) {
   return fs.readFileSync(path.join(__dirname, 'data', name), 'utf8');
 }
 
-test('MtgEloFetcher.parseHtml extracts name and details including computed Win Rate', () => {
+test('MtgEloFetcher: parseHtml extracts name and details including computed Win Rate', () => {
   const html = readFixture('mtgElo.html');
   const id = 'bjoern-kimminich';
   const url = `https://mtgeloproject.net/profile/${id}`;
