@@ -53,7 +53,7 @@ General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` 
     "facebook": "bjoern.kimminich",
     "twitch": "koshiii",
     "youtube": "@BjörnKimminich",
-    "win rate": "42.29%"
+    "win rate": "42.49%"
   },
   "sources": {
     "Unity League": {
@@ -67,11 +67,11 @@ General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` 
         "local organizer": "Mulligan TCG Shop",
         "team": "Mull to Five",
         "bio": "Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face with its \"Change the target of target spell or ability with a single target\" mode.",
-        "rank germany": "64",
-        "rank europe": "563",
-        "rank points": "292",
-        "record": "42-41-5",
-        "win rate": "49.6%"
+        "rank germany": "63",
+        "rank europe": "547",
+        "rank points": "304",
+        "record": "45-43-5",
+        "win rate": "50.2%"
       }
     },
     "MTG Elo Project": {
