@@ -1,0 +1,33 @@
+name: Update Test Data
+
+on:
+  schedule:
+    - cron: '0 2 * * 0' # Sundays 2:00 AM
+  workflow_dispatch: # Allow manual run
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Fetch new test data
+        run: node scripts/update-test-data.js
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update test data HTML files"
+          file_pattern: 'test/data/*.html'
