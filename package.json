@@ -7,7 +7,9 @@
     "mtg-playerinfo": "./cli.js"
   },
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
   },
   "keywords": [],
   "author": "Björn Kimminich",
@@ -15,6 +17,9 @@
   "dependencies": {
     "cheerio": "^1.2.0",
     "commander": "^14.0.3"
+  },
+  "devDependencies": {
+    "standard": "^17.1.2"
   },
   "engines": {
     "node": "20 - 24"

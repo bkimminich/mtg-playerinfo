@@ -1,7 +1,10 @@
 # MTG Player Info
 
 ![GitHub stars](https://img.shields.io/github/stars/bkimminich/mtg-playerinfo.svg?label=GitHub%20%E2%98%85&style=flat)
-![node](https://img.shields.io/node/v/mtg-playerinfo.svg) [![npm](https://img.shields.io/npm/dm/mtg-playerinfo.svg)](https://www.npmjs.com/package/mtg-playerinfo) [![npm](https://img.shields.io/npm/dt/mtg-playerinfo.svg)](https://www.npmjs.com/package/mtg-playerinfo)
+![node](https://img.shields.io/node/v/mtg-playerinfo.svg)
+[![npm](https://img.shields.io/npm/dm/mtg-playerinfo.svg)](https://www.npmjs.com/package/mtg-playerinfo)
+[![npm](https://img.shields.io/npm/dt/mtg-playerinfo.svg)](https://www.npmjs.com/package/mtg-playerinfo)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 A simple NPM module and CLI tool to pull Magic: The Gathering player data from various sources (Unity League, MTG Elo Project, Melee, and Topdeck).
 
