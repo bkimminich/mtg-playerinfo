@@ -39,20 +39,11 @@ class MeleeFetcher {
           let handle = urlObj.pathname.split('/').filter(Boolean).pop();
           if (handle) {
             handle = decodeURIComponent(handle);
-          }
-          if (platform === 'youtube' && handle.startsWith('@')) {
-            // keep @ for youtube
-          } else if (platform === 'facebook') {
-            // handle is correct
-          } else if (platform === 'twitch') {
-            // handle is correct
-          }
-          if (handle) {
             const label = platform.charAt(0).toLowerCase() + platform.slice(1);
             data[label] = handle;
           }
         } catch (e) {
-          // ignore invalid URLs
+          console.log('Invalid URL in social link ' + href + ': ' + e.message);
         }
       }
     });
