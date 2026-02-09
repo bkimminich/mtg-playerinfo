@@ -19,9 +19,24 @@ program
       process.exit(1);
     }
 
+    // Determine priority order based on CLI argument order
+    const argOrder = [];
+    const optionMap = {
+      '--unity-id': 'unity',
+      '--mtgelo-id': 'mtgelo',
+      '--melee-user': 'melee',
+      '--topdeck-handle': 'topdeck'
+    };
+
+    process.argv.forEach(arg => {
+      if (optionMap[arg]) {
+        argOrder.push(optionMap[arg]);
+      }
+    });
+
     const manager = new PlayerInfoManager();
     try {
-      const playerInfo = await manager.getPlayerInfo(options);
+      const playerInfo = await manager.getPlayerInfo(options, argOrder);
       console.log(JSON.stringify(playerInfo, null, 2));
     } catch (error) {
       console.error('An error occurred:', error.message);

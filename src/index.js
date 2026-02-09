@@ -13,13 +13,27 @@ class PlayerInfoManager {
     };
   }
 
-  async getPlayerInfo(options) {
+  async getPlayerInfo(options, priorityOrder = []) {
+    const fetcherMap = {
+      unity: { option: 'unityId', fetcher: this.fetchers.unity },
+      mtgelo: { option: 'mtgeloId', fetcher: this.fetchers.mtgelo },
+      melee: { option: 'meleeUser', fetcher: this.fetchers.melee },
+      topdeck: { option: 'topdeckHandle', fetcher: this.fetchers.topdeck }
+    };
+
+    // Default order if no priority specified
+    const defaultOrder = ['unity', 'mtgelo', 'melee', 'topdeck'];
+    const order = priorityOrder.length > 0 ? priorityOrder : defaultOrder;
+
     const results = [];
 
-    if (options.unityId) results.push(await this.fetchers.unity.fetchById(options.unityId));
-    if (options.mtgeloId) results.push(await this.fetchers.mtgelo.fetchById(options.mtgeloId));
-    if (options.meleeUser) results.push(await this.fetchers.melee.fetchById(options.meleeUser));
-    if (options.topdeckHandle) results.push(await this.fetchers.topdeck.fetchById(options.topdeckHandle));
+    for (const source of order) {
+      const config = fetcherMap[source];
+      if (config && options[config.option]) {
+        const result = await config.fetcher.fetchById(options[config.option]);
+        results.push(result);
+      }
+    }
 
     const filteredResults = results.filter(r => r !== null);
     return this.mergeData(filteredResults, options.verbose);

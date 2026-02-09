@@ -301,7 +301,7 @@ test('PlayerInfoManager: with sources in different order (Melee first, then Unit
   const result = await manager.getPlayerInfo({
     meleeUser: 'k0shiii',
     unityId: '16215'
-  });
+  }, ['melee', 'unity']);
 
   assert.equal(result.general.name, 'Björn Kimminich', 'Name should use Melee version');
   assert.ok(result.general.photo.includes('unityleague.gg'),
