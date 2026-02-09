@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 
 <title>Profile k0shiii | Melee</title>
-<impact-site-verification value="********-****-****-****-************"></impact-site-verification>
+<impact-site-verification value="4c243f18-8267-493f-a951-c8659ec151bc"></impact-site-verification>
 <meta content="@MeleePlatform" property="twitter:site"></meta>
 <meta content="0.3.62.22" name="version"></meta>
 <meta content="https://cdn.melee.gg/images/blankbrandimage.png" property="og:image"></meta>
@@ -40,7 +40,7 @@
 
 <link href="/Content/site.min.css?v=0.3.62.22&lg=en" rel="stylesheet"/>
 
-
+    
 
 <script type="text/javascript">
     const debug = { log: (message) => {
@@ -600,7 +600,7 @@
 
 
 <script src="/Scripts/wp-banners.min.js?v=0.3.62.22&lg=en"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=**-*********-*"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162951615-1"></script>
 <script src="/Scripts/google-analytics.min.js?v=0.3.62.22&lg=en"></script>
 
 <!-- Datadog RUM (CDN async) -->
@@ -610,7 +610,7 @@
         d=o.createElement(u);d.async=1;d.src=n
         n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
     })(window,document,'script','https://www.datadoghq-browser-agent.com/us5/v6/datadog-rum.js','DD_RUM')
-    window.DD_RUM.onReady(function() {
+    window.DD_RUM.onReady(function() { 
         window.DD_RUM.init({
         clientToken: 'pub22e31ccd740f290ba9b4a07ad7565c22',
         applicationId: '2e019cb6-dc4b-4076-b6e6-c2e701b2d0eb',
@@ -620,14 +620,14 @@
         sessionSampleRate: 1,
         sessionReplaySampleRate: 1,
         trackInteractions:  true,
-        defaultPrivacyLevel: 'mask-user-input',
+        defaultPrivacyLevel: 'mask-user-input', 
         debug: true
         });
     })
     </script>
 <!-- End Datadog RUM -->
 
-
+    
 </head>
 <body>
 
@@ -655,7 +655,7 @@
                     Cookie Preferences
                 </button>
             </li>
-        </ul>
+        </ul>   
     </div>
     <div class="tab-content container" id="cookies__tab__content">
         <div class="tab-pane fade show active" id="content" role="tabpanel" aria-labelledby="content-tab">
@@ -747,7 +747,7 @@
                         </div>
                     </div>
                     <div id="validationMessage" style="color: red;"></div>
-                </div>
+                </div>               
                 <br />
                 <div class="col-md-12">
                     <div class="button__section btn-preference-group">
@@ -790,8 +790,8 @@
         const customSave = $("#customSave");
         const necessaryOnlyButton = $("#necessaryOnlyButton");
         const functional_cookies = $("#functional_cookies");
-        const analytical_cookies = $("#analytical_cookies");
-        const essential_cookies = $("#essential_cookies");
+        const analytical_cookies = $("#analytical_cookies");        
+        const essential_cookies = $("#essential_cookies");  
         const validationMessage = $("#validationMessage");
         const customizeButton = $("#customizeButton");
         const detailTabButton = $("#detail-tab");
@@ -801,18 +801,18 @@
         });
 
         allowAllButton.on("click", function () {
-            allowAllCookies();
+            allowAllCookies();          
         });
 
         acceptAllCookie.on("click", function () {
-            allowAllCookies();
+            allowAllCookies();            
         });
 
         if (false) {
             functional_cookies.prop("checked", true);
         }
         else {
-            functional_cookies.prop("checked", false);
+            functional_cookies.prop("checked", false);          
             showValidationMessage();
         }
         if (false) {
@@ -823,18 +823,18 @@
 
         analytical_cookies.on("click", hideValidationMessage);
         functional_cookies.on("click", hideValidationMessage);
-        functional_cookies.on("change", function () {
+        functional_cookies.on("change", function () {            
             if (!functional_cookies.prop("checked")) {
                 showValidationMessage();
             }
         });
-
+        
         customSave.on("click", function () {
             setCookies({
                 essentialCookie: essential_cookies.prop("checked"),
                 analyticalCookie: analytical_cookies.prop("checked"),
                 functionalCookie: functional_cookies.prop("checked")
-            });
+            });            
         });
 
         necessaryOnlyButton.on("click", function () {
@@ -853,7 +853,7 @@
             validationMessage.text(`To use Paypal services it is necessary to accept functional cookies.`);
         }
 
-        function hideCookiesModal() {
+        function hideCookiesModal() {            
             $('.cookies__modal').modal('hide');
             $('.modal-backdrop').hide();
             location.reload();
@@ -861,8 +861,8 @@
 
         function allowAllCookies() {
             const currentPageUrl = window.location.pathname;
-            const url = `/Home/AllowAllCookies`;
-            const requestData = {
+            const url = `/Home/AllowAllCookies`;           
+            const requestData = {                
                 returnUrl: currentPageUrl
             };
             $.ajax({
@@ -870,7 +870,7 @@
                 method: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(requestData),
-                success: function (data) {
+                success: function (data) {  
                     hideCookiesModal();
                 }
             });
@@ -878,7 +878,7 @@
 
         function setCookies(cookieDto) {
             const currentPageUrl = window.location.pathname;
-            const url = `/Home/SetCookies`;
+            const url = `/Home/SetCookies`;         
             const requestData = {
                 returnUrl: currentPageUrl,
                 cookiesDto: cookieDto
@@ -894,7 +894,7 @@
             });
         };
     });
-</script>
+</script>        
 
 <span id="hovercard"></span>
 
@@ -1486,7 +1486,7 @@
                         </div>
                     </div>
                 </li>
-
+                
 <li class="nav-item dropdown">
     <a id="language-dropdown-link" class="nav-link dropdown-toggle text-warning" data-toggle="dropdown" href="#" aria-expanded="false" aria-haspopup="true">
         <i class="fa-duotone fa-globe mr-2" style="font-size: 20px"></i>Language
@@ -1508,7 +1508,7 @@
     </div>
 </li>
             </ul>
-
+            
     <ul class="navbar-nav">
         <li class="nav-item dropdown">
             <a id="account-dropdown-link" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" aria-haspopup="true">
@@ -1529,7 +1529,7 @@
     $(() => {
         //selector needs to have no classes on them or the wont trigger
         $('nav div li').on('click', function() {
-
+            
             if ($(this).parents('nav').hasClass('navbar-active')){
                 $('.navbar-collapse').collapse('hide');
 
@@ -1582,7 +1582,7 @@
     </div>
 
     <div class="profile-button-column flex-column">
-
+        
         <img class="m-auto" src="https://cdn.melee.gg/userphotos/userprofiles/e59718fe-23b6-475c-91b6-b393fc0f569d.jpg?v=1" alt="" style="height: 150px; width: 150px;" onerror="this.onerror=null;this.src='/images/blank-user-profile-photo.png';"/>
     </div>
 </div>
