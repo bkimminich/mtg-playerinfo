@@ -1,4 +1,4 @@
-const { request } = require('../utils/httpClient')
+const httpClient = require('../utils/httpClient')
 const cheerio = require('cheerio')
 
 class TopdeckFetcher {
@@ -6,57 +6,60 @@ class TopdeckFetcher {
     const cleanHandle = handle.startsWith('@') ? handle : `@${handle}`
     const url = `https://topdeck.gg/profile/${cleanHandle}`
     try {
-      const { data } = await request(url)
+      const { data } = await httpClient.request(url)
       const playerInfo = this.parseHtml(data, url, cleanHandle)
 
-      // Try to fetch stats via XHR if internal ID is found
       const internalIdMatch = data.match(/https:\/\/topdeck\.gg\/profile\/([a-zA-Z0-9]+)\/stats/) || data.match(/const playerId = "([a-zA-Z0-9]+)";/)
       const internalId = internalIdMatch ? internalIdMatch[1] : null
 
       if (internalId) {
-        try {
-          const statsUrl = `https://topdeck.gg/profile/${internalId}/stats`
-          const statsResponse = await request(statsUrl)
-          const statsJson = statsResponse.data
-          const stats = typeof statsJson === 'string' ? JSON.parse(statsJson) : statsJson
-
-          if (stats) {
-            if (stats.yearlyStats) {
-              let totalTournaments = 0
-              let wins = 0
-              let losses = 0
-              let draws = 0
-
-              Object.values(stats.yearlyStats).forEach(yearData => {
-                if (yearData.overall) {
-                  totalTournaments += yearData.overall.totalTournaments || 0
-                  wins += yearData.overall.wins || 0
-                  losses += yearData.overall.losses || 0
-                  draws += yearData.overall.draws || 0
-                }
-              })
-
-              if (totalTournaments > 0) {
-                playerInfo.tournaments = totalTournaments.toString()
-                playerInfo.record = `${wins}-${losses}-${draws}`
-                playerInfo['win rate'] = ((wins / (wins + losses + draws)) * 100).toFixed(2) + '%'
-              }
-            } else {
-              playerInfo.tournaments = stats.totalTournaments || playerInfo.tournaments || '0'
-              playerInfo.record = stats.overallRecord || playerInfo.record || '0-0-0'
-              playerInfo['win rate'] = stats.overallWinRate || playerInfo['win rate'] || '0.00%'
-              playerInfo.conversion = stats.conversionRate || playerInfo.conversion || '0.00%'
-            }
-          }
-        } catch (statsError) {
-          console.error(`Error fetching Topdeck stats for ${handle}:`, statsError.message)
-        }
+        await this.fetchStats(internalId, playerInfo)
       }
 
       return playerInfo
     } catch (error) {
       console.error(`Error fetching Topdeck profile ${handle}:`, error.message)
       return null
+    }
+  }
+
+  async fetchStats (internalId, playerInfo) {
+    try {
+      const statsUrl = `https://topdeck.gg/profile/${internalId}/stats`
+      const statsResponse = await httpClient.request(statsUrl)
+      const statsJson = statsResponse.data
+      const stats = typeof statsJson === 'string' ? JSON.parse(statsJson) : statsJson
+
+      if (stats) {
+        if (stats.yearlyStats) {
+          let totalTournaments = 0
+          let wins = 0
+          let losses = 0
+          let draws = 0
+
+          Object.values(stats.yearlyStats).forEach(yearData => {
+            if (yearData.overall) {
+              totalTournaments += yearData.overall.totalTournaments || 0
+              wins += yearData.overall.wins || 0
+              losses += yearData.overall.losses || 0
+              draws += yearData.overall.draws || 0
+            }
+          })
+
+          if (totalTournaments > 0) {
+            playerInfo.tournaments = totalTournaments.toString()
+            playerInfo.record = `${wins}-${losses}-${draws}`
+            playerInfo['win rate'] = ((wins / (wins + losses + draws)) * 100).toFixed(2) + '%'
+          }
+        } else {
+          playerInfo.tournaments = stats.totalTournaments || playerInfo.tournaments || '0'
+          playerInfo.record = stats.overallRecord || playerInfo.record || '0-0-0'
+          playerInfo['win rate'] = stats.overallWinRate || playerInfo['win rate'] || '0.00%'
+          playerInfo.conversion = stats.conversionRate || playerInfo.conversion || '0.00%'
+        }
+      }
+    } catch (statsError) {
+      console.error(`Error fetching Topdeck stats for ${internalId}:`, statsError.message)
     }
   }
 
