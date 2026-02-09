@@ -8,9 +8,21 @@
   },
   "scripts": {
     "test": "node --test",
-    "test:coverage": "nyc --reporter=html --reporter=lcov node --test",
+    "test:coverage": "nyc --reporter=lcov --produce-source-map node --test",
     "lint": "standard",
     "lint:fix": "standard --fix"
+  },
+  "nyc": {
+    "extension": [
+      ".js"
+    ],
+    "include": [
+      "src/fetchers/*.js",
+      "src/index.js",
+      "cli.js"
+    ],
+    "sourceMap": true,
+    "instrument": true
   },
   "keywords": [],
   "author": "Björn Kimminich",
