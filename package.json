@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "node --test",
+    "test:coverage": "nyc --reporter=html --reporter=lcov node --test",
     "lint": "standard",
     "lint:fix": "standard --fix"
   },
@@ -19,6 +20,7 @@
     "commander": "^14.0.3"
   },
   "devDependencies": {
+    "nyc": "^17.1.0",
     "standard": "^17.1.2"
   },
   "engines": {

@@ -7,11 +7,12 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [20, 22, 24]
 
     steps:
@@ -27,4 +28,29 @@ jobs:
       run: npm install
 
     - name: Run tests
-      run: npm test
+      run: npm test:coverage
+
+    - name: Upload test coverage data
+      if: github.repository == 'bkimminich/mtg-playerinfo' && github.event_name == 'push' && matrix.os == 'ubuntu-latest' && matrix.node-version == '24'
+      uses: actions/upload-artifact@v6
+      with:
+        name: test-lcov
+        path: |
+          coverage/lcov.info
+
+  coverage-report:
+    needs: [test]
+    runs-on: ubuntu-latest
+    if: github.repository == 'bkimminich/mtg-playerinfo' && github.event_name == 'push'
+    steps:
+      - name: "Check out Git repository"
+        uses: actions/checkout@v4
+      - name: "Download test coverage data"
+        uses: actions/download-artifact@v7
+        with:
+          name: test-lcov
+      - name: "Publish coverage to Coveralls"
+        uses: coverallsapp/github-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          files: coverage/lcov.info
