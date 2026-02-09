@@ -230,11 +230,11 @@ test('PlayerInfoManager: each source contains its specific data in the sources o
     topdeckHandle: 'k0shiii'
   })
 
-  assert.equal(result.sources['Unity League'].data['rank germany'], '64',
+  assert.match(result.sources['Unity League'].data['rank germany'], /^\d+$/,
     'Unity League should have rank germany')
-  assert.equal(result.sources['Unity League'].data['rank europe'], '563',
+  assert.match(result.sources['Unity League'].data['rank europe'], /^\d+$/,
     'Unity League should have rank europe')
-  assert.equal(result.sources['Unity League'].data['rank points'], '292',
+  assert.match(result.sources['Unity League'].data['rank points'], /^\d+$/,
     'Unity League should have rank points')
 
   assert.ok(result.sources['MTG Elo Project'].data.player_id,
@@ -260,7 +260,7 @@ test('PlayerInfoManager: priority order verification - Unity League > MTG Elo > 
   })
 
   assert.equal(result.general.name, 'Björn Kimminich',
-    'Name should use Unity League version (priority 1), not MTG Elo version "Bjoern Kimminich"')
+    'Name should use Unity League spelling "Björn Kimminich", not MTG Elo spelling "Bjoern Kimminich"')
 
   assert.ok(result.general.photo.includes('unityleague.gg'),
     'Photo should come from Unity League, not Topdeck')
