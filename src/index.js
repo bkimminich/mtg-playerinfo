@@ -49,6 +49,9 @@ class PlayerInfoManager {
     const firstSeenValues = {}
 
     const winRates = []
+    let totalWins = 0
+    let totalLosses = 0
+    let totalDraws = 0
 
     results.forEach(res => {
       if (seenUrls.has(res.url)) return
@@ -81,6 +84,15 @@ class PlayerInfoManager {
         }
       }
 
+      if (res.record && typeof res.record === 'string' && res.record.includes('-')) {
+        const parts = res.record.split('-').map(Number)
+        if (parts.length >= 2 && parts.every(p => !isNaN(p))) {
+          totalWins += parts[0]
+          totalLosses += parts[1]
+          totalDraws += parts[2] || 0
+        }
+      }
+
       const sourceData = { ...res }
       delete sourceData.source
       delete sourceData.url
@@ -91,7 +103,11 @@ class PlayerInfoManager {
       }
     })
 
-    if (winRates.length > 0) {
+    const totalGames = totalWins + totalLosses + totalDraws
+    if (totalGames > 0) {
+      const overall = (totalWins / totalGames) * 100
+      player.general['win rate'] = overall.toFixed(2) + '%'
+    } else if (winRates.length > 0) {
       const avgWinRate = winRates.reduce((a, b) => a + b, 0) / winRates.length
       player.general['win rate'] = avgWinRate.toFixed(2) + '%'
     }
