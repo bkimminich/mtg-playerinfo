@@ -3,10 +3,10 @@ const assert = require('node:assert/strict')
 const fs = require('node:fs')
 const path = require('node:path')
 
-const PlayerInfoManager = require('../../src')
+const PlayerInfoManager = require('../src')
 
 function readFixture (name) {
-  return fs.readFileSync(path.join(__dirname, '..', 'data', name), 'utf8')
+  return fs.readFileSync(path.join(__dirname, 'data', name), 'utf8')
 }
 
 const fixtures = {
