@@ -53,7 +53,8 @@ General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` 
     "facebook": "bjoern.kimminich",
     "twitch": "koshiii",
     "youtube": "@BjörnKimminich",
-    "win rate": "42.49%"
+    "mtga_rank": "Platinum 4",
+    "win rate": "47.37%"
   },
   "sources": {
     "Unity League": {
@@ -67,11 +68,11 @@ General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` 
         "local organizer": "Mulligan TCG Shop",
         "team": "Mull to Five",
         "bio": "Smugly held back on an Untimely Malfunction against a Storm player going off, being totally sure that you can redirect the summed-up damage of their Grapeshots back to their face with its \"Change the target of target spell or ability with a single target\" mode.",
-        "rank germany": "63",
-        "rank europe": "547",
-        "rank points": "304",
-        "record": "45-43-5",
-        "win rate": "50.2%"
+        "rank germany": "62",
+        "rank europe": "503",
+        "rank points": "325",
+        "record": "50-45-5",
+        "win rate": "51.7%"
       }
     },
     "MTG Elo Project": {
@@ -104,6 +105,12 @@ General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` 
         "record": "4-6-1",
         "win rate": "36.36%",
         "conversion": "0%"
+      }
+    },
+    "Untapped.gg": {
+      "url": "https://mtga.untapped.gg/profile/7de50700-c3f6-48e4-a38d-2add5b0d9b71/76DCDWCZS5FX5PIEEMUVY6GV74",
+      "data": {
+        "mtga_rank": "Platinum 4"
       }
     }
   }
