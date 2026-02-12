@@ -7,7 +7,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/bkimminich/mtg-playerinfo/badge.svg?branch=main)](https://coveralls.io/github/bkimminich/mtg-playerinfo?branch=main)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-A simple NPM module and CLI tool to pull Magic: The Gathering player data from various sources (Unity League, MTG Elo Project, Melee, and Topdeck).
+A simple NPM module and CLI tool to pull Magic: The Gathering player data from various sources (Unity League, MTG Elo Project, Melee, Topdeck, and Untapped.gg).
 
 ## Installation
 
@@ -18,13 +18,13 @@ npm i -g mtg-playerinfo
 ## CLI Usage
 
 ```bash
-mtg-playerinfo --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
+mtg-playerinfo --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii --untapped-id 7de50700-c3f6-48e4-a38d-2add5b0d9b71/76DCDWCZS5FX5PIEEMUVY6GV74
 ```
 
 or without previous installation
 
 ```bash
-npx mtg-playerinfo --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii
+npx mtg-playerinfo --unity-id 16215 --mtgelo-id 3irvwtmk --melee-user k0shiii --topdeck-handle k0shiii --untapped-id 7de50700-c3f6-48e4-a38d-2add5b0d9b71/76DCDWCZS5FX5PIEEMUVY6GV74
 ```
 
 ## Output Format
@@ -33,7 +33,7 @@ The tool returns a JSON object representing the player and their combined metada
 
 ### General meta-data and merging priority
 
-General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` are extracted from the first source that provides them and placed in the `general` section. Merging follows a "first-come, first-served" approach based on the order of sources provided in the command line or processed by the manager. In the [CLI usage example](#cli-usage) above, the source priority is `Unity League` > `MTG Elo Project` > `Melee` > `Topdeck`.
+General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` are extracted from the first source that provides them and placed in the `general` section. Merging follows a "first-come, first-served" approach based on the order of sources provided in the command line or processed by the manager. In the [CLI usage example](#cli-usage) above, the source priority is `Unity League` > `MTG Elo Project` > `Melee` > `Topdeck` > `Untapped.gg`.
 
 > If you notice any inconsistencies or unexpected fields values, you can run the tool with the `-v` or `--verbose` flag to see the full list of extracted fields and if they were promoted to the `general` section or deviated from a previous source.
 
@@ -120,7 +120,7 @@ The following sites are currently supported based on HTML scraping and/or API ca
 | MTG Elo Project | ✅Scraping                                                                       |
 | Topdeck         | ✅Scraping / ✅API                                                                |
 | Melee           | ✅Scraping / 🚧API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) |
-| Untapped        | 🚧API                                                                           |
+| Untapped.gg     | ✅API                                                                            |
 
 _Note: Some sites may have anti-bot protections that can lead to "Maximum number of redirects exceeded" or "403 Forbidden" errors depending on the execution environment._
 

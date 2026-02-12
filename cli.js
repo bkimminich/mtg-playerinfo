@@ -12,10 +12,11 @@ program
   .option('--mtgelo-id <id>', 'MTG Elo Project Player ID')
   .option('--melee-user <username>', 'Melee Username')
   .option('--topdeck-handle <handle>', 'Topdeck Handle')
+  .option('--untapped-id <id>', 'Untapped.gg Player ID (format: userId/playerCode)')
   .option('-v, --verbose', 'Print consistency check information to console')
   .action(async (options) => {
-    if (!options.unityId && !options.mtgeloId && !options.meleeUser && !options.topdeckHandle) {
-      console.error('Error: Please provide at least one search option (unity-id, mtgelo-id, melee-user, or topdeck-handle).')
+    if (!options.unityId && !options.mtgeloId && !options.meleeUser && !options.topdeckHandle && !options.untappedId) {
+      console.error('Error: Please provide at least one search option (unity-id, mtgelo-id, melee-user, topdeck-handle, or untapped-id).')
       process.exit(1)
     }
 
@@ -25,7 +26,8 @@ program
       '--unity-id': 'unity',
       '--mtgelo-id': 'mtgelo',
       '--melee-user': 'melee',
-      '--topdeck-handle': 'topdeck'
+      '--topdeck-handle': 'topdeck',
+      '--untapped-id': 'untapped'
     }
 
     process.argv.forEach(arg => {

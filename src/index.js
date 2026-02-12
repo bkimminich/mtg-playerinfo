@@ -2,6 +2,7 @@ const UnityLeagueFetcher = require('./fetchers/unityLeague')
 const MtgEloFetcher = require('./fetchers/mtgElo')
 const MeleeFetcher = require('./fetchers/melee')
 const TopdeckFetcher = require('./fetchers/topdeck')
+const UntappedFetcher = require('./fetchers/untapped')
 
 class PlayerInfoManager {
   constructor () {
@@ -9,7 +10,8 @@ class PlayerInfoManager {
       unity: new UnityLeagueFetcher(),
       mtgelo: new MtgEloFetcher(),
       melee: new MeleeFetcher(),
-      topdeck: new TopdeckFetcher()
+      topdeck: new TopdeckFetcher(),
+      untapped: new UntappedFetcher()
     }
   }
 
@@ -18,11 +20,12 @@ class PlayerInfoManager {
       unity: { option: 'unityId', fetcher: this.fetchers.unity },
       mtgelo: { option: 'mtgeloId', fetcher: this.fetchers.mtgelo },
       melee: { option: 'meleeUser', fetcher: this.fetchers.melee },
-      topdeck: { option: 'topdeckHandle', fetcher: this.fetchers.topdeck }
+      topdeck: { option: 'topdeckHandle', fetcher: this.fetchers.topdeck },
+      untapped: { option: 'untappedId', fetcher: this.fetchers.untapped }
     }
 
     // Default order if no priority specified
-    const defaultOrder = ['unity', 'mtgelo', 'melee', 'topdeck']
+    const defaultOrder = ['unity', 'mtgelo', 'melee', 'topdeck', 'untapped']
     const order = priorityOrder.length > 0 ? priorityOrder : defaultOrder
 
     const results = []
@@ -57,7 +60,7 @@ class PlayerInfoManager {
       if (seenUrls.has(res.url)) return
       seenUrls.add(res.url)
 
-      const generalProps = ['name', 'photo', 'age', 'bio', 'team', 'country', 'hometown', 'pronouns', 'facebook', 'twitch', 'youtube']
+      const generalProps = ['name', 'photo', 'age', 'bio', 'team', 'country', 'hometown', 'pronouns', 'facebook', 'twitch', 'youtube', 'mtga_rank']
       generalProps.forEach(prop => {
         if (res[prop]) {
           if (!player.general[prop]) {
