@@ -2,7 +2,6 @@ const { request } = require('../utils/httpClient')
 
 class UntappedFetcher {
   async fetchById (id) {
-    // Split the two-part ID
     const parts = id.split('/')
     if (parts.length !== 2) {
       console.error('Untapped ID must be in format "userId/playerCode"')
@@ -23,32 +22,63 @@ class UntappedFetcher {
         return null
       }
 
-      const mostRecentMatch = matches.reduce((latest, current) => {
-        return (current.match_start > latest.match_start) ? current : latest
-      })
-
-      return this.parseMatch(mostRecentMatch, url)
+      return this.parseMatches(matches, url)
     } catch (error) {
       console.error(`Error fetching Untapped profile ${id}:`, error.message)
       return null
     }
   }
 
-  parseMatch (match, url) {
+  parseMatches (matches, url) {
     const data = {
       source: 'Untapped.gg',
       url,
-      mtga_rank: null
+      mtga_rank: {}
     }
 
-    if (match.friendly_ranking_class_after && match.friendly_ranking_tier_after !== null && match.friendly_ranking_tier_after !== undefined) {
-      data.mtga_rank = `${match.friendly_ranking_class_after} ${match.friendly_ranking_tier_after}`
+    const constructedMatch = this.findMostRecentByFormat(matches, 2)
+    const constructedRank = this.formatRank(constructedMatch)
+    if (constructedRank) {
+      data.mtga_rank.constructed = constructedRank
+    }
+
+    const limitedMatch = this.findMostRecentByFormat(matches, 1)
+    const limitedRank = this.formatRank(limitedMatch)
+    if (limitedRank) {
+      data.mtga_rank.limited = limitedRank
     }
 
     return data
   }
+
+  formatRank (match) {
+    if (!match || !match.friendly_ranking_class_after) {
+      return null
+    }
+
+    if (match.friendly_ranking_class_after === 'Mythic') {
+      if (match.friendly_mythic_leaderboard_place_after !== null && match.friendly_mythic_leaderboard_place_after !== undefined) {
+        return `Mythic #${match.friendly_mythic_leaderboard_place_after}`
+      }
+      return null
+    }
+
+    if (match.friendly_ranking_tier_after !== null && match.friendly_ranking_tier_after !== undefined) {
+      return `${match.friendly_ranking_class_after} ${match.friendly_ranking_tier_after}`
+    }
+
+    return null
+  }
+
+  findMostRecentByFormat (matches, superFormat) {
+    const filteredMatches = matches.filter(match => match.super_format === superFormat)
+    if (filteredMatches.length === 0) {
+      return null
+    }
+    return filteredMatches.reduce((latest, current) => {
+      return (current.match_start > latest.match_start) ? current : latest
+    })
+  }
 }
 
 module.exports = UntappedFetcher
-
-

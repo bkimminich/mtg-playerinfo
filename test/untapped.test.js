@@ -15,25 +15,70 @@ test('UntappedFetcher: parses most recent match and extracts MTGA rank', () => {
   const matches = JSON.parse(fixtureJson)
 
   const url = 'https://mtga.untapped.gg/profile/7de50700-c3f6-48e4-a38d-2add5b0d9b71/76DCDWCZS5FX5PIEEMUVY6GV74'
-  const result = fetcher.parseMatch(matches[0], url)
+  const result = fetcher.parseMatches(matches, url)
 
   assert.strictEqual(result.source, 'Untapped.gg')
   assert.strictEqual(result.url, url)
 
-  assert.match(result.mtga_rank, /^(Bronze|Silver|Gold|Platinum|Diamond|Mythic)\s\d+$/)
+  assert.strictEqual(typeof result.mtga_rank, 'object')
+
+  // Format is either "Rank Tier" (e.g. "Diamond 2") or "Mythic #Place" (e.g. "Mythic #123")
+  if (result.mtga_rank.constructed !== undefined) {
+    assert.match(result.mtga_rank.constructed, /^(Bronze|Silver|Gold|Platinum|Diamond|Mythic)(\s\d+|\s#\d+)$/)
+  }
+  if (result.mtga_rank.limited !== undefined) {
+    assert.match(result.mtga_rank.limited, /^(Bronze|Silver|Gold|Platinum|Diamond|Mythic)(\s\d+|\s#\d+)$/)
+  }
 })
 
 test('UntappedFetcher: handles missing rank data', () => {
   const fetcher = new UntappedFetcher()
-  const testMatch = {
-    friendly_ranking_class_after: null,
-    friendly_ranking_tier_after: null
-  }
+  const testMatches = [
+    {
+      super_format: 2,
+      friendly_ranking_class_after: null,
+      friendly_ranking_tier_after: null,
+      match_start: 1000
+    },
+    {
+      super_format: 1,
+      friendly_ranking_class_after: null,
+      friendly_ranking_tier_after: null,
+      match_start: 2000
+    }
+  ]
 
   const url = 'https://mtga.untapped.gg/profile/test-user/test-code'
-  const result = fetcher.parseMatch(testMatch, url)
+  const result = fetcher.parseMatches(testMatches, url)
 
-  assert.strictEqual(result.mtga_rank, null)
+  assert.strictEqual('constructed' in result.mtga_rank, false)
+  assert.strictEqual('limited' in result.mtga_rank, false)
+})
+
+test('UntappedFetcher: formats Mythic rank with leaderboard place', () => {
+  const fetcher = new UntappedFetcher()
+  const testMatches = [
+    {
+      super_format: 2,
+      friendly_ranking_class_after: 'Mythic',
+      friendly_ranking_tier_after: null,
+      friendly_mythic_leaderboard_place_after: 123,
+      match_start: 1000
+    },
+    {
+      super_format: 1,
+      friendly_ranking_class_after: 'Mythic',
+      friendly_ranking_tier_after: null,
+      friendly_mythic_leaderboard_place_after: 456,
+      match_start: 2000
+    }
+  ]
+
+  const url = 'https://mtga.untapped.gg/profile/test-user/test-code'
+  const result = fetcher.parseMatches(testMatches, url)
+
+  assert.strictEqual(result.mtga_rank.constructed, 'Mythic #123')
+  assert.strictEqual(result.mtga_rank.limited, 'Mythic #456')
 })
 
 test('UntappedFetcher: constructs correct API URL from two-part ID', () => {
