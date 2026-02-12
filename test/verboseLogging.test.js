@@ -13,7 +13,7 @@ test('PlayerInfoManager: verbose mode logs promoted properties', async () => {
     }
   ]
 
-  let capturedLogs = []
+  const capturedLogs = []
   const originalLog = console.log
   console.log = (msg) => { capturedLogs.push(msg) }
 
@@ -45,12 +45,12 @@ test('PlayerInfoManager: verbose mode logs matching property values', async () =
     }
   ]
 
-  let capturedLogs = []
+  const capturedLogs = []
   const originalLog = console.log
   console.log = (msg) => { capturedLogs.push(msg) }
 
   try {
-    const merged = manager.mergeData(results, true)
+    manager.mergeData(results, true)
     assert.ok(capturedLogs.some(log => log.includes('🆗') && log.includes('name') && log.includes('Source2')),
       'Should log matching property with 🆗 emoji')
     assert.ok(capturedLogs.some(log => log.includes('🆗') && log.includes('team') && log.includes('Source2')),
@@ -76,7 +76,7 @@ test('PlayerInfoManager: verbose mode logs conflicting property values', async (
     }
   ]
 
-  let capturedLogs = []
+  const capturedLogs = []
   const originalLog = console.log
   console.log = (msg) => { capturedLogs.push(msg) }
 
@@ -108,12 +108,12 @@ test('PlayerInfoManager: verbose mode uses photo emoji for photo conflicts', asy
     }
   ]
 
-  let capturedLogs = []
+  const capturedLogs = []
   const originalLog = console.log
   console.log = (msg) => { capturedLogs.push(msg) }
 
   try {
-    const merged = manager.mergeData(results, true)
+    manager.mergeData(results, true)
     assert.ok(capturedLogs.some(log => log.includes('🆕') && log.includes('photo')),
       'Should log photo conflict with 🆕 emoji instead of 🆚')
   } finally {
@@ -141,12 +141,12 @@ test('PlayerInfoManager: verbose mode logs with null/undefined properties', asyn
     }
   ]
 
-  let capturedLogs = []
+  const capturedLogs = []
   const originalLog = console.log
   console.log = (msg) => { capturedLogs.push(msg) }
 
   try {
-    const merged = manager.mergeData(results, true)
+    manager.mergeData(results, true)
     assert.ok(capturedLogs.some(log => log.includes('⬆️') && log.includes('bio') && log.includes('Source2')),
       'Should promote bio from Source2 after Source1 had null')
     assert.ok(capturedLogs.some(log => log.includes('⬆️') && log.includes('team') && log.includes('Source2')),
@@ -167,12 +167,12 @@ test('PlayerInfoManager: verbose mode is false by default and logs nothing', asy
     }
   ]
 
-  let capturedLogs = []
+  const capturedLogs = []
   const originalLog = console.log
   console.log = (msg) => { capturedLogs.push(msg) }
 
   try {
-    const merged = manager.mergeData(results, false)
+    manager.mergeData(results, false)
     assert.equal(capturedLogs.length, 0, 'Should not log when verbose is false')
   } finally {
     console.log = originalLog
@@ -194,13 +194,12 @@ test('PlayerInfoManager: verbose mode logs each property separately', async () =
     }
   ]
 
-  let capturedLogs = []
+  const capturedLogs = []
   const originalLog = console.log
   console.log = (msg) => { capturedLogs.push(msg) }
 
   try {
-    const merged = manager.mergeData(results, true)
-    // Should have multiple promoted property logs
+    manager.mergeData(results, true)
     const promotedLogs = capturedLogs.filter(log => log.includes('⬆️'))
     assert.ok(promotedLogs.length >= 5, `Should log 5+ promoted properties, got ${promotedLogs.length}`)
     assert.ok(promotedLogs.some(log => log.includes('name')))
@@ -212,4 +211,3 @@ test('PlayerInfoManager: verbose mode logs each property separately', async () =
     console.log = originalLog
   }
 })
-

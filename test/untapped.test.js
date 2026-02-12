@@ -82,7 +82,6 @@ test('UntappedFetcher: formats Mythic rank with leaderboard place', () => {
 })
 
 test('UntappedFetcher: constructs correct API URL from two-part ID', () => {
-  const fetcher = new UntappedFetcher()
   const userId = '7de50700-c3f6-48e4-a38d-2add5b0d9b71'
   const playerCode = '76DCDWCZS5FX5PIEEMUVY6GV74'
   const id = `${userId}/${playerCode}`
@@ -98,6 +97,3 @@ test('UntappedFetcher: constructs correct API URL from two-part ID', () => {
   const profileUrl = `https://mtga.untapped.gg/profile/${parts[0]}/${parts[1]}`
   assert.strictEqual(profileUrl, 'https://mtga.untapped.gg/profile/7de50700-c3f6-48e4-a38d-2add5b0d9b71/76DCDWCZS5FX5PIEEMUVY6GV74')
 })
-
-
-
