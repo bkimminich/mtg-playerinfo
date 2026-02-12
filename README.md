@@ -120,6 +120,7 @@ The following sites are currently supported based on HTML scraping and/or API ca
 | MTG Elo Project | ✅Scraping                                                                       |
 | Topdeck         | ✅Scraping / ✅API                                                                |
 | Melee           | ✅Scraping / 🚧API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) |
+| Untapped        | 🚧API                                                                           |
 
 _Note: Some sites may have anti-bot protections that can lead to "Maximum number of redirects exceeded" or "403 Forbidden" errors depending on the execution environment._
 
