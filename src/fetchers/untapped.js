@@ -59,6 +59,8 @@ class UntappedFetcher {
     if (match.friendly_ranking_class_after === 'Mythic') {
       if (match.friendly_mythic_leaderboard_place_after !== null && match.friendly_mythic_leaderboard_place_after !== undefined) {
         return `Mythic #${match.friendly_mythic_leaderboard_place_after}`
+      } else if (match.friendly_mythic_percentile_after !== null && match.friendly_mythic_percentile_after !== undefined) {
+        return `Mythic ${Math.floor(match.friendly_mythic_percentile_after)}%`
       }
       return null
     }

@@ -55,7 +55,7 @@ test('UntappedFetcher: handles missing rank data', () => {
   assert.strictEqual('limited' in result.mtga_rank, false)
 })
 
-test('UntappedFetcher: formats Mythic rank with leaderboard place', () => {
+test('UntappedFetcher: formats Mythic rank with leaderboard place or percentile', () => {
   const fetcher = new UntappedFetcher()
   const testMatches = [
     {
@@ -63,13 +63,15 @@ test('UntappedFetcher: formats Mythic rank with leaderboard place', () => {
       friendly_ranking_class_after: 'Mythic',
       friendly_ranking_tier_after: null,
       friendly_mythic_leaderboard_place_after: 123,
+      friendly_mythic_percentile_after: 101.5,
       match_start: 1000
     },
     {
       super_format: 1,
       friendly_ranking_class_after: 'Mythic',
       friendly_ranking_tier_after: null,
-      friendly_mythic_leaderboard_place_after: 456,
+      friendly_mythic_leaderboard_place_after: null,
+      friendly_mythic_percentile_after: 98.789,
       match_start: 2000
     }
   ]
@@ -78,7 +80,7 @@ test('UntappedFetcher: formats Mythic rank with leaderboard place', () => {
   const result = fetcher.parseMatches(testMatches, url)
 
   assert.strictEqual(result.mtga_rank.constructed, 'Mythic #123')
-  assert.strictEqual(result.mtga_rank.limited, 'Mythic #456')
+  assert.strictEqual(result.mtga_rank.limited, 'Mythic 98%')
 })
 
 test('UntappedFetcher: constructs correct API URL from two-part ID', () => {
