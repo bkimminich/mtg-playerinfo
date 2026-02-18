@@ -1,8 +1,6 @@
 const test = require('node:test')
 const assert = require('node:assert/strict')
-const { mock } = require('node:test')
 
-const httpClient = require('../src/utils/httpClient')
 const UntappedFetcher = require('../src/fetchers/untapped')
 
 test('UntappedFetcher: parseMatches handles matches with no Constructed format', () => {
