@@ -84,12 +84,28 @@ class TopdeckFetcher {
 
     const twitterLink = $('a[href*="twitter.com"]').attr('href')
     if (twitterLink) {
-      data.twitter = twitterLink
+      try {
+        const twitterUrl = new URL(twitterLink)
+        const twitterHandle = twitterUrl.pathname.split('/').filter(Boolean).pop()
+        if (twitterHandle) {
+          data.twitter = twitterHandle
+        }
+      } catch (e) {
+        console.log('Invalid URL in social link ' + twitterLink + ': ' + e.message)
+      }
     }
 
     const youtubeLink = $('a[href*="youtube.com"]').attr('href')
     if (youtubeLink) {
-      data.youtube = youtubeLink
+      try {
+        const youtubeUrl = new URL(youtubeLink)
+        const youtubeHandle = youtubeUrl.pathname.split('/').filter(Boolean).pop()
+        if (youtubeHandle) {
+          data.youtube = decodeURIComponent(youtubeHandle)
+        }
+      } catch (e) {
+        console.log('Invalid URL in social link ' + youtubeLink + ': ' + e.message)
+      }
     }
 
     const statsMap = {
