@@ -75,6 +75,23 @@ class TopdeckFetcher {
       photo: photo ? (photo.startsWith('http') ? photo : `https://topdeck.gg${photo}`) : null
     }
 
+    const pronounsBadge = $('span.badge').filter((i, el) => {
+      return $(el).text().includes('/')
+    }).first().text().trim()
+    if (pronounsBadge) {
+      data.pronouns = pronounsBadge
+    }
+
+    const twitterLink = $('a[href*="twitter.com"]').attr('href')
+    if (twitterLink) {
+      data.twitter = twitterLink
+    }
+
+    const youtubeLink = $('a[href*="youtube.com"]').attr('href')
+    if (youtubeLink) {
+      data.youtube = youtubeLink
+    }
+
     const statsMap = {
       totalTournaments: 'tournaments',
       overallRecord: 'record',

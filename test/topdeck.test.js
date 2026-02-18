@@ -23,6 +23,9 @@ test('TopdeckFetcher: parseHtml extracts stats from DOM when available', () => {
   assert.equal(result.source, 'Topdeck')
   assert.equal(result.url, url)
   assert.equal(result.name, 'Björn Kimminich')
+  assert.equal(result.pronouns, 'He/Him', 'Should extract pronouns from badge')
+  assert.equal(result.twitter, 'https://twitter.com/bkimminich', 'Should extract Twitter link')
+  assert.equal(result.youtube, 'https://www.youtube.com/@Bj%C3%B6rnKimminich', 'Should extract YouTube link')
 })
 
 test('TopdeckFetcher: fetchStats updates playerInfo with data from stats JSON', async () => {
