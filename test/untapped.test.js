@@ -22,12 +22,12 @@ test('UntappedFetcher: parses most recent match and extracts MTGA rank', () => {
 
   assert.strictEqual(typeof result.mtga_rank, 'object')
 
-  // Format is either "Rank Tier" (e.g. "Diamond 2") or "Mythic #Place" (e.g. "Mythic #123")
+  // Format is either "Rank Tier" (e.g. "Diamond 2") or "Mythic #Place" or "Mythic Percentile%" (e.g. "Mythic #123" or "Mythic 98.67%")
   if (result.mtga_rank.constructed !== undefined) {
-    assert.match(result.mtga_rank.constructed, /^(Bronze|Silver|Gold|Platinum|Diamond|Mythic)(\s\d+|\s#\d+)$/)
+    assert.match(result.mtga_rank.constructed, /^(Bronze|Silver|Gold|Platinum|Diamond|Mythic)(\s\d+|\s#\d+|\s\d+(\.\d+)?%)$/)
   }
   if (result.mtga_rank.limited !== undefined) {
-    assert.match(result.mtga_rank.limited, /^(Bronze|Silver|Gold|Platinum|Diamond|Mythic)(\s\d+|\s#\d+)$/)
+    assert.match(result.mtga_rank.limited, /^(Bronze|Silver|Gold|Platinum|Diamond|Mythic)(\s\d+|\s#\d+|\s\d+(\.\d+)?%)$/)
   }
 })
 
