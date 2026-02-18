@@ -16,10 +16,9 @@
     "extension": [
       ".js"
     ],
-    "include": [
-      "src/fetchers/*.js",
-      "src/index.js",
-      "cli.js"
+    "exclude": [
+      "src/utils/httpClient.js",
+      "test/"
     ],
     "sourceMap": true,
     "instrument": true
