@@ -1,5 +1,6 @@
 const httpClient = require('../utils/httpClient')
 const cheerio = require('cheerio')
+const { extractHandle } = require('../utils/socialMediaExtractor')
 
 class TopdeckFetcher {
   async fetchById (handle) {
@@ -84,27 +85,17 @@ class TopdeckFetcher {
 
     const twitterLink = $('a[href*="twitter.com"]').attr('href')
     if (twitterLink) {
-      try {
-        const twitterUrl = new URL(twitterLink)
-        const twitterHandle = twitterUrl.pathname.split('/').filter(Boolean).pop()
-        if (twitterHandle) {
-          data.twitter = twitterHandle
-        }
-      } catch (e) {
-        console.log('Invalid URL in social link ' + twitterLink + ': ' + e.message)
+      const handle = extractHandle(twitterLink)
+      if (handle) {
+        data.twitter = handle
       }
     }
 
     const youtubeLink = $('a[href*="youtube.com"]').attr('href')
     if (youtubeLink) {
-      try {
-        const youtubeUrl = new URL(youtubeLink)
-        const youtubeHandle = youtubeUrl.pathname.split('/').filter(Boolean).pop()
-        if (youtubeHandle) {
-          data.youtube = decodeURIComponent(youtubeHandle)
-        }
-      } catch (e) {
-        console.log('Invalid URL in social link ' + youtubeLink + ': ' + e.message)
+      const handle = extractHandle(youtubeLink)
+      if (handle) {
+        data.youtube = handle
       }
     }
 

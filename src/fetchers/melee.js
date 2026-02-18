@@ -1,5 +1,6 @@
 const { request } = require('../utils/httpClient')
 const cheerio = require('cheerio')
+const { extractHandle, getPlatformName } = require('../utils/socialMediaExtractor')
 
 class MeleeFetcher {
   async fetchById (username) {
@@ -33,17 +34,10 @@ class MeleeFetcher {
     $('.social-link').each((i, el) => {
       const href = $(el).attr('href')
       if (href) {
-        try {
-          const urlObj = new URL(href)
-          const platform = urlObj.hostname.replace('www.', '').split('.')[0]
-          let handle = urlObj.pathname.split('/').filter(Boolean).pop()
-          if (handle) {
-            handle = decodeURIComponent(handle)
-            const label = platform.charAt(0).toLowerCase() + platform.slice(1)
-            data[label] = handle
-          }
-        } catch (e) {
-          console.log('Invalid URL in social link ' + href + ': ' + e.message)
+        const handle = extractHandle(href)
+        const platform = getPlatformName(href)
+        if (handle && platform) {
+          data[platform] = handle
         }
       }
     })
