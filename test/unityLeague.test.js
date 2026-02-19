@@ -2,7 +2,7 @@ const test = require('node:test')
 const assert = require('node:assert/strict')
 const UnityLeagueFetcher = require('../src/fetchers/unityLeague')
 const httpClient = require('../src/utils/httpClient')
-const { readFixture, withMutedConsole } = require('../test_support/helpers')
+const { readFixture, withMutedConsole } = require('./helpers')
 
 test('UnityLeagueFetcher: parseHtml extracts info from fixture', () => {
   const html = readFixture('unityLeague.html')

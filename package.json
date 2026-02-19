@@ -1,14 +1,14 @@
 {
   "name": "mtg-playerinfo",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A simple NPM module and CLI tool to pull Magic: The Gathering player data from various sources",
   "main": "src/index.js",
   "bin": {
     "mtg-playerinfo": "./cli.js"
   },
   "scripts": {
-    "test": "node --test",
-    "test:coverage": "nyc --reporter=lcov --produce-source-map node --test",
+    "test": "node --test \"**/*.test.js\"",
+    "test:coverage": "nyc --reporter=lcov --produce-source-map node --test \"**/*.test.js\"",
     "lint": "standard",
     "lint:fix": "standard --fix"
   },
