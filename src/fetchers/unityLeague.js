@@ -1,11 +1,11 @@
-const { request } = require('../utils/httpClient')
+const httpClient = require('../utils/httpClient')
 const cheerio = require('cheerio')
 
 class UnityLeagueFetcher {
   async fetchById (id) {
     const url = `https://unityleague.gg/player/${id}/`
     try {
-      const { data } = await request(url)
+      const { data } = await httpClient.request(url)
       return this.parseHtml(data, url)
     } catch (error) {
       console.error(`Error fetching Unity League player ${id}:`, error.message)

@@ -1,4 +1,4 @@
-const { request } = require('../utils/httpClient')
+const httpClient = require('../utils/httpClient')
 
 class UntappedFetcher {
   async fetchById (id) {
@@ -14,7 +14,7 @@ class UntappedFetcher {
     const apiUrl = `https://api.mtga.untapped.gg/api/v1/games/users/${userId}/players/${playerCode}/?card_set=ECL`
 
     try {
-      const { data } = await request(apiUrl)
+      const { data } = await httpClient.request(apiUrl)
       const matches = typeof data === 'string' ? JSON.parse(data) : data
 
       if (!Array.isArray(matches) || matches.length === 0) {

@@ -1,10 +1,10 @@
-const { request } = require('../utils/httpClient')
+const httpClient = require('../utils/httpClient')
 
 class MtgEloFetcher {
   async fetchById (id) {
     const url = `https://mtgeloproject.net/profile/${id}`
     try {
-      const { data: html } = await request(url, {
+      const { data: html } = await httpClient.request(url, {
         maxRedirects: 10
       })
 

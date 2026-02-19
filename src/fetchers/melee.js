@@ -1,4 +1,4 @@
-const { request } = require('../utils/httpClient')
+const httpClient = require('../utils/httpClient')
 const cheerio = require('cheerio')
 const { extractHandle, getPlatformName } = require('../utils/socialMediaExtractor')
 
@@ -6,7 +6,7 @@ class MeleeFetcher {
   async fetchById (username) {
     const url = `https://melee.gg/Profile/Index/${username}`
     try {
-      const { data } = await request(url)
+      const { data } = await httpClient.request(url)
       return this.parseHtml(data, url, username)
     } catch (error) {
       console.error(`Error fetching Melee profile ${username}:`, error.message)
