@@ -2,7 +2,7 @@ const test = require('node:test')
 const assert = require('node:assert/strict')
 const MtgEloFetcher = require('../src/fetchers/mtgElo')
 const httpClient = require('../src/utils/httpClient')
-const { readFixture, withMutedConsole } = require('./helpers')
+const { readFixture, withMutedConsole } = require('../test_utils/helpers')
 
 test('MtgEloFetcher: parseHtml extracts info from fixture', () => {
   const html = readFixture('mtgElo.html')

@@ -2,7 +2,7 @@ const test = require('node:test')
 const assert = require('node:assert/strict')
 const UntappedFetcher = require('../src/fetchers/untapped')
 const httpClient = require('../src/utils/httpClient')
-const { readFixture, withMutedConsole } = require('./helpers')
+const { readFixture, withMutedConsole } = require('../test_utils/helpers')
 
 test('UntappedFetcher: parseMatches extracts MTGA rank from fixture', () => {
   const fetcher = new UntappedFetcher()

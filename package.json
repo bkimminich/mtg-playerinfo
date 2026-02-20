@@ -7,8 +7,8 @@
     "mtg-playerinfo": "./cli.js"
   },
   "scripts": {
-    "test": "node --test \"**/*.test.js\"",
-    "test:coverage": "nyc --reporter=lcov --produce-source-map node --test \"**/*.test.js\"",
+    "test": "node --test",
+    "test:coverage": "nyc --reporter=lcov --produce-source-map node --test",
     "lint": "standard",
     "lint:fix": "standard --fix"
   },

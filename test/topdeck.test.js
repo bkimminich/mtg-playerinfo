@@ -2,7 +2,7 @@ const test = require('node:test')
 const assert = require('node:assert/strict')
 const TopdeckFetcher = require('../src/fetchers/topdeck')
 const httpClient = require('../src/utils/httpClient')
-const { readFixture, withMutedConsole } = require('./helpers')
+const { readFixture, withMutedConsole } = require('../test_utils/helpers')
 
 test('TopdeckFetcher: parseHtml extracts info from fixture', () => {
   const html = readFixture('topdeck.html')
