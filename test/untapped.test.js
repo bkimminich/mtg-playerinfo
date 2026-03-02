@@ -76,6 +76,38 @@ test('UntappedFetcher: findMostRecentByFormat picks latest match', () => {
 test('UntappedFetcher: fetchById handles various ID and response scenarios', async (t) => {
   const fetcher = new UntappedFetcher()
 
+  await t.test('uses UNTAPPED_SET_CODE environment variable if available', async () => {
+    const originalEnv = process.env.UNTAPPED_SET_CODE
+    process.env.UNTAPPED_SET_CODE = 'XYZ'
+    const mockRequest = t.mock.method(httpClient, 'request', async (url) => {
+      assert.ok(url.includes('card_set=XYZ'), `URL should contain card_set=XYZ, but was: ${url}`)
+      return { data: [] }
+    })
+
+    await withMutedConsole(async () => {
+      await fetcher.fetchById('user/code')
+    })
+
+    mockRequest.mock.restore()
+    process.env.UNTAPPED_SET_CODE = originalEnv
+  })
+
+  await t.test('uses default ECL set code if environment variable is not set', async () => {
+    const originalEnv = process.env.UNTAPPED_SET_CODE
+    delete process.env.UNTAPPED_SET_CODE
+    const mockRequest = t.mock.method(httpClient, 'request', async (url) => {
+      assert.ok(url.includes('card_set=ECL'), `URL should contain card_set=ECL, but was: ${url}`)
+      return { data: [] }
+    })
+
+    await withMutedConsole(async () => {
+      await fetcher.fetchById('user/code')
+    })
+
+    mockRequest.mock.restore()
+    process.env.UNTAPPED_SET_CODE = originalEnv
+  })
+
   await t.test('invalid ID format', async () => {
     await withMutedConsole(async () => {
       const result = await fetcher.fetchById('invalid-id')

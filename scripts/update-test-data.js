@@ -2,13 +2,14 @@ const fs = require('fs')
 const path = require('path')
 const { request } = require('../src/utils/httpClient')
 
+const setCode = process.env.UNTAPPED_SET_CODE || 'ECL'
 const targets = [
   { id: '16215', url: 'https://unityleague.gg/player/16215/', file: 'unityLeague.html' },
   { id: '3irvwtmk', url: 'https://mtgeloproject.net/profile/3irvwtmk', file: 'mtgElo.html' },
   { id: 'k0shiii', url: 'https://melee.gg/Profile/Index/k0shiii', file: 'melee.html' },
   { id: 'k0shiii', url: 'https://topdeck.gg/profile/@k0shiii', file: 'topdeck.html' },
   { id: 'm4VSTJShiXR1PCSCWaM9TBY0rcg1', url: 'https://topdeck.gg/profile/m4VSTJShiXR1PCSCWaM9TBY0rcg1/stats', file: 'topdeck.json' },
-  { id: 'e9d6fb9b-1f91-4063-8b28-0d46458d01a9/ZTATRXEQEJHUDOO52NWQCJGMQY', url: 'https://api.mtga.untapped.gg/api/v1/games/users/e9d6fb9b-1f91-4063-8b28-0d46458d01a9/players/ZTATRXEQEJHUDOO52NWQCJGMQY/?card_set=ECL', file: 'untapped.json' }
+  { id: 'e9d6fb9b-1f91-4063-8b28-0d46458d01a9/ZTATRXEQEJHUDOO52NWQCJGMQY', url: `https://api.mtga.untapped.gg/api/v1/games/users/e9d6fb9b-1f91-4063-8b28-0d46458d01a9/players/ZTATRXEQEJHUDOO52NWQCJGMQY/?card_set=${setCode}`, file: 'untapped.json' }
 ]
 
 async function updateTestData () {

@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        env:
+          UNTAPPED_SET_CODE: ${{ vars.UNTAPPED_SET_CODE }}
 
       - name: Use Node.js
         uses: actions/setup-node@v4

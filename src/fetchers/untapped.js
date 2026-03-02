@@ -10,8 +10,9 @@ class UntappedFetcher {
 
     const userId = parts[0]
     const playerCode = parts[1]
+    const setCode = process.env.UNTAPPED_SET_CODE || 'ECL'
     const url = `https://mtga.untapped.gg/profile/${userId}/${playerCode}`
-    const apiUrl = `https://api.mtga.untapped.gg/api/v1/games/users/${userId}/players/${playerCode}/?card_set=ECL`
+    const apiUrl = `https://api.mtga.untapped.gg/api/v1/games/users/${userId}/players/${playerCode}/?card_set=${setCode}`
 
     try {
       const { data } = await httpClient.request(apiUrl)
