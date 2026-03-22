@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { request } = require('../src/utils/httpClient')
 
-const setCode = process.env.UNTAPPED_SET_CODE || 'ECL'
+const setCode = process.env.UNTAPPED_SET_CODE || 'TMT'
 const targets = [
   { id: '16215', url: 'https://unityleague.gg/player/16215/', file: 'unityLeague.html' },
   { id: '3irvwtmk', url: 'https://mtgeloproject.net/profile/3irvwtmk', file: 'mtgElo.html' },
@@ -14,7 +14,7 @@ const targets = [
 
 async function updateTestData () {
   for (const target of targets) {
-    console.log(`Fetching ${target.url}...`)
+    console.log(`Fetching ${target.url} ...`)
     try {
       const { data } = await request(target.url, { maxRedirects: 10 })
       const filePath = path.join(__dirname, '..', 'test', 'data', target.file)
