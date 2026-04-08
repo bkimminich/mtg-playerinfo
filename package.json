@@ -31,10 +31,10 @@
     "commander": "^14.0.3"
   },
   "devDependencies": {
-    "nyc": "^17.1.0",
+    "nyc": "^18.0.0",
     "standard": "^17.1.2"
   },
   "engines": {
-    "node": "20 - 24"
+    "node": "22 - 25"
   }
 }
