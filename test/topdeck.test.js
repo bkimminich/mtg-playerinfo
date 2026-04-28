@@ -16,8 +16,10 @@ test('TopdeckFetcher: parseHtml extracts info from fixture', () => {
   assert.strictEqual(result.photo, 'https://imagedelivery.net/kN_u_RUfFF6xsGMKYWhO1g/2a7b8d12-5924-4a58-5f9c-c0bf55766800/square')
   assert.strictEqual(result.twitter, 'bkimminich')
   assert.strictEqual(result.youtube, '@BjörnKimminich')
-  assert.match(result.tournaments, /^\d+$/)
-  assert.match(result.record, /^\d+-\d+-\d+$/)
+  assert.strictEqual(result.pronouns, 'He/Him')
+  assert.strictEqual(result.conversion, '–')
+  assert.match(result.tournaments, /^\d+|–$/)
+  assert.match(result.record, /^\d+-\d+-\d+|–$/)
 })
 
 test('TopdeckFetcher: parseHtml handles missing stats and different DOM shapes', () => {

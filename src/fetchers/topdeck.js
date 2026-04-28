@@ -66,8 +66,12 @@ class TopdeckFetcher {
 
   parseHtml (html, url, handle) {
     const $ = cheerio.load(html)
-    const name = $('h2.text-white.fw-bold.mb-1').first().text().trim() || $('h1').first().text().trim() || handle
-    const photo = $('img.rounded-circle.shadow-lg').first().attr('src') || $('img[src*="avatar"], img[src*="profile"]').first().attr('src')
+
+    const nameElement = $('.pp-name').first().length ? $('.pp-name').first().clone() : $('h2.text-white.fw-bold.mb-1').first().clone()
+    nameElement.find('.pp-pronouns').remove()
+    const name = nameElement.text().trim() || $('h1').first().text().trim() || handle
+
+    const photo = $('.pp-avatar').first().attr('src') || $('img.rounded-circle.shadow-lg').first().attr('src') || $('img[src*="avatar"], img[src*="profile"]').first().attr('src')
 
     const data = {
       source: 'Topdeck',
@@ -76,14 +80,14 @@ class TopdeckFetcher {
       photo: photo ? (photo.startsWith('http') ? photo : `https://topdeck.gg${photo}`) : null
     }
 
-    const pronounsBadge = $('span.badge').filter((i, el) => {
+    const pronounsBadge = $('.pp-pronouns').first().text().trim() || $('span.badge').filter((i, el) => {
       return $(el).text().includes('/')
     }).first().text().trim()
     if (pronounsBadge) {
       data.pronouns = pronounsBadge
     }
 
-    const twitterLink = $('a[href*="twitter.com"]').attr('href')
+    const twitterLink = $('.pp-social-link[href*="twitter.com"]').attr('href') || $('a[href*="twitter.com"]').attr('href')
     if (twitterLink) {
       const handle = extractHandle(twitterLink)
       if (handle) {
@@ -91,7 +95,7 @@ class TopdeckFetcher {
       }
     }
 
-    const youtubeLink = $('a[href*="youtube.com"]').attr('href')
+    const youtubeLink = $('.pp-social-link[href*="youtube.com"]').attr('href') || $('a[href*="youtube.com"]').attr('href')
     if (youtubeLink) {
       const handle = extractHandle(youtubeLink)
       if (handle) {
@@ -115,12 +119,12 @@ class TopdeckFetcher {
 
     const currentStats = Object.keys(data).filter(k => Object.values(statsMap).includes(k))
     if (currentStats.length <= 1) {
-      $('.stats-container, .player-stats').each((i, el) => {
-        $(el).find('.stat').each((j, statEl) => {
-          const label = $(statEl).find('.label').text().trim().toLowerCase()
-          const value = $(statEl).find('.value').text().trim()
+      $('.stats-container, .player-stats, .pp-stats').each((i, el) => {
+        $(el).find('.stat, .pp-stat').each((j, statEl) => {
+          const label = ($(statEl).find('.label').text().trim() || $(statEl).find('.pp-stat-label').text().trim()).toLowerCase()
+          const value = $(statEl).find('.value').text().trim() || $(statEl).find('.pp-stat-value').text().trim()
           if (label && value) {
-            data[label] = value
+            data[label === 'events' ? 'tournaments' : label] = value
           }
         })
       })
