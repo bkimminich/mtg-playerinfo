@@ -22,6 +22,28 @@ test('TopdeckFetcher: parseHtml extracts info from fixture', () => {
   assert.match(result.record, /^\d+-\d+-\d+|–$/)
 })
 
+test('TopdeckFetcher: extracts internalId from meta-tag', async (t) => {
+  const fetcher = new TopdeckFetcher()
+  const mockRequest = t.mock.method(httpClient, 'request')
+
+  const html = '<meta name="player-id" content="metaID123"/><html></html>'
+  const expectedId = 'metaID123'
+
+  mockRequest.mock.mockImplementation(async (url) => {
+    if (url.includes('/stats')) {
+      return { data: {}, status: 200 }
+    }
+    return { data: html, status: 200 }
+  })
+
+  await fetcher.fetchById('test')
+  const statsCall = mockRequest.mock.calls.find(call => call.arguments[0].includes('/stats'))
+  assert.ok(statsCall, 'Should have called fetchStats')
+  assert.ok(statsCall.arguments[0].includes(expectedId), `URL should contain ${expectedId}`)
+
+  mockRequest.mock.restore()
+})
+
 test('TopdeckFetcher: parseHtml handles missing stats and different DOM shapes', () => {
   const fetcher = new TopdeckFetcher()
   const html = `
