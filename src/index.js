@@ -123,7 +123,19 @@ class PlayerInfoManager {
       if (verbose) {
         const removed = allEvents.length - uniqueEvents.length
         if (removed > 0) {
-          console.log(`🧹: Removed ${removed} duplicate event(s) across sources for global win rate`)
+          // Group dropped events by their kept counterpart so the log shows which event
+          // (and from which source) was kept and which duplicate(s) were removed.
+          const { isSameEvent } = require('./utils/eventDedup')
+          const groups = uniqueEvents.map(k => ({ kept: k, dups: [] }))
+          for (const e of allEvents) {
+            const g = groups.find(gr => gr.kept === e) || groups.find(gr => isSameEvent(gr.kept, e))
+            if (g && g.kept !== e) g.dups.push(e)
+          }
+          const details = groups
+            .filter(g => g.dups.length > 0)
+            .map(g => `"${g.kept.name}" [${g.kept.source}] (duplicates: ${g.dups.map(d => `"${d.name}" [${d.source}]`).join(', ')})`)
+            .join('; ')
+          console.log(`🧹: Removed ${removed} duplicate event(s) across sources for global win rate (${details})`)
         }
       }
     }

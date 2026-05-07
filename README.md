@@ -37,6 +37,12 @@ General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` 
 
 > If you notice any inconsistencies or unexpected fields values, you can run the tool with the `-v` or `--verbose` flag to see the full list of extracted fields and if they were promoted to the `general` section or deviated from a previous source.
 
+### Global win rate and event-level deduplication
+
+The global `win rate` is computed from a deduplicated union of per-event records to avoid double-counting tournaments reported by multiple platforms. Sources that expose per-event data (see [Supported Sources](#supported-sources)) contribute events instead of their aggregate `record`; other sources contribute their aggregate `record` as-is. Two events are merged when they share the **same date**, **same W-L-D**, and have at least a **partial name match**. Per-source `win rate` values are unaffected. 
+
+> Use `-v` / `--verbose` to see how many duplicates were removed.
+
 ### Example output
 
 ```json
@@ -130,16 +136,13 @@ General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` 
 
 The following sites are currently supported based on HTML scraping and/or API calls. In general, API calls are preferred over scraping due to their higher reliability and independence from site structure changes.
 
-| Site            | Method                                                                          | Deduplication |
-|-----------------|---------------------------------------------------------------------------------|---------------|
-| Unity League    | ✅Scraping                                                                       | ✅             |
-| MTG Elo Project | ✅Scraping                                                                       | ❌             |
-| Topdeck         | ✅Scraping / ✅API                                                                | ✅             |
-| Melee           | ✅Scraping / 🚧API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) | ❌             |
-| Untapped.gg     | ✅API                                                                            | ➖             |
-
-The "Deduplication" column indicates whether a source exposes per-event tournament data that is normalized into an `events[]` array and used to remove cross-source duplicates from the global win rate. Duplicates are detected by **exact date match + exact W-L-D match + partial event-name match**. Sources without per-event data (`❌`) still contribute their aggregate `record` to the global win rate. Untapped.gg (`➖`) is not applicable as it covers digital MTGA matches rather than real-life tournament events.
-
+| Site            | Method                                                                          |
+|-----------------|---------------------------------------------------------------------------------|
+| Unity League    | ✅Scraping                                                                       |
+| MTG Elo Project | ✅Scraping / ✅API                                                                |
+| Topdeck         | ✅Scraping / ✅API                                                                |
+| Melee           | ✅Scraping / 🚧API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) |
+| Untapped.gg     | ✅API                                                                            |
 _Note: Some sites may have anti-bot protections that can lead to "Maximum number of redirects exceeded" or "403 Forbidden" errors depending on the execution environment._
 
 ## Contribution Guidelines
