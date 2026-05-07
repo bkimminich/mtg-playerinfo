@@ -36,6 +36,29 @@ class TopdeckFetcher {
       const stats = typeof statsJson === 'string' ? JSON.parse(statsJson) : statsJson
 
       if (stats) {
+        if (stats.gameFormats && typeof stats.gameFormats === 'object') {
+          const events = []
+          Object.values(stats.gameFormats).forEach(arr => {
+            if (!Array.isArray(arr)) return
+            arr.forEach(e => {
+              if (!e || !e.date || !e.record) return
+              const recordMatch = String(e.record).match(/^(\d+)-(\d+)-(\d+)$/)
+              if (!recordMatch) return
+              events.push({
+                source: 'Topdeck',
+                date: String(e.date).slice(0, 10),
+                name: e.name || '',
+                format: e.rawFormat || null,
+                wins: parseInt(recordMatch[1], 10),
+                losses: parseInt(recordMatch[2], 10),
+                draws: parseInt(recordMatch[3], 10)
+              })
+            })
+          })
+          if (events.length) {
+            playerInfo.events = events
+          }
+        }
         if (stats.yearlyStats) {
           let totalTournaments = 0
           let wins = 0

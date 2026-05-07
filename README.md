@@ -130,13 +130,15 @@ General meta-data fields like `name`, `photo`, `age`, `country`, and `hometown` 
 
 The following sites are currently supported based on HTML scraping and/or API calls. In general, API calls are preferred over scraping due to their higher reliability and independence from site structure changes.
 
-| Site            | Method                                                                          |
-|-----------------|---------------------------------------------------------------------------------|
-| Unity League    | ✅Scraping                                                                       |
-| MTG Elo Project | ✅Scraping                                                                       |
-| Topdeck         | ✅Scraping / ✅API                                                                |
-| Melee           | ✅Scraping / 🚧API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) |
-| Untapped.gg     | ✅API                                                                            |
+| Site            | Method                                                                          | Deduplication |
+|-----------------|---------------------------------------------------------------------------------|---------------|
+| Unity League    | ✅Scraping                                                                       | ✅             |
+| MTG Elo Project | ✅Scraping                                                                       | ❌             |
+| Topdeck         | ✅Scraping / ✅API                                                                | ✅             |
+| Melee           | ✅Scraping / 🚧API ([#1](https://github.com/bkimminich/mtg-playerinfo/issues/1)) | ❌             |
+| Untapped.gg     | ✅API                                                                            | ➖             |
+
+The "Deduplication" column indicates whether a source exposes per-event tournament data that is normalized into an `events[]` array and used to remove cross-source duplicates from the global win rate. Duplicates are detected by **exact date match + exact W-L-D match + partial event-name match**. Sources without per-event data (`❌`) still contribute their aggregate `record` to the global win rate. Untapped.gg (`➖`) is not applicable as it covers digital MTGA matches rather than real-life tournament events.
 
 _Note: Some sites may have anti-bot protections that can lead to "Maximum number of redirects exceeded" or "403 Forbidden" errors depending on the execution environment._
 

@@ -77,6 +77,39 @@ class UnityLeagueFetcher {
       })
     }
 
+    // Extract per-event tournament list (normalized for cross-source dedup)
+    const events = []
+    $('table.table').each((_, table) => {
+      const headers = $(table).find('th').map((i, el) => $(el).text().trim()).get()
+      if (headers.length === 5 && headers[0] === 'Rank' && headers[1] === 'Event/Date' && headers[3] === 'Record' && headers[4] === 'Type/Format') {
+        $(table).find('tbody tr').each((__, tr) => {
+          const cells = $(tr).find('td')
+          if (cells.length < 5) return
+          const eventDateCell = $(cells[1])
+          const eventName = eventDateCell.find('a').first().text().trim() || eventDateCell.text().trim()
+          const dateMatch = eventDateCell.text().match(/(\d{2})\.(\d{2})\.(\d{4})/)
+          const recordRaw = $(cells[3]).text().trim().replace(/\s+/g, '')
+          const recordMatch = recordRaw.match(/^(\d+)-(\d+)-(\d+)$/)
+          const formatDivs = $(cells[4]).find('div > div')
+          const format = formatDivs.length >= 2 ? $(formatDivs[1]).text().trim() : $(cells[4]).text().trim()
+          if (dateMatch && recordMatch) {
+            events.push({
+              source: 'Unity League',
+              date: `${dateMatch[3]}-${dateMatch[2]}-${dateMatch[1]}`,
+              name: eventName,
+              format,
+              wins: parseInt(recordMatch[1], 10),
+              losses: parseInt(recordMatch[2], 10),
+              draws: parseInt(recordMatch[3], 10)
+            })
+          }
+        })
+      }
+    })
+    if (events.length) {
+      data.events = events
+    }
+
     // Extract tournament record and win rate
     const overallRow = $('table.table tr').filter((i, el) => {
       return $(el).find('td').first().text().trim() === 'Overall'

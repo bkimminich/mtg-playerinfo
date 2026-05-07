@@ -3,6 +3,7 @@ const MtgEloFetcher = require('./fetchers/mtgElo')
 const MeleeFetcher = require('./fetchers/melee')
 const TopdeckFetcher = require('./fetchers/topdeck')
 const UntappedFetcher = require('./fetchers/untapped')
+const { dedupeEvents } = require('./utils/eventDedup')
 
 class PlayerInfoManager {
   constructor () {
@@ -87,7 +88,9 @@ class PlayerInfoManager {
         }
       }
 
-      if (res.record && typeof res.record === 'string' && res.record.includes('-')) {
+      // Aggregate record only used for sources that don't expose per-event data;
+      // sources with `events` contribute via the deduped union below.
+      if (!Array.isArray(res.events) && res.record && typeof res.record === 'string' && res.record.includes('-')) {
         const parts = res.record.split('-').map(Number)
         if (parts.length >= 2 && parts.every(p => !isNaN(p))) {
           totalWins += parts[0]
@@ -99,12 +102,31 @@ class PlayerInfoManager {
       const sourceData = { ...res }
       delete sourceData.source
       delete sourceData.url
+      delete sourceData.events
 
       player.sources[res.source] = {
         url: res.url,
         data: sourceData
       }
     })
+
+    // Cross-source dedup of per-event data (currently UnityLeague + Topdeck).
+    // Same date + same W-L-D + at least partial name match collapses to one event.
+    const allEvents = results.flatMap(r => Array.isArray(r.events) ? r.events : [])
+    if (allEvents.length > 0) {
+      const uniqueEvents = dedupeEvents(allEvents)
+      uniqueEvents.forEach(e => {
+        totalWins += e.wins
+        totalLosses += e.losses
+        totalDraws += e.draws
+      })
+      if (verbose) {
+        const removed = allEvents.length - uniqueEvents.length
+        if (removed > 0) {
+          console.log(`🧹: Removed ${removed} duplicate event(s) across sources for global win rate`)
+        }
+      }
+    }
 
     const totalGames = totalWins + totalLosses + totalDraws
     if (totalGames > 0) {
