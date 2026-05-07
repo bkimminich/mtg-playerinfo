@@ -53,7 +53,7 @@ class MtgEloFetcher {
       let losses = 0
       let draws = 0
       for (const m of matches) {
-        const r = String(m && m.result || '').trim()
+        const r = String((m && m.result) || '').trim()
         if (/^Won\b/i.test(r)) wins++
         else if (/^Lost\b/i.test(r)) losses++
         else if (/^Dr(ew|aw)\b/i.test(r)) draws++

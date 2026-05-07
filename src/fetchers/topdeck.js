@@ -11,7 +11,7 @@ class TopdeckFetcher {
       const htmlStr = typeof data === 'string' ? data : ''
       const playerInfo = this.parseHtml(data, url, cleanHandle)
 
-      const internalIdMatch = htmlStr.match(/https:\/\/topdeck\.gg\/profile\/([a-zA-Z0-9]+)\/stats/) || 
+      const internalIdMatch = htmlStr.match(/https:\/\/topdeck\.gg\/profile\/([a-zA-Z0-9]+)\/stats/) ||
                               htmlStr.match(/const playerId = "([a-zA-Z0-9]+)";/) ||
                               htmlStr.match(/window\.PROFILE_PLAYER_ID\s*=\s*"([a-zA-Z0-9]+)"/) ||
                               htmlStr.match(/<meta name="player-id" content="([a-zA-Z0-9]+)"/)
