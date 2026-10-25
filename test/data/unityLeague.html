@@ -25,7 +25,7 @@
         <meta property="og:site_name" content="Unity League"/>
         <meta name="twitter:card" content="summary_large_image"/>
         <meta name="keywords" content="Unity League, Magic: The Gathering, Europe, events, tournaments, ranking, leaderboard"/>
-        <link rel="stylesheet" href="/static/style11.css?v=20261017-1" type="text/css">
+        <link rel="stylesheet" href="/static/style11.css?v=20261022-3" type="text/css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic:wght@400&display=swap" rel="stylesheet">
@@ -33,6 +33,67 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
         
     
+    <link href="//cdn.jsdelivr.net/npm/mana-font@latest/css/mana.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .player-results tr {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 5rem 7rem 8rem;
+        }
+        .player-results th, .player-results td {
+            min-width: 0;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+        .player-results th:first-child, .player-results .result-event {
+            text-align: left;
+            font-variant-numeric: normal;
+            overflow-wrap: anywhere;
+        }
+        .result-details {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            column-gap: 1rem;
+        }
+        .result-decklist {
+            padding: .25rem 0;
+        }
+        @media (max-width: 767.98px) {
+            .player-results thead {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                clip-path: inset(50%);
+            }
+            .player-results tr {
+                grid-template-columns: minmax(0, 1fr) 5.5rem;
+                grid-template-areas: "event rank" "event record" "event points";
+                border-bottom: 1px solid var(--bs-border-color);
+            }
+            .player-results td {
+                border: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            .player-results .result-event {
+                grid-area: event;
+                padding: .5rem;
+            }
+            .player-results .result-rank { grid-area: rank; padding-top: .5rem; }
+            .player-results .result-record { grid-area: record; }
+            .player-results .result-points { grid-area: points; padding-bottom: .5rem; }
+            .result-details { display: block; }
+            .result-decklist { display: block; }
+        }
+        @media (pointer: coarse) {
+            .result-event a {
+                display: flex !important;
+                align-items: center;
+                min-height: 44px;
+            }
+        }
+    </style>
     
 
     </head>
@@ -218,9 +279,12 @@
                             </th>
                         
                         
+                            <th scope="col"><a href="/ranking/2026/europe/">Europe</a></th>
+                        
+                        
                             <th scope="col">
                                 <a href="/ranking/2026/global/">
-                                    Europe
+                                    Global
                                 </a>
                             </th>
                         
@@ -231,6 +295,9 @@
                     <tr>
                         
                             <td>92nd</td>
+                        
+                        
+                            <td>942nd</td>
                         
                         
                             <td>942nd</td>
@@ -261,9 +328,12 @@
                             </th>
                         
                         
+                            <th scope="col"><a href="/ranking/2026/europe/">Europe</a></th>
+                        
+                        
                             <th scope="col">
                                 <a href="/ranking/2026/global/">
-                                    Europe
+                                    Global
                                 </a>
                             </th>
                         
@@ -274,6 +344,9 @@
                     <tr>
                         
                             <td>92nd</td>
+                        
+                        
+                            <td>942nd</td>
                         
                         
                             <td>942nd</td>
@@ -409,7 +482,7 @@
                                                           data-bs-placement="bottom"
                                                           data-bs-title="Only the player's best 40 Regular event results count toward League Points this season.">
                                                         62 / 40 events
-                                                        <i class="fa-solid fa-circle-info ms-1" aria-hidden="true"></i>
+                                                        <i class="fa-solid fa-circle-info ps-1" aria-hidden="true"></i>
                                                     </span>
                                                 
                                             </div>
@@ -547,7 +620,7 @@
     
 
     <div class="my-4">
-        <h2>Event history</h2>
+        <h2 id="event-history">Event history</h2>
         <div class="alert alert-secondary d-inline-flex align-items-center pe-4" role="alert" style="width: auto;">
             <div><i class="fa fa-trophy me-3" style="font-size: 1.5rem;"></i></div>
             <div>
@@ -555,28 +628,32 @@
                 Tell your local organizer to register them <a href="/info/organizer" class="fw-bold">here</a>!
             </div>
         </div>
-        <div class="table-responsive">
-            <table class="table table-striped">
+        <div>
+            <table class="table table-striped player-results" aria-labelledby="event-history">
                 <thead>
                     <tr>
-                        <th scope="col">Rank</th>
-                        <th scope="col">Event/Date</th>
-                        <th scope="col">League Points</th>
+                        <th scope="col">Event / Decklist</th>
+                        <th scope="col" class="text-end">Rank</th>
                         <th scope="col">Record</th>
-                        <th scope="col">Type/Format</th>
+                        <th scope="col">League Points</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                         <tr>
-                            <td>6th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 10.08.2026</div>
-                                    <a href="/events/32919/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32919/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 10.08.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">6th</td>
+                            <td class="result-record text-nowrap">1 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -589,27 +666,24 @@
     ">
                                     6
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>6th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 03.08.2026</div>
-                                    <a href="/events/32918/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32918/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 03.08.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">6th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -622,27 +696,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>15th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 31.07.2026</div>
-                                    <a href="/events/23357/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23357/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 31.07.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">15th</td>
+                            <td class="result-record text-nowrap">1 - 3 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -655,27 +726,24 @@
     ">
                                     6
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 3 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>8th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 27.07.2026</div>
-                                    <a href="/events/32917/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32917/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 27.07.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">8th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -688,27 +756,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>9th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 10.07.2026</div>
-                                    <a href="/events/23354/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23354/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 10.07.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">9th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -721,27 +786,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>4th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 06.07.2026</div>
-                                    <a href="/events/32914/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32914/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 06.07.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">4th</td>
+                            <td class="result-record text-nowrap">1 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -754,27 +816,24 @@
     ">
                                     6
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>3rd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 03.07.2026</div>
-                                    <a href="/events/23353/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23353/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 03.07.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">3rd</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -787,27 +846,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>3rd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 29.06.2026</div>
-                                    <a href="/events/32913/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32913/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 29.06.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">3rd</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -820,27 +876,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>1st</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 22.06.2026</div>
-                                    <a href="/events/32912/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32912/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 22.06.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">1st</td>
+                            <td class="result-record text-nowrap">3 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -853,27 +906,24 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>4th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 15.06.2026</div>
-                                    <a href="/events/32911/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32911/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 15.06.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">4th</td>
+                            <td class="result-record text-nowrap">2 - 1 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -886,27 +936,24 @@
     ">
                                     10
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>6th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 12.06.2026</div>
-                                    <a href="/events/23350/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23350/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 12.06.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">6th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -919,27 +966,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>11th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 08.06.2026</div>
-                                    <a href="/events/32910/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32910/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 08.06.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">11th</td>
+                            <td class="result-record text-nowrap">1 - 2 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -952,27 +996,24 @@
     ">
                                     7
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 2 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>10th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 05.06.2026</div>
-                                    <a href="/events/23349/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23349/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 05.06.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">10th</td>
+                            <td class="result-record text-nowrap">1 - 2 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -985,27 +1026,24 @@
     ">
                                     7
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 2 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>12th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 01.06.2026</div>
-                                    <a href="/events/32909/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32909/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 01.06.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">12th</td>
+                            <td class="result-record text-nowrap">1 - 3 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1018,27 +1056,24 @@
     ">
                                     6
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 3 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>4th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Sat, 30.05.2026</div>
-                                    <a href="/events/36088/">Strixhaven Standard Store Championship</a>
+                            <td class="result-event">
+                                <a href="/events/36088/" class="d-block fw-bold">Strixhaven Standard Store Championship</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Sat, 30.05.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">4th</td>
+                            <td class="result-record text-nowrap">4 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1051,27 +1086,24 @@
     ">
                                     15
                                 </span>
-                            </td>
-                            <td class="text-nowrap">4 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>7th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 29.05.2026</div>
-                                    <a href="/events/23348/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23348/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 29.05.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">7th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1084,27 +1116,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>16th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 22.05.2026</div>
-                                    <a href="/events/23347/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23347/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 22.05.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">16th</td>
+                            <td class="result-record text-nowrap">1 - 3 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1117,27 +1146,24 @@
     ">
                                     6
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 3 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>2nd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 18.05.2026</div>
-                                    <a href="/events/32907/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32907/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 18.05.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">2nd</td>
+                            <td class="result-record text-nowrap">3 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1150,27 +1176,24 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>6th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 15.05.2026</div>
-                                    <a href="/events/23346/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23346/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 15.05.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">6th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1183,27 +1206,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>10th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 11.05.2026</div>
-                                    <a href="/events/32906/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32906/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 11.05.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">10th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1216,27 +1236,34 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>449th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Sat, 09.05.2026</div>
-                                    <a href="/events/33835/">[London Sat 09:00] Magic Spotlight: Secrets</a>
+                            <td class="result-event">
+                                <a href="/events/33835/" class="d-block fw-bold">[London Sat 09:00] Magic Spotlight: Secrets</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Sat, 09.05.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/premier.svg" alt="Premier" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
+                                        <a href="/decklists/7bd3cd6a-fce7-46d1-b992-9b1770bd00f4/" class="result-decklist small">
+                                            
+<span class="d-inline-flex align-items-center align-text-bottom me-1" style="gap: .15em" role="img" aria-label="Blue, Red">
+    
+        <i class="ms ms-cost ms-u" style="margin-left: 0 !important;"></i><i class="ms ms-cost ms-r" style="margin-left: 0 !important;"></i>
+    
+</span>
+Izzet Prowess
+                                        </a>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">449th</td>
+                            <td class="result-record text-nowrap">2 - 4 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1249,27 +1276,24 @@
     ">
                                     54
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 4 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/premier.svg" alt="Premier" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>6th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Wed, 29.04.2026</div>
-                                    <a href="/events/31446/">Premodern Weekly</a>
+                            <td class="result-event">
+                                <a href="/events/31446/" class="d-block fw-bold">Premodern Weekly</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Wed, 29.04.2026 · Premodern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">6th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1282,27 +1306,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Premodern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>5th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 27.04.2026</div>
-                                    <a href="/events/32904/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32904/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 27.04.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">5th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1315,27 +1336,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>40th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Sat, 18.04.2026</div>
-                                    <a href="/events/33533/">Strixhaven Prerelease #2 @Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/33533/" class="d-block fw-bold">Strixhaven Prerelease #2 @Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Sat, 18.04.2026 · Limited
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">40th</td>
+                            <td class="result-record text-nowrap">1 - 2 - 2</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1348,27 +1366,24 @@
     ">
                                     8
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 2 - 2</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Limited</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>2nd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Wed, 15.04.2026</div>
-                                    <a href="/events/32955/">Pauper @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32955/" class="d-block fw-bold">Pauper @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Wed, 15.04.2026 · Pauper
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">2nd</td>
+                            <td class="result-record text-nowrap">3 - 0 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1381,27 +1396,24 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 0 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Pauper</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>10th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 13.04.2026</div>
-                                    <a href="/events/32902/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32902/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 13.04.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">10th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1414,27 +1426,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>3rd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 10.04.2026</div>
-                                    <a href="/events/23341/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23341/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 10.04.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">3rd</td>
+                            <td class="result-record text-nowrap">3 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1447,27 +1456,24 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>4th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Wed, 08.04.2026</div>
-                                    <a href="/events/32954/">Pauper @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/32954/" class="d-block fw-bold">Pauper @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Wed, 08.04.2026 · Pauper
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">4th</td>
+                            <td class="result-record text-nowrap">1 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1480,27 +1486,24 @@
     ">
                                     6
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Pauper</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>9th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 30.03.2026</div>
-                                    <a href="/events/21175/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21175/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 30.03.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">9th</td>
+                            <td class="result-record text-nowrap">1 - 3 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1513,27 +1516,24 @@
     ">
                                     6
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 3 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>6th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 27.03.2026</div>
-                                    <a href="/events/23339/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23339/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 27.03.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">6th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1546,27 +1546,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>4th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 23.03.2026</div>
-                                    <a href="/events/21174/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21174/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 23.03.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">4th</td>
+                            <td class="result-record text-nowrap">2 - 1 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1579,27 +1576,24 @@
     ">
                                     10
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>9th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Sat, 21.03.2026</div>
-                                    <a href="/events/31972/">RCQ Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/31972/" class="d-block fw-bold">RCQ Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Sat, 21.03.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">9th</td>
+                            <td class="result-record text-nowrap">3 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1612,27 +1606,24 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>1st</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Wed, 18.03.2026</div>
-                                    <a href="/events/31440/">Premodern Weekly</a>
+                            <td class="result-event">
+                                <a href="/events/31440/" class="d-block fw-bold">Premodern Weekly</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Wed, 18.03.2026 · Premodern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">1st</td>
+                            <td class="result-record text-nowrap">3 - 0 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1645,27 +1636,24 @@
     ">
                                     13
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 0 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Premodern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>12th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 16.03.2026</div>
-                                    <a href="/events/21173/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21173/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 16.03.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">12th</td>
+                            <td class="result-record text-nowrap">0 - 4 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1678,27 +1666,24 @@
     ">
                                     3
                                 </span>
-                            </td>
-                            <td class="text-nowrap">0 - 4 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>2nd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Wed, 11.03.2026</div>
-                                    <a href="/events/31439/">Premodern Weekly</a>
+                            <td class="result-event">
+                                <a href="/events/31439/" class="d-block fw-bold">Premodern Weekly</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Wed, 11.03.2026 · Premodern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">2nd</td>
+                            <td class="result-record text-nowrap">3 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1711,27 +1696,24 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Premodern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>4th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 06.03.2026</div>
-                                    <a href="/events/16591/">Standard Friday</a>
+                            <td class="result-event">
+                                <a href="/events/16591/" class="d-block fw-bold">Standard Friday</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 06.03.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">4th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1744,27 +1726,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>2nd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 02.03.2026</div>
-                                    <a href="/events/21171/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21171/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 02.03.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">2nd</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1777,27 +1756,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>3rd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 27.02.2026</div>
-                                    <a href="/events/30770/">TMNT Prerelease</a>
+                            <td class="result-event">
+                                <a href="/events/30770/" class="d-block fw-bold">TMNT Prerelease</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 27.02.2026 · Other
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">3rd</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1810,27 +1786,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Other</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>6th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 23.02.2026</div>
-                                    <a href="/events/21170/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21170/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 23.02.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">6th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1843,27 +1816,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>6th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 16.02.2026</div>
-                                    <a href="/events/21169/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21169/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 16.02.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">6th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1876,27 +1846,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>2nd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Wed, 11.02.2026</div>
-                                    <a href="/events/29679/">Pauper @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/29679/" class="d-block fw-bold">Pauper @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Wed, 11.02.2026 · Pauper
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">2nd</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1909,27 +1876,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Pauper</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>3rd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 09.02.2026</div>
-                                    <a href="/events/21168/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21168/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 09.02.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">3rd</td>
+                            <td class="result-record text-nowrap">3 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1942,27 +1906,24 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>7th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Sat, 07.02.2026</div>
-                                    <a href="/events/29302/">Standard Store Championship</a>
+                            <td class="result-event">
+                                <a href="/events/29302/" class="d-block fw-bold">Standard Store Championship</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Sat, 07.02.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">7th</td>
+                            <td class="result-record text-nowrap">3 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -1975,27 +1936,24 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>2nd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Wed, 04.02.2026</div>
-                                    <a href="/events/29010/">Pauper @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/29010/" class="d-block fw-bold">Pauper @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Wed, 04.02.2026 · Pauper
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">2nd</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2008,27 +1966,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Pauper</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>9th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 02.02.2026</div>
-                                    <a href="/events/21167/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21167/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 02.02.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">9th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2041,27 +1996,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>5th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 26.01.2026</div>
-                                    <a href="/events/21166/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21166/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 26.01.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">5th</td>
+                            <td class="result-record text-nowrap">2 - 1 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2074,27 +2026,24 @@
     ">
                                     10
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>13th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 23.01.2026</div>
-                                    <a href="/events/23330/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23330/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 23.01.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">13th</td>
+                            <td class="result-record text-nowrap">0 - 4 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2107,27 +2056,24 @@
     ">
                                     3
                                 </span>
-                            </td>
-                            <td class="text-nowrap">0 - 4 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>5th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 19.01.2026</div>
-                                    <a href="/events/21165/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21165/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 19.01.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">5th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2140,27 +2086,34 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>434th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Sat, 10.01.2026</div>
-                                    <a href="/events/24360/">[Lyon Sat 09:00] Magic Spotlight Series - Lyon 2026</a>
+                            <td class="result-event">
+                                <a href="/events/24360/" class="d-block fw-bold">[Lyon Sat 09:00] Magic Spotlight Series - Lyon 2026</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Sat, 10.01.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/premier.svg" alt="Premier" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
+                                        <a href="/decklists/8733443c-d62e-43f2-b219-dd49322cfc5b/" class="result-decklist small">
+                                            
+<span class="d-inline-flex align-items-center align-text-bottom me-1" style="gap: .15em" role="img" aria-label="Blue, Black, Red, Green">
+    
+        <i class="ms ms-cost ms-u" style="margin-left: 0 !important;"></i><i class="ms ms-cost ms-b" style="margin-left: 0 !important;"></i><i class="ms ms-cost ms-r" style="margin-left: 0 !important;"></i><i class="ms ms-cost ms-g" style="margin-left: 0 !important;"></i>
+    
+</span>
+Sultai Reanimator
+                                        </a>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">434th</td>
+                            <td class="result-record text-nowrap">3 - 4 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2173,27 +2126,24 @@
     ">
                                     78
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 4 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/premier.svg" alt="Premier" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>3rd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 05.01.2026</div>
-                                    <a href="/events/21163/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21163/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 05.01.2026 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">3rd</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2206,27 +2156,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>4th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 02.01.2026</div>
-                                    <a href="/events/23327/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/23327/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 02.01.2026 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">4th</td>
+                            <td class="result-record text-nowrap">2 - 1 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2239,27 +2186,24 @@
     ">
                                     10
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>3rd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 29.12.2025</div>
-                                    <a href="/events/21162/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21162/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 29.12.2025 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">3rd</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2272,27 +2216,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>11th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 22.12.2025</div>
-                                    <a href="/events/21161/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21161/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 22.12.2025 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">11th</td>
+                            <td class="result-record text-nowrap">1 - 3 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2305,27 +2246,24 @@
     ">
                                     6
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 3 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>7th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 19.12.2025</div>
-                                    <a href="/events/17746/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17746/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 19.12.2025 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">7th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2338,27 +2276,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>8th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 15.12.2025</div>
-                                    <a href="/events/21160/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/21160/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 15.12.2025 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">8th</td>
+                            <td class="result-record text-nowrap">1 - 2 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2371,27 +2306,24 @@
     ">
                                     7
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 2 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>2nd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 12.12.2025</div>
-                                    <a href="/events/17745/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17745/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 12.12.2025 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">2nd</td>
+                            <td class="result-record text-nowrap">4 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2404,27 +2336,24 @@
     ">
                                     15
                                 </span>
-                            </td>
-                            <td class="text-nowrap">4 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>3rd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Mon, 08.12.2025</div>
-                                    <a href="/events/17754/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17754/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Mon, 08.12.2025 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">3rd</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2437,27 +2366,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>14th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 28.11.2025</div>
-                                    <a href="/events/17743/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17743/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 28.11.2025 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">14th</td>
+                            <td class="result-record text-nowrap">0 - 3 - 1</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2470,27 +2396,24 @@
     ">
                                     4
                                 </span>
-                            </td>
-                            <td class="text-nowrap">0 - 3 - 1</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>7th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 21.11.2025</div>
-                                    <a href="/events/17742/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17742/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 21.11.2025 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">7th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2503,27 +2426,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>2nd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Tue, 11.11.2025</div>
-                                    <a href="/events/17682/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17682/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Tue, 11.11.2025 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">2nd</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2536,27 +2456,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>5th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 07.11.2025</div>
-                                    <a href="/events/17740/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17740/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 07.11.2025 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">5th</td>
+                            <td class="result-record text-nowrap">3 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2569,27 +2486,34 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>551st</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Sat, 01.11.2025</div>
-                                    <a href="/events/17844/">Magic Spotlight Series - Liverpool 2025</a>
+                            <td class="result-event">
+                                <a href="/events/17844/" class="d-block fw-bold">Magic Spotlight Series - Liverpool 2025</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Sat, 01.11.2025 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/grand_prix.svg" alt="Grand Prix" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
+                                        <a href="/decklists/b84c8dc1-1704-4e56-bd61-79da8f2ec0f9/" class="result-decklist small">
+                                            
+<span class="d-inline-flex align-items-center align-text-bottom me-1" style="gap: .15em" role="img" aria-label="Blue, Red">
+    
+        <i class="ms ms-cost ms-u" style="margin-left: 0 !important;"></i><i class="ms ms-cost ms-r" style="margin-left: 0 !important;"></i>
+    
+</span>
+Mono-Red Aggro
+                                        </a>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">551st</td>
+                            <td class="result-record text-nowrap">1 - 4 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2602,27 +2526,24 @@
     ">
                                     36
                                 </span>
-                            </td>
-                            <td class="text-nowrap">1 - 4 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/grand_prix.svg" alt="Grand Prix" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>4th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Tue, 28.10.2025</div>
-                                    <a href="/events/17680/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17680/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Tue, 28.10.2025 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">4th</td>
+                            <td class="result-record text-nowrap">2 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2635,27 +2556,24 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>3rd</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Fri, 24.10.2025</div>
-                                    <a href="/events/17738/">Modern @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17738/" class="d-block fw-bold">Modern @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Fri, 24.10.2025 · Modern
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">3rd</td>
+                            <td class="result-record text-nowrap">3 - 1 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2668,27 +2586,24 @@
     ">
                                     12
                                 </span>
-                            </td>
-                            <td class="text-nowrap">3 - 1 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Modern</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td>6th</td>
-                            <td>
-                                <div  class="d-flex flex-column-reverse flex-lg-row">
-                                    <div style="min-width: 150px;" >Tue, 21.10.2025</div>
-                                    <a href="/events/17630/">Standard @ Mulligan</a>
+                            <td class="result-event">
+                                <a href="/events/17630/" class="d-block fw-bold">Standard @ Mulligan</a>
+                                <div class="result-details">
+                                    <span class="small text-muted">
+                                        Tue, 21.10.2025 · Standard
+                                        <span class="ps-1"><img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;"></span>
+                                    </span>
+                                    
                                 </div>
                             </td>
-                            <td>
+                            <td class="result-rank fw-bold">6th</td>
+                            <td class="result-record text-nowrap">2 - 2 - 0</td>
+                            <td class="result-points">
                                 <span data-bs-toggle="tooltip"
                                       data-bs-placement="left"
                                       data-bs-html="true"
@@ -2701,15 +2616,7 @@
     ">
                                     9
                                 </span>
-                            </td>
-                            <td class="text-nowrap">2 - 2 - 0</td>
-                            <td>
-                                <div class="d-flex flex-column flex-lg-row">
-                                    <div style="min-width: 150px;">
-                                        <img src="/static/types/text_icons/regular.svg" alt="Regular" style="height:1.4em; vertical-align:text-bottom;">
-                                    </div>
-                                    <div>Standard</div>
-                                </div>
+                                <span class="d-md-none">pts</span>
                             </td>
                         </tr>
                     
